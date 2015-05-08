@@ -1,0 +1,2 @@
+# cat=basic; type=options[Evangelische Termine Bayern=www.evangelische-termine.de,Evangelische Termine Rheinland=termine.ekir.de,Evangelische Termine Westfalen=www.veranstaltungen-ekvw.de]; label=LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:extconftemplate.label
+host = www.evangelische-termine.de
