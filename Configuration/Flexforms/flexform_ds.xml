@@ -7,22 +7,22 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:evangtermine/locallang.xml:pluginsheet.general</sheetTitle>
+                    <sheetTitle>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:pluginsheet.general</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
                     <evt_type>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.type</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.type</label>
                             <config>
                                 <type>select</type>
                                 <items type="array">
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:evangtermine/locallang_db.xml:tx_evangtermine_feflexform.opmodesingle</numIndex>
+                                        <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.opmodesingle</numIndex>
                                         <numIndex index="1"></numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:evangtermine/locallang_db.xml:tx_evangtermine_feflexform.opmodedistrict</numIndex>
+                                        <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.opmodedistrict</numIndex>
                                         <numIndex index="1">region</numIndex>
                                     </numIndex>
                                 </items>
@@ -31,7 +31,7 @@
                     </evt_type>
                     <evt_vid>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.vid</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.vid</label>
                             <config>
                                 <type>input</type>
                                 <size>20</size>
@@ -41,7 +41,7 @@
                     </evt_vid>
                     <evt_css>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.css</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.css</label>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
@@ -50,16 +50,16 @@
                     </evt_css>
                     <evt_highlight>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.highlight</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight</label>
                             <config>
                                 <type>select</type>
                                 <items type="array">
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.highlight.high</numIndex>
+                                        <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight.high</numIndex>
                                         <numIndex index="1">high</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.highlight.all</numIndex>
+                                        <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight.all</numIndex>
                                         <numIndex index="1">all</numIndex>
                                     </numIndex>
                                 </items>
@@ -68,7 +68,7 @@
                     </evt_highlight>
                     <evt_et_q>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.et_q</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.et_q</label>
                             <config>
                                 <type>input</type>
                                 <size>20</size>
@@ -78,7 +78,7 @@
                     </evt_et_q>
                     <evt_eventtype>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.eventtype</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.eventtype</label>
                             <config>
                                 <type>select</type>
                                 <items type="array">
@@ -126,28 +126,9 @@
                             </config>
                         </TCEforms>
                     </evt_eventtype>
-                    <evt_datum>
-                        <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.datum</label>
-                            <config>
-                                <type>input</type>
-                                <size>20</size>
-                                <eval>trim,int</eval>
-                            </config>
-                        </TCEforms>
-                    </evt_datum>
-                    <evt_month>
-                        <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.month</label>
-                            <config>
-                                <type>select</type>
-                                <itemsProcFunc>tx_evangtermine_addFlexFields->calculateMonthOptions</itemsProcFunc>
-                            </config>
-                        </TCEforms>
-                    </evt_month>
                     <evt_people>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.people</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.people</label>
                             <config>
                                 <type>select</type>
                                 <items type="array">
@@ -201,7 +182,7 @@
                     </evt_people>
                     <evt_itemsPerPage>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.itemsPerPage</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.itemsPerPage</label>
                             <config>
                                 <type>select</type>
                                 <items type="array">
@@ -239,13 +220,13 @@
         <cdistrict>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:evangtermine/locallang.xml:pluginsheet.cdistrict</sheetTitle>
+                    <sheetTitle>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:pluginsheet.cdistrict</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
                     <evt_region>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.region</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.region</label>
                             <config>
                                 <type>input</type>
                                 <size>20</size>
@@ -255,7 +236,7 @@
                     </evt_region>
                     <evt_aid>
                         <TCEforms>
-                            <label>LLL:EXT:evangtermine/pi1/locallang.xml:tx_evangtermine_feflexform.aid</label>
+                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.aid</label>
                             <config>
                                 <type>input</type>
                                 <size>20</size>

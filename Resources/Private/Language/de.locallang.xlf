@@ -14,6 +14,87 @@
                         <source></source>
                         <target>Host festlegen:Bestimmen Sie hier, in welcher Landeskirche Sie Evangelische Termine einbinden möchten.</target>
                     </trans-unit>
+                   
+                    <trans-unit id="pluginsheet.general">
+                    	<source></source>
+                    	<target>Allgemein</target>
+                    </trans-unit>
+                   
+                    <trans-unit id="pluginsheet.cdistrict">
+                    	<source></source>
+                    	<target>Region</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.type">
+                    	<source></source>
+                    	<target>Ausgabemodus:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.opmodesingle">
+                    	<source></source>
+                    	<target>Einzelveranstalter</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.opmodedistrict">
+                    	<source></source>
+                    	<target>Region</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.vid">
+                    	<source></source>
+                    	<target>Veranstalter-Id:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.css">
+                    	<source></source>
+                    	<target>Standard-CSS einbinden:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.highlight">
+                    	<source></source>
+                    	<target>Highlights:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.highlight.high">
+                    	<source></source>
+                    	<target>Nur Highlights</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.highlight.all">
+                    	<source></source>
+                    	<target>Alle Veranstaltungen</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.et_q">
+                    	<source></source>
+                    	<target>Suchbegriff:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.eventtype">
+                    	<source></source>
+                    	<target>Kategorie:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.people">
+                    	<source></source>
+                    	<target>Zielgruppe:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.itemsPerPage">
+                    	<source></source>
+                    	<target>Termine pro Seite:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.region">
+                    	<source></source>
+                    	<target>Dekanats-ID oder Kirchenkreis-ID:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.aid">
+                    	<source></source>
+                    	<target>Gruppenadministrator-ID (optional):</target>
+                    </trans-unit>
+                    
 		</body>
                 
 	</file>
