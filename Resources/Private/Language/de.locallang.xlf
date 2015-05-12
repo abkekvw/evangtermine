@@ -85,9 +85,14 @@
                     	<target>Termine pro Seite:</target>
                     </trans-unit>
                     
+                    <trans-unit id="feflexform.addprms">
+                    	<source></source>
+                    	<target>Weitere Parameter:</target>
+                    </trans-unit>
+                    
                     <trans-unit id="feflexform.region">
                     	<source></source>
-                    	<target>Dekanats-ID oder Kirchenkreis-ID:</target>
+                    	<target>Region-ID (mehrstellige Dekanats- oder Kirchenkreisnummer):</target>
                     </trans-unit>
                     
                     <trans-unit id="feflexform.aid">

@@ -81,6 +81,8 @@
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.eventtype</label>
                             <config>
                                 <type>select</type>
+                                <size>6</size>
+                                <maxitems>15</maxitems>
                                 <items type="array">
                                     <numIndex index="0" type="array">
                                         <numIndex index="0">Alle Kategorien</numIndex>
@@ -131,9 +133,11 @@
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.people</label>
                             <config>
                                 <type>select</type>
+                                <size>6</size>
+                                <maxitems>15</maxitems>
                                 <items type="array">
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">Alle (Zielgruppe wählen...)</numIndex>
+                                        <numIndex index="0">Alle Zielgruppen</numIndex>
                                         <numIndex index="1">all</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
@@ -214,6 +218,16 @@
                             </config>
                         </TCEforms>
                     </evt_itemsPerPage>
+                    <evt_addprms>
+                    	<TCEforms>
+                    		<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.addprms</label>
+                    		<config>
+                    			<type>input</type>
+                    			<size>30</size>
+                                <eval>trim</eval>
+                    		</config>
+                    	</TCEforms>
+                    </evt_addprms>
                 </el>
             </ROOT>
         </sDEF>
