@@ -1,5 +1,5 @@
 <?php
-namespace ArbkomEKvW\Evangtermine\Domain\Repository;
+namespace ArbkomEKvW\Evangtermine\Controller;
 
 
 /***************************************************************
@@ -28,9 +28,26 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
  ***************************************************************/
 
 /**
- * The repository for Veranstaltungs
+ * EventController
  */
-class VeranstaltungRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
+	/**
+	 * action list
+	 *
+	 * @return void
+	 */
+	public function listAction() {
+		
+	}
+
+	/**
+	 * action show
+	 *
+	 * @return void
+	 */
+	public function showAction() {
+		
+	}
 	
 }
