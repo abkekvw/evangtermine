@@ -28,9 +28,9 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  ***************************************************************/
 
 /**
- * EventController
+ * EventcontainerController
  */
-class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
 	 * action list

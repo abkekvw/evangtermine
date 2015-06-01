@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'ArbkomEKvW.' . $_EXTKEY,
 	'Evtermplugin',
 	array(
-		'Event' => 'list, show',
+		'Eventcontainer' => 'list, show',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Event' => 'list, show',
+		'Eventcontainer' => 'list, show',
 		
 	)
 );
