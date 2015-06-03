@@ -32,4 +32,55 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  */
 class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	
+	/**
+	 * itemsInResult 
+	 *
+	 * @var integer
+	 */
+	protected $itemsInResult = 0;
+	
+	/**
+	 * items
+	 *
+	 * @var array
+	 */
+	protected $items = array();
+	
+	/**
+	 * returns number of items in result
+	 * 
+	 * @return integer $itemsInResult
+	 */
+	public function getItemsInResult() {
+		return $this->itemsInResult;
+	}
+	
+	/**
+	 * sets the number of items in result
+	 * @param integer $itemsInResult
+	 * @return void
+	 */
+	public function setItemsInResult($itemsInResult) {
+		$this->itemsInResult = $itemsInResult;
+	}
+	
+	/**
+	 * returns items array
+	 * @return array $items
+	 */
+	public function getItems() {
+		return $this->items;
+	}
+	
+	/**
+	 * sets items array
+	 * 
+	 * @param array $items
+	 * @return void
+	 */
+	public function setItems(array $items) {
+		$this->items = $items;
+	}
+	
+	
 }
