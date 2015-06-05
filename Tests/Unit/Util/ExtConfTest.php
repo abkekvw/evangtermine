@@ -1,5 +1,5 @@
 <?php
-namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Repository;
+namespace ArbkomEKvW\Evangtermine\Tests\Unit\Util;
 
 /**
  * *************************************************************
@@ -28,37 +28,42 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Repository;
  */
 
 /**
- * Test case for class \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository.
+ * Test case for class ArbkomEKvW\Evangtermine\Util\ExtConf
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *         
+ *
  * @author Christoph Roth <christoph.roth@lka.ekvw.de>
  */
-class EventcontainerRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class ExtConfTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+	
 	/**
-	 *
-	 * @var \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
+	 * @var \ArbkomEKvW\Evangtermine\Util\ExtConf
 	 */
 	protected $subject = NULL;
 	
 	protected function setUp() {
-		// need mock of \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-		$objectManager = $this->getMock ('\TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
-		$this->subject = new \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository($objectManager);
+		$this->subject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\ArbkomEKvW\Evangtermine\Util\ExtConf');
 	}
-	
+
 	protected function tearDown() {
-		unset ( $this->subject );
+		unset ($this->subject);
 	}
 	
 	/**
+	 * Test if $subject was instantiated 
 	 * @test
 	 */
-	public function hasSourceUrl() {
-		$this->assertEquals ( 
-				'http://www.veranstaltungen-ekvw.de/Veranstalter/xml.php',
-				$this->subject->getXmlSourceUrl());
+	public function subjectDoesExist() {
+		$this->assertInstanceOf('\ArbkomEKvW\Evangtermine\Util\ExtConf', $this->subject);
 	}
 	
+	/**
+	 * Test if data array is generated
+	 * @test
+	 */
+	public function extConfArrayIsGenerated() {
+		$this->assertArrayHasKey('host', $this->subject->getExtConfArray());
+	}
+
 }
