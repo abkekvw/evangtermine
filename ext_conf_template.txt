@@ -1,2 +1,5 @@
-# cat=basic; type=options[Ev.-Luth. Kirche in Bayern=www.evangelische-termine.de,Ev. Kirche Berlin-Brandenburg-schlesische Oberlausitz=www.ekbo-termine.de,Ev. Kirche im Rheinland=termine.ekir.de,Ev. Kirche von Westfalen=www.veranstaltungen-ekvw.de]; label=LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:extconftemplate.label
+# cat=basic; type=options[Ev.-Luth. Kirche in Bayern=www.evangelische-termine.de,Ev. Kirche Berlin-Brandenburg-schlesische Oberlausitz=www.ekbo-termine.de,Ev. Kirche im Rheinland=termine.ekir.de,Ev. Kirche von Westfalen=www.veranstaltungen-ekvw.de]; label=LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:extconftemplate.labelHost
 host = www.evangelische-termine.de
+
+# cat=basic; type=options[Cache nicht benutzen (ausführlicher)=Veranstalter/xml.php,Cache benutzen (schneller)=xml]; label=LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:extconftemplate.labelMode
+mode = Veranstalter/xml.php

@@ -10,11 +10,16 @@
             
 		<header/>
 		<body>
-                    <trans-unit id="extconftemplate.label">
+                    <trans-unit id="extconftemplate.labelHost">
                         <source></source>
                         <target>Host festlegen:Bestimmen Sie hier, in welcher Landeskirche Sie Evangelische Termine einbinden möchten.</target>
                     </trans-unit>
                    
+                   <trans-unit id="extconftemplate.labelMode">
+                        <source></source>
+                        <target>Daten-Cache benutzen:Bei Cache-Benutzung werden die Daten schneller und Ressourcen schonender abgerufen, es sind aber u.U. nicht alle Inhaltsfelder vorhanden.</target>
+                    </trans-unit>
+                    
                     <trans-unit id="pluginsheet.general">
                     	<source></source>
                     	<target>Allgemein</target>

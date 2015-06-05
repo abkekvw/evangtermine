@@ -37,11 +37,24 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
 	/**
+	 * Ext Conf data from ext_conf_template.txt
+	 * @var array
+	 */
+	private $extConf;
+	
+	/**
 	 * Url of xml script on remote server
 	 *
 	 * @var string
 	 */
 	protected $xmlSourceUrl = '';
+	
+	
+	public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
+		parent::__construct($objectManager);
+		
+		$this->extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\ArbkomEKvW\Evangtermine\Util\ExtConf')->getExtConfArray();
+	}
 	
 	/**
 	 * returns xml Source Url
@@ -50,7 +63,8 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 */
 	public function getXmlSourceUrl() {
 		if ($this->xmlSourceUrl === '') {
-			//todo: fetch selected XML Source Url and save it in $xmlSourceUrl
+			// fetch selected XML Source Url and save it in $xmlSourceUrl
+			$this->xmlSourceUrl = 'http://' . $this->extConf['host'] . '/' . $this->extConf['mode'];
 		}
 		
 		return $this->xmlSourceUrl;
