@@ -31,13 +31,13 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
 /**
  * EventcontainerRepository
  */
-class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository implements \TYPO3\CMS\Core\SingletonInterface {
 	
 	/**
-	 * Ext Conf data from ext_conf_template.txt
-	 * @var array
+	 * @var \ArbkomEKvW\Evangtermine\Util\ExtConf
+	 * @inject
 	 */
-	private $extConf;
+	private $extConf = NULL;
 	
 	/**
 	 * Url of xml script on remote server
@@ -47,23 +47,16 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	protected $xmlSourceUrl = '';
 	
 	
-	public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
-		parent::__construct($objectManager);
-		
-		$this->extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\ArbkomEKvW\Evangtermine\Util\ExtConf')->getExtConfArray();
-	}
-	
 	/**
 	 * returns xml Source Url
 	 * 
 	 * @return string
 	 */
 	public function getXmlSourceUrl() {
-		if ($this->xmlSourceUrl === '') {
-			// fetch selected XML Source Url and save it in $xmlSourceUrl
-			$this->xmlSourceUrl = 'http://' . $this->extConf['host'] . '/' . $this->extConf['mode'];
-		}
 		
+		if ($this->xmlSourceUrl === '') {
+			$this->xmlSourceUrl = 'http://' . $this->extConf->getExtConfArray()['host'] . '/' . $this->extConf->getExtConfArray()['mode'];
+		}
 		return $this->xmlSourceUrl;
 	}
 }

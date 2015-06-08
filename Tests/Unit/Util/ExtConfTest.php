@@ -43,19 +43,12 @@ class ExtConfTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	protected $subject = NULL;
 	
 	protected function setUp() {
-		$this->subject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\ArbkomEKvW\Evangtermine\Util\ExtConf');
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
+		$this->subject = $objectManager->get('\ArbkomEKvW\Evangtermine\Util\ExtConf');
 	}
 
 	protected function tearDown() {
 		unset ($this->subject);
-	}
-	
-	/**
-	 * Test if $subject was instantiated 
-	 * @test
-	 */
-	public function subjectDoesExist() {
-		$this->assertInstanceOf('\ArbkomEKvW\Evangtermine\Util\ExtConf', $this->subject);
 	}
 	
 	/**

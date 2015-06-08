@@ -36,20 +36,20 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Repository;
  * @author Christoph Roth <christoph.roth@lka.ekvw.de>
  */
 class EventcontainerRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+
 	/**
-	 *
 	 * @var \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
 	 */
 	protected $subject = NULL;
 	
 	protected function setUp() {
-		// need mock of \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-		$objectManager = $this->getMock ('\TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
-		$this->subject = new \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository($objectManager);
+		// get a full fledged object manager as described in comment of GeneralUtility::makeInstance() of TYPO3 7.2
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
+		$this->subject = $objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository');
 	}
 	
 	protected function tearDown() {
-		unset ( $this->subject );
+		unset ($this->subject);
 	}
 	
 	/**
