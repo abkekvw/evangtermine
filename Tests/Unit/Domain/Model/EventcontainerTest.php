@@ -35,7 +35,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  *
  * @author Christoph Roth <christoph.roth@lka.ekvw.de>
  */
-class EventcontainerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTestCase {
 	
 	/**
 	 * @var \ArbkomEKvW\Evangtermine\Domain\Model\Eventcontainer
@@ -43,9 +43,7 @@ class EventcontainerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	protected $subject = NULL;
 	
 	protected function setUp() {
-		// get a full fledged object manager as described in comment of GeneralUtility::makeInstance() of TYPO3 7.2
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
-		$this->subject = $objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\Eventcontainer');
+		$this->subject = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
 	}
 	
 	protected function tearDown() {

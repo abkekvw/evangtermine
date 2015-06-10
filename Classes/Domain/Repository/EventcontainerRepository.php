@@ -59,4 +59,14 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		}
 		return $this->xmlSourceUrl;
 	}
+	
+	/**
+	 * Main method for looking up events.
+	 * 
+	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etKeys
+	 * @return \ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface
+	 */
+	public function findByEtKeys(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etKeys) {
+		;
+	}
 }

@@ -28,59 +28,36 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  ***************************************************************/
 
 /**
- * Eventcontainer
+ * Eventcontainer Interface
  */
-class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements \ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface {
-	
-	/**
-	 * itemsInResult 
-	 *
-	 * @var integer
-	 */
-	protected $itemsInResult = 0;
-	
-	/**
-	 * items
-	 *
-	 * @var array
-	 */
-	protected $items = array();
-	
+interface EventcontainerInterface {
+
 	/**
 	 * returns number of items in result
-	 * 
+	 *
 	 * @return integer $itemsInResult
-	 */
-	public function getItemsInResult() {
-		return $this->itemsInResult;
-	}
+	*/
+	public function getItemsInResult();
 	
 	/**
 	 * sets the number of items in result
 	 * @param integer $itemsInResult
 	 * @return void
 	 */
-	public function setItemsInResult($itemsInResult) {
-		$this->itemsInResult = $itemsInResult;
-	}
+	public function setItemsInResult($itemsInResult);
 	
 	/**
 	 * returns items array
 	 * @return array $items
 	 */
-	public function getItems() {
-		return $this->items;
-	}
+	public function getItems();
 	
 	/**
 	 * sets items array
-	 * 
+	 *
 	 * @param array $items
 	 * @return void
 	 */
-	public function setItems(array $items) {
-		$this->items = $items;
-	}
-	
+	public function setItems(array $items);
 	
 }

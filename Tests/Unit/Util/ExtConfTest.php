@@ -35,7 +35,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Util;
  *
  * @author Christoph Roth <christoph.roth@lka.ekvw.de>
  */
-class ExtConfTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class ExtConfTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTestCase {
 	
 	/**
 	 * @var \ArbkomEKvW\Evangtermine\Util\ExtConf
@@ -43,8 +43,7 @@ class ExtConfTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	protected $subject = NULL;
 	
 	protected function setUp() {
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
-		$this->subject = $objectManager->get('\ArbkomEKvW\Evangtermine\Util\ExtConf');
+		$this->subject = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Util\ExtConf');
 	}
 
 	protected function tearDown() {

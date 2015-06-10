@@ -35,7 +35,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  *
  * @author Christoph Roth <christoph.roth@lka.ekvw.de>
  */
- class EtKeysTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+ class EtKeysTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTestCase {
  	
  	/**
  	 * @var \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys
@@ -43,9 +43,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	protected $subject = NULL;
  	
  	protected function setUp() {
- 		// get a full fledged object manager as described in comment of GeneralUtility::makeInstance() of TYPO3 7.2
- 		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
- 		$this->subject = $objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+ 		$this->subject = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
  	}
  	
  	protected function tearDown() {
@@ -69,4 +67,10 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  		$this->assertEquals('foo=theValue&q=param%5BB%C3%A4r%5D', $this->subject->getValue());
  	}
  	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function setNoKey() {
+ 		$this->assertEquals('', $this->subject->getValue());
+ 	}
  }

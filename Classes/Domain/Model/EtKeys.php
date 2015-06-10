@@ -31,7 +31,7 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  */
 class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
-	private $keysArray;
+	private $keysArray = array();
 	
 	/**
 	 * Set a single key-value pair
@@ -52,10 +52,9 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see \TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject::__toString()
-	 * @return string
+	 * @see \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject::getValue()
 	 */
-	public function __toString() {
+	public function getValue() {
 		return http_build_query($this->keysArray);
 	}
 	
