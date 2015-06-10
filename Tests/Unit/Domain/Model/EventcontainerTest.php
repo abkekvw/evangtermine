@@ -53,9 +53,9 @@ class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTest
 	/**
 	 * @test
 	 */
-	public function setItemsInResult() {
-		$this->subject->setItemsInResult(5);
-		$this->assertEquals(5, $this->subject->getItemsInResult());
+	public function setItemsInContainer() {
+		$this->subject->setNumberOfItems(5);
+		$this->assertEquals(5, $this->subject->getNumberOfItems());
 	}
 	
 	/**

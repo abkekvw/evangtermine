@@ -34,6 +34,12 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
 class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository implements \TYPO3\CMS\Core\SingletonInterface {
 	
 	/**
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 * @inject 
+	 */
+	protected $objectManager = NULL;
+	
+	/**
 	 * @var \ArbkomEKvW\Evangtermine\Util\ExtConf
 	 * @inject
 	 */
@@ -67,6 +73,9 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 * @return \ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface
 	 */
 	public function findByEtKeys(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etKeys) {
-		;
+		$result = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface'); 
+		
+		return $result;
 	}
+	
 }

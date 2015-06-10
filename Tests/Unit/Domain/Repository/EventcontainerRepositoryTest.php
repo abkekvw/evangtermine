@@ -59,4 +59,14 @@ class EventcontainerRepositoryTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\A
 				$this->subject->getXmlSourceUrl());
 	}
 	
+	/**
+	 * @test
+	 */
+	public function findFiveEvents() {
+		$etKeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+ 		$etKeys->setSingleKey('itemsPerPage', '5');
+ 		$evtContainer = $this->subject->findByEtKeys($etKeys);
+ 		$this->assertEquals('5', $evtContainer->getNumberOfItems());
+	}
+	
 }

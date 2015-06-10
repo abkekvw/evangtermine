@@ -33,18 +33,18 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
 interface EventcontainerInterface {
 
 	/**
-	 * returns number of items in result
+	 * returns number of items in container
 	 *
-	 * @return integer $itemsInResult
+	 * @return integer
 	*/
-	public function getItemsInResult();
+	public function getNumberOfItems();
 	
 	/**
 	 * sets the number of items in result
-	 * @param integer $itemsInResult
+	 * @param integer $numItems
 	 * @return void
 	 */
-	public function setItemsInResult($itemsInResult);
+	public function setNumberOfItems($numItems);
 	
 	/**
 	 * returns items array

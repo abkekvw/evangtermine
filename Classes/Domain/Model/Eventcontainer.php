@@ -37,7 +37,7 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	 *
 	 * @var integer
 	 */
-	protected $itemsInResult = 0;
+	protected $numberOfItems = 0;
 	
 	/**
 	 * items
@@ -47,21 +47,21 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	protected $items = array();
 	
 	/**
-	 * returns number of items in result
+	 * returns number of items in container
 	 * 
-	 * @return integer $itemsInResult
+	 * @return integer
 	 */
-	public function getItemsInResult() {
-		return $this->itemsInResult;
+	public function getNumberOfItems() {
+		return $this->numberOfItems;
 	}
 	
 	/**
 	 * sets the number of items in result
-	 * @param integer $itemsInResult
+	 * @param integer 
 	 * @return void
 	 */
-	public function setItemsInResult($itemsInResult) {
-		$this->itemsInResult = $itemsInResult;
+	public function setNumberOfItems($numItems) {
+		$this->numberOfItems = $numItems;
 	}
 	
 	/**
