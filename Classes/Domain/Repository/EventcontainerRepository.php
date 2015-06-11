@@ -46,6 +46,12 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	private $extConf = NULL;
 	
 	/**
+	 * @var ArbkomEKvW\Evangtermine\Util\HttpRequestInterface
+	 * @inject
+	 */
+	private $httpRequest;
+	
+	/**
 	 * Url of xml script on remote server
 	 *
 	 * @var string
@@ -74,6 +80,10 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 */
 	public function findByEtKeys(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etKeys) {
 		$result = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface'); 
+		
+		// URL zusammenbauen: SourceURL plus $etKeys->getValue
+		
+		// URL abfragen mit RemoteServer
 		
 		return $result;
 	}
