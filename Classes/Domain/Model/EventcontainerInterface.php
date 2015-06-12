@@ -1,7 +1,6 @@
 <?php
 namespace ArbkomEKvW\Evangtermine\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -59,5 +58,12 @@ interface EventcontainerInterface {
 	 * @return void
 	 */
 	public function setItems(array $items);
+	
+	/**
+	 * transform XML into array and load item attributes
+	 * @param string $xmlString
+	 * @return void
+	 */
+	public function loadXML($xmlString);
 	
 }

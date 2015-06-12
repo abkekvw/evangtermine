@@ -79,13 +79,21 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 * @return \ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface
 	 */
 	public function findByEtKeys(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etKeys) {
-		$result = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface'); 
-		
+		 
 		// URL zusammenbauen: SourceURL plus $etKeys->getValue
+		$query = ($etKeys->getValue()) ? '?' . $etKeys->getValue() : ''; 
+		$url = $this->getXmlSourceUrl() . $query;
 		
-		// URL abfragen mit RemoteServer
+		// URL abfragen
+		$rawXml = $this->httpRequest->fetchUrl($url);
+		
+		// XML im Eventcontainer wandeln
+		$result = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
+		$result->loadXML($rawXml);
 		
 		return $result;
 	}
+	
+	
 	
 }

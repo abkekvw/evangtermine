@@ -66,4 +66,28 @@ class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTest
 		$this->assertEquals(1, $this->subject->getItems()[0]);
 	}
 	
+	/**
+	 * @test
+	 */
+	public function loadEmptyXmlInContainer() {
+		$this->subject->setNumberOfItems(42); // must be 0 after xml input
+		$this->subject->loadXML('');
+		$this->assertEquals(0, $this->subject->getNumberOfItems());
+	}
+	
+	/**
+	 * @test
+	 */
+	public function loadXmlInContainer() {
+		// load five test events from disk
+		$this->subject->loadXML(\ArbkomEKvW\Evangtermine\Tests\TestXmlData::getTestXmlFive());
+		$this->assertEquals(5, $this->subject->getNumberOfItems());
+	}
+	
+	/**
+	 * @test
+	 */
+	public function hasMetaData() {
+		$this->fail('Test not yet implemented');
+	}
 }

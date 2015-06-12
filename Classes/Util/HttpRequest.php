@@ -88,6 +88,17 @@ class HttpRequest implements HttpRequestInterface {
 	 */
 	private function fopenFetch($url) {
 		
+		$pageContent = '';
+		
+		$fd = fopen($url, "r");
+		if ($fd) {
+			while (!feof($fd)) {
+				$pageContent .= fgets($fd, 4096);
+			}
+			fclose($fd);
+		} 
+		
+		return $pageContent;
 	}
 
 }

@@ -37,14 +37,16 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	 *
 	 * @var integer
 	 */
-	protected $numberOfItems = 0;
+	private $numberOfItems = 0;
 	
 	/**
 	 * items
 	 *
 	 * @var array
 	 */
-	protected $items = array();
+	private $items = array();
+	
+	private $metaData = array();
 	
 	/**
 	 * returns number of items in container
@@ -81,6 +83,37 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	public function setItems(array $items) {
 		$this->items = $items;
 	}
+	
+
+	public function getMetaData() {
+		return $this->metaData;
+	}
+	
+	public function setMetaData($metaData) {
+		$this->metaData = $metaData;
+		return $this;
+	}
+	
+	/**
+	 * transform XML into array and load item attributes
+	 * @param string $xmlString
+	 * @return void
+	 */
+	public function loadXML($xmlString) {
+		
+		if (!trim($xmlString)) {
+			$this->setNumberOfItems(0);
+			$this->setItems(array());
+			return;
+		} else {
+			$xmlSimple = new \SimpleXMLElement($xmlString);
+			echo($xmlSimple);
+		}
+		
+	}
+	
+	
+	
 	
 	
 }
