@@ -63,6 +63,18 @@ class EventcontainerRepositoryTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\A
 	 * @test
 	 */
 	public function findFiveEvents() {
+		
+		// load XML test content which has five events in the result
+		$xmlTestContent = \ArbkomEKvW\Evangtermine\Tests\TestXmlData::getTestXmlFive();
+		
+		// mock HttpRequest object, prepared with test XML data
+		$httpReqStub = $this->getMockBuilder('\ArbkomEKvW\Evangtermine\Util\HttpRequest')->getMock();
+		$httpReqStub->method('fetchUrl')->willReturn($xmlTestContent);
+		
+		// inject it
+		$this->inject($this->subject, 'httpRequest', $httpReqStub);
+		
+		// to run the test live comment out all preceding code in this method up to this line
 		$etKeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
  		$etKeys->setSingleKey('itemsPerPage', '5');
  		$evtContainer = $this->subject->findByEtKeys($etKeys);

@@ -40,13 +40,17 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	private $numberOfItems = 0;
 	
 	/**
-	 * items
+	 * items array of SimpleXML objects
 	 *
 	 * @var array
 	 */
 	private $items = array();
 	
-	private $metaData = array();
+	/**
+	 * content of the <meta> tag in XML result 
+	 * @var \SimpleXMLElement
+	 */
+	private $metaData = NULL;
 	
 	/**
 	 * returns number of items in container
@@ -102,17 +106,28 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	public function loadXML($xmlString) {
 		
 		if (!trim($xmlString)) {
-			$this->setNumberOfItems(0);
-			$this->setItems(array());
-			return;
+			$this->reset();
 		} else {
 			$xmlSimple = new \SimpleXMLElement($xmlString);
-			echo($xmlSimple);
+			
+			// extract event data
+			$this->setItems($xmlSimple->xpath('//Veranstaltung'));
+			$this->setNumberOfItems(count($this->getItems()));
+			
+			// extract meta data
+			$this->setMetaData($xmlSimple->Export->meta);
 		}
 		
 	}
 	
-	
+	/**
+	 * set values to empty
+	 */
+	private function reset() {
+		$this->setNumberOfItems(0);
+		$this->setItems(array());
+		$this->setMetaData(NULL);
+	}
 	
 	
 	

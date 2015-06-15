@@ -53,7 +53,7 @@ class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTest
 	/**
 	 * @test
 	 */
-	public function setItemsInContainer() {
+	public function setNumberOfItemsInContainer() {
 		$this->subject->setNumberOfItems(5);
 		$this->assertEquals(5, $this->subject->getNumberOfItems());
 	}
@@ -69,10 +69,11 @@ class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTest
 	/**
 	 * @test
 	 */
-	public function loadEmptyXmlInContainer() {
+	public function loadEmptyStringInContainer() {
 		$this->subject->setNumberOfItems(42); // must be 0 after xml input
 		$this->subject->loadXML('');
 		$this->assertEquals(0, $this->subject->getNumberOfItems());
+		$this->assertEquals(Null, $this->subject->getMetaData());
 	}
 	
 	/**
@@ -80,14 +81,20 @@ class EventcontainerTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\AbkekvwTest
 	 */
 	public function loadXmlInContainer() {
 		// load five test events from disk
-		$this->subject->loadXML(\ArbkomEKvW\Evangtermine\Tests\TestXmlData::getTestXmlFive());
+		$testXml = \ArbkomEKvW\Evangtermine\Tests\TestXmlData::getTestXmlFive();
+		$this->subject->loadXML($testXml);
 		$this->assertEquals(5, $this->subject->getNumberOfItems());
+		$this->assertEquals('Gottesdienste', $this->subject->getMetaData()->eventtypes->eventtype[0]);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function hasMetaData() {
-		$this->fail('Test not yet implemented');
+	public function loadEmptyXmlInContainer() {
+		$testXml = \ArbkomEKvW\Evangtermine\Tests\TestXmlData::getTestXmlEmpty();
+		$this->subject->loadXML($testXml);
+		$this->assertEquals(0, $this->subject->getNumberOfItems());
+		$this->assertEquals(array(), $this->subject->getItems());
+		$this->assertEquals('Gottesdienste', $this->subject->getMetaData()->eventtypes->eventtype[0]);
 	}
 }

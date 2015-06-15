@@ -1,10 +1,73 @@
 <?php
+
 namespace ArbkomEKvW\Evangtermine\Tests;
 
 class TestXmlData {
-	
+	static public function getTestXmlEmpty() {
+		$xmlTestBlob = <<<EOTXML
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Export>
+		<meta>
+			<totalItems>0</totalItems>
+			<activeParams>vid=all|region=all|own=all|d=all|m=06|y=2015|start=|end=|date=|until=yes|past=1|year=none|q=ashjdkjfghdkfjgjghjfg|highlight=high|eventtype=all|people=0|menue1=all|menue2=all|ipm=all|place=all|person=all|cha=all|dest=extern|pageID=1|itemsPerPage=5</activeParams>
+			<eventtypes>
+				<eventtype key="1">Gottesdienste</eventtype>
+				<eventtype key="2">Gruppen / Kreise</eventtype>
+				<eventtype key="3">Fortbildungen / Seminare / Vorträge</eventtype>
+				<eventtype key="4">Konzerte / Theater / Musik</eventtype>
+				<eventtype key="5">Freizeiten / Reisen</eventtype>
+				<eventtype key="6">Ausstellungen / Kunst</eventtype>
+				<eventtype key="7">Feste / Feiern</eventtype>
+				<eventtype key="8">Sport/Spiel</eventtype>
+				<eventtype key="9">Sonstiges</eventtype>
+			</eventtypes>
+			<peoples>
+				<people key="0">Alle Zielgruppen</people>
+				<people key="5">Kinder</people>
+				<people key="40">Konfirmanden</people>
+				<people key="10">Jugendliche</people>
+				<people key="15">Junge Erwachsene</people>
+				<people key="16">Frauen</people>
+				<people key="17">Männer</people>
+				<people key="20">Familien</people>
+				<people key="25">Erwachsene</people>
+				<people key="30">Senioren</people>
+				<people key="35">besondere Zielgruppe</people>
+			</peoples>
+			<months>
+				<month key="all">alle Termine</month>
+				<month key="6.15">Juni 15</month>
+				<month key="7.15">Juli 15</month>
+				<month key="8.15">August 15</month>
+				<month key="9.15">September 15</month>
+				<month key="10.15">Oktober 15</month>
+				<month key="11.15">November 15</month>
+				<month key="12.15">Dezember 15</month>
+				<month key="1.16">Januar 16</month>
+				<month key="2.16">Februar 16</month>
+				<month key="3.16">März 16</month>
+				<month key="4.16">April 16</month>
+				<month key="5.16">Mai 16</month>
+				<month key="6.16">Juni 16</month>
+				<month key="7.16">Juli 16</month>
+				<month key="8.16">August 16</month>
+				<month key="9.16">September 16</month>
+				<month key="10.16">Oktober 16</month>
+				<month key="11.16">November 16</month>
+				<month key="12.16">Dezember 16</month>
+			</months>
+			<headline>Veranstaltungen (Suche nach 'ashjdkjfghdkfjgjghjfg')</headline>
+		</meta>
+	</Export>
+</root>
+EOTXML;
+		
+return $xmlTestBlob;
+} // end of function getTestXmlEmpty()
+
 static public function getTestXmlFive() {
-$xmlTestBlob = <<<EOTXML
+		$xmlTestBlob = <<<EOTXML
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<Export>
@@ -740,8 +803,7 @@ $xmlTestBlob = <<<EOTXML
 	</Export>
 </root>
 EOTXML;
-
-return $xmlTestBlob;
-} // end of function getTestXmlFive()
-
+		
+		return $xmlTestBlob;
+	} // end of function getTestXmlFive()
 }

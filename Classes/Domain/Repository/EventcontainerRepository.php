@@ -58,7 +58,6 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 */
 	protected $xmlSourceUrl = '';
 	
-	
 	/**
 	 * returns xml Source Url
 	 * 
@@ -93,6 +92,8 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		
 		return $result;
 	}
+	
+	
 	
 	
 	
