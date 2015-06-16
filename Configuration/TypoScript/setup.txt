@@ -5,12 +5,18 @@ plugin.tx_evangtermine {
 		partialRootPath = {$plugin.tx_evangtermine.view.partialRootPath}
 		layoutRootPath = {$plugin.tx_evangtermine.view.layoutRootPath}
 	}
+	
 	persistence {
 		storagePid = {$plugin.tx_evangtermine.persistence.storagePid}
 	}
+	
 	features {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
+	}
+	
+	settings {
+		# normal Extension settings
 	}
 }
 

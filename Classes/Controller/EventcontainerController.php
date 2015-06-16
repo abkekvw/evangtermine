@@ -31,6 +31,12 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  * EventcontainerController
  */
 class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+	
+	/**
+	 * @var \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
+	 * @inject
+	 */
+	protected $eventcontainerRepository = NULL;
 
 	/**
 	 * action list

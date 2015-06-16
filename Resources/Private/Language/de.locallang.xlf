@@ -30,21 +30,6 @@
                     	<target>Region</target>
                     </trans-unit>
                     
-                    <trans-unit id="feflexform.type">
-                    	<source></source>
-                    	<target>Ausgabemodus:</target>
-                    </trans-unit>
-                    
-                    <trans-unit id="feflexform.opmodesingle">
-                    	<source></source>
-                    	<target>Einzelveranstalter</target>
-                    </trans-unit>
-                    
-                    <trans-unit id="feflexform.opmodedistrict">
-                    	<source></source>
-                    	<target>Region</target>
-                    </trans-unit>
-                    
                     <trans-unit id="feflexform.vid">
                     	<source></source>
                     	<target>Veranstalter-Id:</target>
