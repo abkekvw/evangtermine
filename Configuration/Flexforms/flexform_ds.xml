@@ -11,7 +11,7 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.evt_vid>
+                    <settings.etkey_vid>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.vid</label>
                             <config>
@@ -20,17 +20,8 @@
                                 <eval>trim,int</eval>
                             </config>
                         </TCEforms>
-                    </settings.evt_vid>
-                    <settings.evt_css>
-                        <TCEforms>
-                            <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.css</label>
-                            <config>
-                                <type>check</type>
-                                <default>1</default>
-                            </config>
-                        </TCEforms>
-                    </settings.evt_css>
-                    <settings.evt_highlight>
+                    </settings.etkey_vid>
+                    <settings.etkey_highlight>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight</label>
                             <config>
@@ -47,8 +38,8 @@
                                 </items>
                             </config>
                         </TCEforms>
-                    </settings.evt_highlight>
-                    <settings.evt_et_q>
+                    </settings.etkey_highlight>
+                    <settings.etkey_q>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.et_q</label>
                             <config>
@@ -57,8 +48,8 @@
                                 <eval>trim</eval>
                             </config>
                         </TCEforms>
-                    </settings.evt_et_q>
-                    <settings.evt_eventtype>
+                    </settings.etkey_q>
+                    <settings.etkey_eventtype>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.eventtype</label>
                             <config>
@@ -109,8 +100,8 @@
                                 </items>
                             </config>
                         </TCEforms>
-                    </settings.evt_eventtype>
-                    <settings.evt_people>
+                    </settings.etkey_eventtype>
+                    <settings.etkey_people>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.people</label>
                             <config>
@@ -165,8 +156,8 @@
                                 </items>
                             </config>
                         </TCEforms>
-                    </settings.evt_people>
-                    <settings.evt_itemsPerPage>
+                    </settings.etkey_people>
+                    <settings.etkey_itemsPerPage>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.itemsPerPage</label>
                             <config>
@@ -199,7 +190,7 @@
                                 </items>
                             </config>
                         </TCEforms>
-                    </settings.evt_itemsPerPage>
+                    </settings.etkey_itemsPerPage>
                     <settings.evt_addprms>
                     	<TCEforms>
                     		<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.addprms</label>
@@ -220,7 +211,7 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.evt_region>
+                    <settings.etkey_region>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.region</label>
                             <config>
@@ -229,8 +220,8 @@
                                 <eval>trim</eval>
                             </config>
                         </TCEforms>
-                    </settings.evt_region>
-                    <settings.evt_aid>
+                    </settings.etkey_region>
+                    <settings.etkey_aid>
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.aid</label>
                             <config>
@@ -239,7 +230,7 @@
                                 <eval>trim</eval>
                             </config>
                         </TCEforms>
-                    </settings.evt_aid>
+                    </settings.etkey_aid>
                 </el>
             </ROOT>
         </cdistrict>

@@ -54,6 +54,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	 * @test
  	 */
  	public function setSingleKey() {
+ 		$this->subject->setAllowedKeys(' foo, q');
  		$this->subject->setSingleKey('foo', 'theValue');
  		$this->subject->setSingleKey('q', 'param[Gewölk]');
  		$this->assertEquals('foo=theValue&q=param%5BGew%C3%B6lk%5D', $this->subject->getValue());
@@ -63,6 +64,7 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	 * @test
  	 */
  	public function setAllKeys() {
+ 		$this->subject->setAllowedKeys('foo,q');
  		$this->subject->setAllKeys(array('foo' => 'theValue', 'q' => 'param[Bär]'));
  		$this->assertEquals('foo=theValue&q=param%5BB%C3%A4r%5D', $this->subject->getValue());
  	}
@@ -70,7 +72,27 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	/**
  	 * @test
  	 */
- 	public function setNoKey() {
+ 	public function skipNotAllowedKey() {
+ 		$this->subject->setAllowedKeys('foo,q');
+ 		$this->subject->setSingleKey('marypoppins', 'theValue');
+ 		$this->assertEquals('', $this->subject->getSingleKey('marypoppins'));
+ 	}
+ 	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function doesNotSetEmptyKey() {
+ 		$this->subject->setAllowedKeys('foo,q');
+ 		$this->subject->setSingleKey('foo', '');
  		$this->assertEquals('', $this->subject->getValue());
+ 	}
+ 	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function getSingleKey() {
+ 		$this->subject->setAllowedKeys('foo');
+ 		$this->subject->setSingleKey('foo', 'theValue');
+ 		$this->assertEquals('theValue', $this->subject->getSingleKey('foo'));
  	}
  }

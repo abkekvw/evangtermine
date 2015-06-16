@@ -31,7 +31,28 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  */
 class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
+	/**
+	 * array of allowed keys
+	 * @var array
+	 */
+	private $allowedKeys = array();
+	
+	
 	private $keysArray = array();
+	
+	/**
+	 * set allowed keys
+	 * @param string $allowedKeys
+	 */
+	public function setAllowedKeys($allowedKeysString) {
+		
+		$this->allowedKeys = array();
+		$rawKeys = explode(',', $allowedKeysString);
+		foreach ($rawKeys as $key) {
+			$this->allowedKeys[] = trim($key);
+		}
+		unset($rawKeys);
+	}
 	
 	/**
 	 * Set a single key-value pair
@@ -39,7 +60,18 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @param string $value
 	 */
 	public function setSingleKey($key, $value) {
-		$this->keysArray[$key] = $value;
+
+		if (in_array($key, $this->allowedKeys) && trim($value) != '') {
+			$this->keysArray[$key] = $value;
+		}
+	}
+	
+	/**
+	 * return a single value
+	 * @param string $key
+	 */
+	public function getSingleKey($key) {
+		return (isset($this->keysArray[$key])) ? $this->keysArray[$key] : ''; 
 	}
 	
 	/**
@@ -47,7 +79,9 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @param array $allKeysArray
 	 */
 	public function setAllKeys($allKeysArray) {
-		$this->keysArray = $allKeysArray;
+		foreach ($allKeysArray as $key => $value) {
+			$this->setSingleKey($key, $value);
+		}
 	}
 	
 	/**
