@@ -51,6 +51,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private $settingsUtility;
 
+	
 	/**
 	 * (non-PHPdoc)
 	 * @see \TYPO3\CMS\Extbase\Mvc\Controller\ActionController::initializeAction()
@@ -87,17 +88,19 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			$this->settingsUtility->fetchParamsFromConfig($this->settings, $this->session['etkeys']);
 		}
 		
-		// collect params from request and overwrite 
-		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
-		
-		// save parameters to session
-		$this->saveSession();
+		if (count($this->request->getArguments())) {
+			// collect params from request 
+			$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
+			
+			// save parameters to session
+			$this->saveSession();
+		}
 		
 		// retrieve XML
-		$xmlResult = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
+		$evntContainer = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
 		
 		// hand model data to the view
-		$this->view->assign('events', $xmlResult);
+		$this->view->assign('events', $evntContainer);
 		
 	}
 

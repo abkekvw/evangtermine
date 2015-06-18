@@ -6,4 +6,10 @@
 
 <p>Es wurden {events.numberOfItems} Veranstaltungen gefunden.</p>
 
+<ul>
+<f:for each="{events.items}" as="event">
+	<li>{event._event_TITLE}</li>
+</f:for>
+</ul>
+
 </f:section>

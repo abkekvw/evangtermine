@@ -95,7 +95,6 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	
 	public function setMetaData($metaData) {
 		$this->metaData = $metaData;
-		return $this;
 	}
 	
 	/**
