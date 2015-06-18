@@ -38,11 +38,12 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	protected $eventcontainerRepository = NULL;
 	
+	
 	/**
-	 * query parameters array
-	 * @var \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys
+	 * session data
+	 * @var array
 	 */
-	private $etKeysParams;
+	private $session;
 	
 	/**
 	 * @var \ArbkomEKvW\Evangtermine\Util\SettingsUtility
@@ -51,8 +52,25 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	private $settingsUtility;
 
 	/**
+	 * (non-PHPdoc)
+	 * @see \TYPO3\CMS\Extbase\Mvc\Controller\ActionController::initializeAction()
+	 */
+	protected function initializeAction() {
+		$this->session = $GLOBALS['TSFE']->fe_user->getKey('ses', 'tx_evangtermine'); 
+	}
+	
+	/**
+	 * save session data
+	 */
+	private function saveSession() {
+		$GLOBALS['TSFE']->fe_user->setKey('ses', 'tx_evangtermine', $this->session);
+		$GLOBALS['TSFE']->fe_user->storeSessionData();
+	}
+	
+	/**
 	 * action list
 	 * - must collect all parameters (etKeys) from config-settings, session and request
+	 * - update session
 	 * - retrieve XML data
 	 * - hand it to view
 	 *
@@ -60,16 +78,27 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function listAction() {
 		
-		// set up fresh, clean container object for params
-		$this->etKeysParams = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-		$this->etKeysParams->setAllowedKeys($this->settings['knownEtKeys']);
+		if (!isset($this->session['etkeys'])) {
+			// no session data exists. set up fresh, clean container object for params
+			$this->session['etkeys'] = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+			$this->session['etkeys']->setAllowedKeys($this->settings['knownEtKeys']);
+			
+			// initialize etkeys from settings
+			$this->settingsUtility->fetchParamsFromConfig($this->settings, $this->session['etkeys']);
+		}
 		
-		$this->settingsUtility->fetchParamsFromConfig($this->settings, $this->etKeysParams);
-		// $this->fetchParamsFromSession($this->etKeysParams);
-		// $this->fetchParamsFromRequest($this->etKeysParams);
+		// collect params from request and overwrite 
+		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
+		
+		// save parameters to session
+		$this->saveSession();
+		
+		// retrieve XML
+		$xmlResult = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
 		
 		// hand model data to the view
-		$this->view->assign('gonzo', $this->etKeysParams);
+		$this->view->assign('events', $xmlResult);
+		
 	}
 
 	/**

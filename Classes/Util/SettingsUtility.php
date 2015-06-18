@@ -32,7 +32,9 @@ namespace ArbkomEKvW\Evangtermine\Util;
  class SettingsUtility {
  	
  	/**
- 	 * Fetch params (etkeys) from settings, that means TypoScript and Flexform
+ 	 * fetch etkey params from TypoScript/Flexform config
+ 	 * @param array $settingsArray
+ 	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks
  	 */
  	public function fetchParamsFromConfig(array $settingsArray, \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks) {
  	
@@ -41,7 +43,27 @@ namespace ArbkomEKvW\Evangtermine\Util;
  				$etks->setSingleKey(substr($key, 6), $value);
  			}
  		}
+ 		
+ 		// evaluate additional params field in flexform
+ 		if (isset($settingsArray['evt_addprms']) && $settingsArray['evt_addprms'] != '') {
+ 			$addprms = explode(',', $settingsArray['evt_addprms']);
+ 			foreach ($addprms as $keyval) {
+ 				list($key, $value) = explode('=', trim($keyval));
+ 				$etks->setSingleKey(trim($key), trim($value));
+ 			}
+ 		}
  	}
  	
+ 	/**
+ 	 * fetch etkey params from Request
+ 	 * @param unknown $requestParams
+ 	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks
+ 	 */
+ 	public function fetchParamsFromRequest($requestParams, \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks) {
+ 		
+ 		foreach ($requestParams as $key => $value) {
+ 			$etks->setSingleKey($key, $value);
+ 		}
+ 	}
  	
  }
