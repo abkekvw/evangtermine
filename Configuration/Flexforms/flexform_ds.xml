@@ -17,7 +17,7 @@
                             <config>
                                 <type>input</type>
                                 <size>20</size>
-                                <eval>trim,int</eval>
+                                <eval>trim</eval>
                             </config>
                         </TCEforms>
                     </settings.etkey_vid>

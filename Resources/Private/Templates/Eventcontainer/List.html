@@ -1,15 +1,17 @@
+{namespace et=ArbkomEKvW\Evangtermine\ViewHelpers}
 
 <f:layout name="Default" />
 
 <f:section name="main">
 
 
-<p>Es wurden {events.numberOfItems} Veranstaltungen gefunden.</p>
+<p>Es wurden {events.metaData.totalItems} Veranstaltungen gefunden.</p>
 
 <ul>
 <f:for each="{events.items}" as="event">
-	<li>{event._event_TITLE}</li>
+	<li><et:attr on="{event._event_TITLE}" name="Label" />: {event._event_TITLE}</li>
 </f:for>
 </ul>
+
 
 </f:section>

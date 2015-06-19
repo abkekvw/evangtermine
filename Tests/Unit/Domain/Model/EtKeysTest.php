@@ -56,8 +56,8 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	public function setSingleKey() {
  		$this->subject->setAllowedKeys(' foo, q');
  		$this->subject->setSingleKey('foo', 'theValue');
- 		$this->subject->setSingleKey('q', 'param[Gewölk]');
- 		$this->assertEquals('foo=theValue&q=param%5BGew%C3%B6lk%5D', $this->subject->getValue());
+ 		$this->subject->setSingleKey('q', 'Gewölk');
+ 		$this->assertEquals('foo=theValue&q=Gew%C3%B6lk', $this->subject->getValue());
  	}
  	
  	/**
