@@ -89,7 +89,18 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @see \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject::getValue()
 	 */
 	public function getValue() {
-		return http_build_query($this->keysArray);
+		
+		if (!empty($this->keysArray)) {
+			
+			foreach ($this->keysArray as $key => $value) {
+				$parBlocks[] = $key . '=' . urlencode(utf8_decode($value));
+			}
+			
+			return implode('&', $parBlocks);
+		} else {
+			return '';
+		}
+		
 	}
 	
 }
