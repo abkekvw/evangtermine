@@ -63,15 +63,6 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	/**
  	 * @test
  	 */
- 	public function setAllKeys() {
- 		$this->subject->setAllowedKeys('foo,q');
- 		$this->subject->setAllKeys(array('foo' => 'theValue', 'q' => 'param[Bär]'));
- 		$this->assertEquals('foo=theValue&q=param%5BB%E4r%5D', $this->subject->getValue());
- 	}
- 	
- 	/**
- 	 * @test
- 	 */
  	public function skipNotAllowedKey() {
  		$this->subject->setAllowedKeys('foo,q');
  		$this->subject->setSingleKey('marypoppins', 'theValue');
@@ -94,5 +85,14 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  		$this->subject->setAllowedKeys('foo');
  		$this->subject->setSingleKey('foo', 'theValue');
  		$this->assertEquals('theValue', $this->subject->getSingleKey('foo'));
+ 	}
+ 	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function getAllKeys() {
+ 		$this->subject->setAllowedKeys('foo');
+ 		$this->subject->setSingleKey('foo', 'theValue');
+ 		$this->assertEquals('theValue', $this->subject->getKeysArray()['foo']);
  	}
  }

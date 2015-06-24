@@ -4,6 +4,7 @@
 
 <f:section name="main">
 
+<f:debug title="etkeys">{etkeys}</f:debug>
 
 <p>Es wurden {events.metaData.totalItems} Veranstaltungen gefunden.</p>
 
@@ -13,5 +14,9 @@
 </f:for>
 </ul>
 
+<et:etpager 
+	totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}"
+	currentPage="{etkeys.pageID}"
+/>
 
 </f:section>

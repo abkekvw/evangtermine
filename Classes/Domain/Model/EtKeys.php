@@ -75,13 +75,11 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	/**
-	 * Set keys array at once
-	 * @param array $allKeysArray
+	 * return all keys
+	 * @return array
 	 */
-	public function setAllKeys($allKeysArray) {
-		foreach ($allKeysArray as $key => $value) {
-			$this->setSingleKey($key, $value);
-		}
+	public function getKeysArray() {
+		return $this->keysArray;
 	}
 	
 	/**
