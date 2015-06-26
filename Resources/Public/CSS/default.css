@@ -1,0 +1,7 @@
+.et_pager_container {
+	margin: 0 0 1em 0;
+}
+
+.et_pager_container a, .et_pager_container .current {
+	margin-right: .7em;
+}
