@@ -31,6 +31,15 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  */
 class EtpagerController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController {
 	
+	// pager bar size (number of page fields to click on)
+	const pgrbSize = 5;
+	
+	// Steps between fields in self::pgrbSize
+	const pgrbSteps = 4;
+	
+	// Steps from pagebar border to pagebar center 
+	const pgrbBorderToCenter = 2;
+	
 	/**
 	 * pager data for display in view
 	 * @var array
@@ -70,32 +79,32 @@ class EtpagerController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetContr
 	private function getPagerBarLimits() {
 		
 		// current page is near end of pagelist
-		if ( ($this->pgr['pages'] - 5) < $this->pgr['current']) {
+		if ( ($this->pgr['pages'] - self::pgrbSize) < $this->pgr['current']) {
 			
 			$this->pgr['pgrBarEnd'] = $this->pgr['pages']; 
 		
 		// current page is near beginning of pagelist
-		} elseif ( ($this->pgr['current'] + 2) <= 5) {
+		} elseif ( ($this->pgr['current'] + self::pgrbBorderToCenter) <= self::pgrbSize) {
 			
-			$this->pgr['pgrBarEnd'] = 5;
+			$this->pgr['pgrBarEnd'] = self::pgrbSize;
 			
 		// current page is somewhere in the middle 
 		} else {
-			$this->pgr['pgrBarEnd'] = $this->pgr['current'] + 2;
+			$this->pgr['pgrBarEnd'] = $this->pgr['current'] + self::pgrbBorderToCenter;
 		}
 		
 		// now the begin limit 
-		if ( ($this->pgr['pgrBarEnd'] - 4) <= 1) {
+		if ( ($this->pgr['pgrBarEnd'] - self::pgrbSteps) <= 1) {
 			$this->pgr['pgrBarBegin'] = 1;
 		} else {
-			$this->pgr['pgrBarBegin'] = $this->pgr['pgrBarEnd'] - 4;
+			$this->pgr['pgrBarBegin'] = $this->pgr['pgrBarEnd'] - self::pgrbSteps;
 		}
 	}
 	
 	
 	private function getBrowserTriggers() {
 		
-		if ($this->pgr['pgrBarBegin'] >= 2) {
+		if ($this->pgr['pgrBarBegin'] >= self::pgrbBorderToCenter) {
 			$this->pgr['lBrowser'] = 1;
 			$this->pgr['lBrowserNext'] = ($this->pgr['current'] > 1) ? $this->pgr['current'] - 1 : 1;
 		} else {

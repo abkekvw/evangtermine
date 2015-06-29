@@ -8,11 +8,26 @@
 	
 	<et:etpager	totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}"	currentPage="{etkeys.pageID}"/>
 	
-	<ul>
-	<f:for each="{events.items}" as="event">
-		<li><et:attr on="{event._event_TITLE}" name="Label" />: {event._event_TITLE}</li>
+	<f:comment>Haupt-Schleife für Events</f:comment>
+	<f:for each="{events.items}" as="event" iteration="iterator">
+	
+		<f:if condition="{iterator.isOdd}">
+			<f:then><div class="et_content_row odd"></f:then>
+			<f:else><div class="et_content_row even"></f:else>
+		</f:if>
+			<div class="et_content_date"><span class="et_tag">{event.DATUM2}<br>{event.LITURG_BEZ}</span></div>
+			<div class="et_content_title">
+				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action> 
+				<f:if condition="{event._event_SHORT_DESCRIPTION}"><br><span class="et_description">{event._event_SHORT_DESCRIPTION}</span></f:if>
+				<br><span class="et_city">{event._place_CITY}: </span>
+				<span class="et_placename">{event._place_NAME}</span>
+				<span class="et_personname">{event._person_NAME}</span>
+				<span class="et_content_user">{event._user_REALNAME}</span>
+			</div>
+		</div>
+		
 	</f:for>
-	</ul>
+	<f:comment>Ende Haupt-Schleife für Events</f:comment>
 	
 	<et:etpager	totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}"	currentPage="{etkeys.pageID}"/>
 	
