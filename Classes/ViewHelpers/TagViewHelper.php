@@ -26,6 +26,12 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+/**
+ * TagViewHelper puts value of 'node' into tag 'name' with optional 'class' attribute
+ * if value of 'node' is empty, an empty string is returned
+ * @author rothc
+ *
+ */
 class TagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 	
 	public function initializeArguments() {
@@ -41,7 +47,7 @@ class TagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
 	public function render() {
 		
 		// If wrong object or object empty, return empty string
-		if ( (get_class($this->arguments['node']) != 'SimpleXMLElement') || ($this->arguments['node'] == '')) {
+		if ( (get_class($this->arguments['node']) != 'SimpleXMLElement') || ($this->arguments['node'] == '') || ($this->arguments['node'] == FALSE) ) {
 			return '';
 		}
 		

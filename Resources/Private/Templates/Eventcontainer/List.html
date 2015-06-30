@@ -10,7 +10,9 @@
 	
 	<f:comment>Haupt-Schleife für Events</f:comment>
 	<f:for each="{events.items}" as="event" iteration="iterator">
-	
+		
+		<et:tag name="div" class="monthbar" node="{event.monthbar}" />
+			
 		<f:if condition="{iterator.isOdd}">
 			<f:then><div class="et_content_row odd"></f:then>
 			<f:else><div class="et_content_row even"></f:else>
@@ -19,7 +21,7 @@
 			<div class="et_content_title">
 				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action>
 				 
-				<f:if condition="<et:tag node='{event._event_SHORT_DESCRIPTION}'/>">
+				<f:if condition="<et:str on='{event._event_SHORT_DESCRIPTION}'/>">
 				<br><et:tag class="et_description" node="{event._event_SHORT_DESCRIPTION}"/>
 				</f:if>
 				
