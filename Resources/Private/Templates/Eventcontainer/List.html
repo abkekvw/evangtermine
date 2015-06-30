@@ -17,12 +17,16 @@
 		</f:if>
 			<div class="et_content_date"><span class="et_tag">{event.DATUM2}<br>{event.LITURG_BEZ}</span></div>
 			<div class="et_content_title">
-				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action> 
-				<f:if condition="{event._event_SHORT_DESCRIPTION}"><br><span class="et_description">{event._event_SHORT_DESCRIPTION}</span></f:if>
+				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action>
+				 
+				<f:if condition="<et:tag node='{event._event_SHORT_DESCRIPTION}'/>">
+				<br><et:tag class="et_description" node="{event._event_SHORT_DESCRIPTION}"/>
+				</f:if>
+				
 				<br><span class="et_city">{event._place_CITY}: </span>
-				<span class="et_placename">{event._place_NAME}</span>
-				<span class="et_personname">{event._person_NAME}</span>
-				<span class="et_content_user">{event._user_REALNAME}</span>
+				<et:tag class="et_placename" node="{event._place_NAME}"/>
+				<et:tag class="et_personname" node="{event._person_NAME}"/>
+				<et:tag class="et_content_user" node="{event._user_REALNAME}"/>
 			</div>
 		</div>
 		
