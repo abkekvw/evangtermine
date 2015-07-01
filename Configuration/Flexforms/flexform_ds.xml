@@ -161,33 +161,9 @@
                         <TCEforms>
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.itemsPerPage</label>
                             <config>
-                                <type>select</type>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">5</numIndex>
-                                        <numIndex index="1">5</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">10</numIndex>
-                                        <numIndex index="1">10</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2" type="array">
-                                        <numIndex index="0">20</numIndex>
-                                        <numIndex index="1">20</numIndex>
-                                    </numIndex>
-                                    <numIndex index="3" type="array">
-                                        <numIndex index="0">30</numIndex>
-                                        <numIndex index="1">30</numIndex>
-                                    </numIndex>
-                                    <numIndex index="4" type="array">
-                                        <numIndex index="0">40</numIndex>
-                                        <numIndex index="1">40</numIndex>
-                                    </numIndex>
-                                    <numIndex index="5" type="array">
-                                        <numIndex index="0">50</numIndex>
-                                        <numIndex index="1">50</numIndex>
-                                    </numIndex>
-                                </items>
+                                <type>input</type>
+                                <size>20</size>
+                                <eval>trim,int</eval>
                             </config>
                         </TCEforms>
                     </settings.etkey_itemsPerPage>
@@ -196,7 +172,7 @@
                     		<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.addprms</label>
                     		<config>
                     			<type>input</type>
-                    			<size>30</size>
+                    			<size>20</size>
                                 <eval>trim</eval>
                     		</config>
                     	</TCEforms>

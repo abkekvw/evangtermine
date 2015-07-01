@@ -57,7 +57,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * @see \TYPO3\CMS\Extbase\Mvc\Controller\ActionController::initializeAction()
 	 */
 	protected function initializeAction() {
-		$this->session = $GLOBALS['TSFE']->fe_user->getKey('ses', 'tx_evangtermine'); 
+		
+		// load session
+		$this->session = $GLOBALS['TSFE']->fe_user->getKey('ses', 'tx_evangtermine');
+		
+		// include CSS and JS
+		$this->includeAdditionalHeaderData();
+		
 	}
 	
 	/**
@@ -66,6 +72,19 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	private function saveSession() {
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'tx_evangtermine', $this->session);
 		$GLOBALS['TSFE']->fe_user->storeSessionData();
+	}
+	
+	/**
+	 * include CSS and JS resources 
+	 */
+	private function includeAdditionalHeaderData() {
+		
+		if ($this->settings['CSSFile']) {
+			$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = 
+				'<link rel="stylesheet" href="'.
+				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('evangtermine') . $this->settings['CSSFile'] .
+				'" media="all" />';
+		}
 	}
 	
 	/**

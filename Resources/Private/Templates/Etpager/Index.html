@@ -1,6 +1,7 @@
 <f:if condition="{pgr.pages} > 1">
 
 <div class="et_pager_container">
+	<div class="light-theme simple-pagination">
 	
 	 <f:comment>Left side browser</f:comment>
 	 <f:if condition="{pgr.lBrowser} == 1">
@@ -19,16 +20,13 @@
 		</f:if>
 	</f:for>
 	
-	<!-- 
-	<a href="/tmp/xmlscript/xmlscript.php?pageID=3" title="Weiter">»</a>
-	<a href="/tmp/xmlscript/xmlscript.php?pageID=29" title="Seite 29">[29]</a>
-	 -->
 	 <f:comment>Right side browser</f:comment>
 	 <f:if condition="{pgr.rBrowser} == 1">
 	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.rBrowserNext}" title="Seite {pgr.rBrowserNext}" noCache="1">»</f:link.action>
 	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.pages}" title="Seite {pgr.pages}" noCache="1">[{pgr.pages}]</f:link.action>
 	 </f:if>
-		
+	 
+	</div>		
 </div>
 
 </f:if>
