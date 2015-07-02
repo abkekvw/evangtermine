@@ -31,79 +31,175 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  */
 class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
-	/**
-	 * array of allowed keys
-	 * @var array
-	 */
-	private $allowedKeys = array(
-			'vid',
-			'region',
-			'kk',
-			'eventtype',
-			'highlight',
-			'people',
-			'person',
-			'place',
-			'ipm',
-			'cha',
-			'itemsPerPage',
-			'pageID',
-			'q',
-			'd',
-			'month',
-			'date',
-			'year',
-			'start',
-			'end',
-			'dest',
-			'own',
-			'menue1',
-			'menue2',
-			'zip'
-			,'yesno1',
-			'yesno2',
-			'until',
-			'encoding');
-	
-	
-	private $keysArray = array();
-	
 	
 	/**
-	 * constructor. sets default values from the start
+	 * veranstalter id
+	 * @var string
 	 */
-	public function __construct() {
-		// parent::__construct();
-		$this->setDefaultValues();
-	}
+	protected $vid = 'all';
 	
 	/**
-	 * Set a single key-value pair
-	 * @param string $key
-	 * @param string $value
+	 * region
+	 * @var string
 	 */
-	public function setSingleKey($key, $value) {
-
-		if (in_array($key, $this->allowedKeys)) {
-			$this->keysArray[$key] = trim($value);
-		}
-	}
+	protected $region = 'all';
 	
 	/**
-	 * return a single value
-	 * @param string $key
+	 * kk
+	 * @var string
 	 */
-	public function getSingleKey($key) {
-		return (isset($this->keysArray[$key])) ? $this->keysArray[$key] : ''; 
-	}
+	protected $kk = null;
 	
 	/**
-	 * return all keys
-	 * @return array
+	 *eventtype
+	 * @var string
 	 */
-	public function getKeysArray() {
-		return $this->keysArray;
-	}
+	protected $eventtype = 'all';
+	
+	/**
+	 * highlight
+	 * @var string
+	 */
+	protected $highlight = 'all';
+	
+	/**
+	 * people
+	 * @var string
+	 */
+	protected $people = '0';
+	
+	/**
+	 * person
+	 * @var string
+	 */
+	protected $person = null;
+	
+	/**
+	 * place
+	 * @var string
+	 */
+	protected $place = null;
+	
+	/**
+	 * inputmask
+	 * @var string
+	 */
+	protected $ipm = null;
+	
+	/**
+	 * channel
+	 * @var string
+	 */
+	protected $cha = null;
+	
+	/**
+	 * itemsPerPage
+	 * @var string
+	 */
+	protected $itemsPerPage = null;
+	
+	/**
+	 * pageID
+	 * @var string
+	 */
+	protected $pageID = '1';
+	
+	/**
+	 * searchword
+	 * @var string
+	 */
+	protected $q = 'none';
+	
+	/**
+	 * day
+	 * @var string
+	 */
+	protected $d = null;
+	
+	/**
+	 * month
+	 * @var string
+	 */
+	protected $month = null;
+	
+	/**
+	 * date
+	 * @var string
+	 */
+	protected $date = '';
+	
+	/**
+	 * year
+	 * @var string
+	 */
+	protected $year = null;
+	
+	/**
+	 * start
+	 * @var string
+	 */
+	protected $start = null;
+	
+	/**
+	 * end
+	 * @var string
+	 */
+	protected $end = null;
+	
+	/**
+	 * dest
+	 * @var string
+	 */
+	protected $dest = null;
+	
+	/**
+	 * own
+	 * @var string
+	 */
+	protected $own = 'all';
+	
+	/**
+	 * menue1
+	 * @var string
+	 */
+	protected $menue1 = null;
+	
+	/**
+	 * menue2
+	 * @var string
+	 */
+	protected $menue2 = null;
+	
+	/**
+	 * zip
+	 * @var string
+	 */
+	protected $zip = null;
+	
+	/**
+	 * yesno1
+	 * @var string
+	 */
+	protected $yesno1 = null;
+	
+	/**
+	 * yesno2
+	 * @var string
+	 */
+	protected $yesno2 = null;
+	
+	/**
+	 * until
+	 * @var string
+	 */
+	protected $until = null;
+	
+	/**
+	 * encoding
+	 * @var string
+	 */
+	protected $encoding = null;
+	
 	
 	/**
 	 * (non-PHPdoc)
@@ -111,67 +207,230 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	public function getValue() {
 		
-		if (!empty($this->keysArray)) {
-			
-			foreach ($this->keysArray as $key => $value) {
-				$parBlocks[] = $key . '=' . urlencode(utf8_decode($value));
-			}
-			
-			return implode('&', $parBlocks);
-		} else {
-			return '';
-		}
-		
 	}
 	
-	/**
-	 * set several default values, necessary in case of reset
-	 * @return void
-	 */
-	public function setDefaultValues() {
-		
-		// delete all keys
-		$this->keysArray = array();
-		
-		// set defualt values
-		$this->setSingleKey('vid', 'all');
-		$this->setSingleKey('region', 'all');
-		$this->setSingleKey('eventtype', 'all');
-		$this->setSingleKey('highlight', 'all');
-		$this->setSingleKey('people', '0');
-		$this->setSingleKey('pageID', '1');
-		$this->setSingleKey('q', 'none');
-		$this->setSingleKey('date', '');
+	public function getVid() {
+		return $this->vid;
 	}
 	
-	// Simulate Getters and Setters
-	public function __call($methodName, $arguments) {
-		
-		$mPrefix = substr($methodName, 0, 3); // This is 'get' or 'set'
-		
-		if (strlen($methodName) > 3) {
-			
-			$property = lcfirst(substr($methodName, 3));
-			
-			if (in_array($property, $this->allowedKeys)) {
-				
-				switch ($mPrefix) {
-					
-					case 'get':
-						return $this->getSingleKey($property);
-					break;
-					
-					case 'set':
-						$this->setSingleKey($property, $arguments[0]);
-						return;
-					break;
-				}
-			}
-		}
-		
-		throw new \TYPO3\CMS\Extbase\Persistence\Generic\Exception\UnsupportedMethodException(
-				'The method ' . $methodName . ' does not exist on this object');
+	public function setVid($vid) {
+		$this->vid = $vid;
 	}
 	
+	public function getRegion() {
+		return $this->region;
+	}
+	
+	public function setRegion($region) {
+		$this->region = $region;
+	}
+	
+	public function getKk() {
+		return $this->kk;
+	}
+	
+	public function setKk($kk) {
+		$this->kk = $kk;
+	}
+	
+	public function getEventtype() {
+		return $this->eventtype;
+	}
+	
+	public function setEventtype($eventtype) {
+		$this->eventtype = $eventtype;
+	}
+	
+	public function getHighlight() {
+		return $this->highlight;
+	}
+	
+	public function setHighlight($highlight) {
+		$this->highlight = $highlight;
+	}
+	
+	public function getPeople() {
+		return $this->people;
+	}
+	
+	public function setPeople($people) {
+		$this->people = $people;
+	}
+	
+	public function getPerson() {
+		return $this->person;
+	}
+	
+	public function setPerson($person) {
+		$this->person = $person;
+	}
+	
+	public function getPlace() {
+		return $this->place;
+	}
+	
+	public function setPlace($place) {
+		$this->place = $place;
+	}
+	
+	public function getIpm() {
+		return $this->ipm;
+	}
+	
+	public function setIpm($ipm) {
+		$this->ipm = $ipm;
+	}
+	
+	public function getCha() {
+		return $this->cha;
+	}
+	
+	public function setCha($cha) {
+		$this->cha = $cha;
+	}
+	
+	public function getItemsPerPage() {
+		return $this->itemsPerPage;
+	}
+	
+	public function setItemsPerPage($itemsPerPage) {
+		$this->itemsPerPage = $itemsPerPage;
+	}
+	
+	public function getPageID() {
+		return $this->pageID;
+	}
+	
+	public function setPageID($pageID) {
+		$this->pageID = $pageID;
+	}
+	
+	public function getQ() {
+		return $this->q;
+	}
+	
+	public function setQ($q) {
+		$this->q = $q;
+	}
+	
+	public function getD() {
+		return $this->d;
+	}
+	
+	public function setD($d) {
+		$this->d = $d;
+	}
+	
+	public function getMonth() {
+		return $this->month;
+	}
+	
+	public function setMonth($month) {
+		$this->month = $month;
+	}
+	
+	public function getDate() {
+		return $this->date;
+	}
+	
+	public function setDate($date) {
+		$this->date = $date;
+	}
+	
+	public function getYear() {
+		return $this->year;
+	}
+	
+	public function setYear($year) {
+		$this->year = $year;
+	}
+	
+	public function getStart() {
+		return $this->start;
+	}
+	
+	public function setStart($start) {
+		$this->start = $start;
+	}
+	
+	public function getEnd() {
+		return $this->end;
+	}
+	
+	public function setEnd($end) {
+		$this->end = $end;
+	}
+	
+	public function getDest() {
+		return $this->dest;
+	}
+	
+	public function setDest($dest) {
+		$this->dest = $dest;
+	}
+	
+	public function getOwn() {
+		return $this->own;
+	}
+	
+	public function setOwn($own) {
+		$this->own = $own;
+	}
+	
+	public function getMenue1() {
+		return $this->menue1;
+	}
+	
+	public function setMenue1($menue1) {
+		$this->menue1 = $menue1;
+	}
+	
+	public function getMenue2() {
+		return $this->menue2;
+	}
+	
+	public function setMenue2($menue2) {
+		$this->menue2 = $menue2;
+	}
+	
+	public function getZip() {
+		return $this->zip;
+	}
+	
+	public function setZip($zip) {
+		$this->zip = $zip;
+	}
+	
+	public function getYesno1() {
+		return $this->yesno1;
+	}
+	
+	public function setYesno1($yesno1) {
+		$this->yesno1 = $yesno1;
+	}
+	
+	public function getYesno2() {
+		return $this->yesno2;
+	}
+	
+	public function setYesno2($yesno2) {
+		$this->yesno2 = $yesno2;
+	}
+	
+	public function getUntil() {
+		return $this->until;
+	}
+	
+	public function setUntil($until) {
+		$this->until = $until;
+	}
+	
+	public function getEncoding() {
+		return $this->encoding;
+	}
+	
+	public function setEncoding($encoding) {
+		$this->encoding = $encoding;
+	}
 	
 }

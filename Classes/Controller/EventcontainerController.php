@@ -94,9 +94,10 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * - retrieve XML data
 	 * - hand it to view
 	 *
+	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys
 	 * @return void
 	 */
-	public function listAction() {
+	public function listAction(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys = NULL) {
 		
 		if (!isset($this->session['etkeys'])) {
 			// no session data exists. set up fresh, clean container object for params

@@ -50,59 +50,6 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  		unset ($this->subject);
  	}
  	
- 	/**
- 	 * @test
- 	 */
- 	public function setSingleKey() {
- 		$this->subject->setSingleKey('q', 'Gewölk');
- 		$this->assertEquals('vid=all&region=all&eventtype=all&highlight=all&people=0&pageID=1&q=Gew%F6lk&date=', $this->subject->getValue());
- 	}
  	
- 	/**
- 	 * @test
- 	 */
- 	public function skipNotAllowedKey() {
- 		$this->subject->setSingleKey('marypoppins', 'theValue');
- 		$this->assertEquals('', $this->subject->getSingleKey('marypoppins'));
- 	}
  	
- 	/**
- 	 * @test
- 	 */
- 	public function doesSetEmptyKey() {
- 		$this->subject->setSingleKey('q', '');
- 		$this->assertEquals('', $this->subject->getSingleKey('q'));
- 	}
- 	
- 	/**
- 	 * @test
- 	 */
- 	public function getSingleKey() {
- 		$this->subject->setSingleKey('itemsPerPage', '20');
- 		$this->assertEquals('20', $this->subject->getSingleKey('itemsPerPage'));
- 	}
- 	
- 	/**
- 	 * @test
- 	 */
- 	public function getAllKeys() {
- 		$this->subject->setSingleKey('highlight', 'all');
- 		$this->assertEquals('all', $this->subject->getKeysArray()['highlight']);
- 	}
- 	
- 	/**
- 	 * @test
- 	 */
- 	public function setDefaultValues() {
- 		$this->assertEquals('vid=all&region=all&eventtype=all&highlight=all&people=0&pageID=1&q=none&date=', $this->subject->getValue());
- 	}
- 	
- 	// tests for the __call() magic method
- 	/**
- 	 * @test
- 	 */
- 	public function getAndSetPropertyByMagicMethodCall() {
- 		$this->subject->setItemsPerPage('4711');
- 		$this->assertEquals('4711', $this->subject->getItemsPerPage());
- 	}
  }
