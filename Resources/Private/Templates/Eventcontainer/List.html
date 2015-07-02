@@ -3,8 +3,9 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-
-	<p>Es wurden {events.metaData.totalItems} Veranstaltungen gefunden.</p>
+<f:debug title="Request">{request}</f:debug>
+<f:debug title="etkeys">{etkeys}</f:debug>
+	<f:render partial="Searchform" arguments="{_all}" />
 	
 	<et:etpager	totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}"	currentPage="{etkeys.pageID}"/>
 	

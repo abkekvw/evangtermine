@@ -101,27 +101,28 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		if (!isset($this->session['etkeys'])) {
 			// no session data exists. set up fresh, clean container object for params
 			$this->session['etkeys'] = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-			$this->session['etkeys']->setAllowedKeys($this->settings['knownEtKeys']);
 			
 			// initialize etkeys from settings
 			$this->settingsUtility->fetchParamsFromConfig($this->settings, $this->session['etkeys']);
 		}
 		
-		if (count($this->request->getArguments())) {
-			// collect params from request 
-			$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
+		// collect params from request 
+		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
 			
-			// save parameters to session
-			$this->saveSession();
-		}
+// Wenn reset: neues etKeys Objekt mit Standard Values
+// flexform values neu einlesen
+
+		// save parameters to session
+		$this->saveSession();
 		
 		// retrieve XML
 		$evntContainer = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
 		
 		// hand model data to the view
 		$this->view->assign('events', $evntContainer);
-		$this->view->assign('etkeys', $this->session['etkeys']->getKeysArray());
-		
+		$this->view->assign('etkeys', $this->session['etkeys']);
+		// Debugging only
+		$this->view->assign('request', $this->request->getArguments()); 
 	}
 
 	/**

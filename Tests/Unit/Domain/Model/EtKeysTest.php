@@ -54,17 +54,14 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	 * @test
  	 */
  	public function setSingleKey() {
- 		$this->subject->setAllowedKeys(' foo, q');
- 		$this->subject->setSingleKey('foo', 'theValue');
  		$this->subject->setSingleKey('q', 'Gewölk');
- 		$this->assertEquals('foo=theValue&q=Gew%F6lk', $this->subject->getValue());
+ 		$this->assertEquals('vid=all&region=all&eventtype=all&highlight=all&people=0&pageID=1&q=Gew%F6lk&date=', $this->subject->getValue());
  	}
  	
  	/**
  	 * @test
  	 */
  	public function skipNotAllowedKey() {
- 		$this->subject->setAllowedKeys('foo,q');
  		$this->subject->setSingleKey('marypoppins', 'theValue');
  		$this->assertEquals('', $this->subject->getSingleKey('marypoppins'));
  	}
@@ -72,27 +69,40 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	/**
  	 * @test
  	 */
- 	public function doesNotSetEmptyKey() {
- 		$this->subject->setAllowedKeys('foo,q');
- 		$this->subject->setSingleKey('foo', '');
- 		$this->assertEquals('', $this->subject->getValue());
+ 	public function doesSetEmptyKey() {
+ 		$this->subject->setSingleKey('q', '');
+ 		$this->assertEquals('', $this->subject->getSingleKey('q'));
  	}
  	
  	/**
  	 * @test
  	 */
  	public function getSingleKey() {
- 		$this->subject->setAllowedKeys('foo');
- 		$this->subject->setSingleKey('foo', 'theValue');
- 		$this->assertEquals('theValue', $this->subject->getSingleKey('foo'));
+ 		$this->subject->setSingleKey('itemsPerPage', '20');
+ 		$this->assertEquals('20', $this->subject->getSingleKey('itemsPerPage'));
  	}
  	
  	/**
  	 * @test
  	 */
  	public function getAllKeys() {
- 		$this->subject->setAllowedKeys('foo');
- 		$this->subject->setSingleKey('foo', 'theValue');
- 		$this->assertEquals('theValue', $this->subject->getKeysArray()['foo']);
+ 		$this->subject->setSingleKey('highlight', 'all');
+ 		$this->assertEquals('all', $this->subject->getKeysArray()['highlight']);
+ 	}
+ 	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function setDefaultValues() {
+ 		$this->assertEquals('vid=all&region=all&eventtype=all&highlight=all&people=0&pageID=1&q=none&date=', $this->subject->getValue());
+ 	}
+ 	
+ 	// tests for the __call() magic method
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function getAndSetPropertyByMagicMethodCall() {
+ 		$this->subject->setItemsPerPage('4711');
+ 		$this->assertEquals('4711', $this->subject->getItemsPerPage());
  	}
  }

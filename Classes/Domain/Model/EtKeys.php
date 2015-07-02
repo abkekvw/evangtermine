@@ -35,23 +35,46 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * array of allowed keys
 	 * @var array
 	 */
-	private $allowedKeys = array();
+	private $allowedKeys = array(
+			'vid',
+			'region',
+			'kk',
+			'eventtype',
+			'highlight',
+			'people',
+			'person',
+			'place',
+			'ipm',
+			'cha',
+			'itemsPerPage',
+			'pageID',
+			'q',
+			'd',
+			'month',
+			'date',
+			'year',
+			'start',
+			'end',
+			'dest',
+			'own',
+			'menue1',
+			'menue2',
+			'zip'
+			,'yesno1',
+			'yesno2',
+			'until',
+			'encoding');
 	
 	
 	private $keysArray = array();
 	
+	
 	/**
-	 * set allowed keys
-	 * @param string $allowedKeys
+	 * constructor. sets default values from the start
 	 */
-	public function setAllowedKeys($allowedKeysString) {
-		
-		$this->allowedKeys = array();
-		$rawKeys = explode(',', $allowedKeysString);
-		foreach ($rawKeys as $key) {
-			$this->allowedKeys[] = trim($key);
-		}
-		unset($rawKeys);
+	public function __construct() {
+		// parent::__construct();
+		$this->setDefaultValues();
 	}
 	
 	/**
@@ -61,8 +84,8 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	public function setSingleKey($key, $value) {
 
-		if (in_array($key, $this->allowedKeys) && trim($value) != '') {
-			$this->keysArray[$key] = $value;
+		if (in_array($key, $this->allowedKeys)) {
+			$this->keysArray[$key] = trim($value);
 		}
 	}
 	
@@ -100,5 +123,55 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		}
 		
 	}
+	
+	/**
+	 * set several default values, necessary in case of reset
+	 * @return void
+	 */
+	public function setDefaultValues() {
+		
+		// delete all keys
+		$this->keysArray = array();
+		
+		// set defualt values
+		$this->setSingleKey('vid', 'all');
+		$this->setSingleKey('region', 'all');
+		$this->setSingleKey('eventtype', 'all');
+		$this->setSingleKey('highlight', 'all');
+		$this->setSingleKey('people', '0');
+		$this->setSingleKey('pageID', '1');
+		$this->setSingleKey('q', 'none');
+		$this->setSingleKey('date', '');
+	}
+	
+	// Simulate Getters and Setters
+	public function __call($methodName, $arguments) {
+		
+		$mPrefix = substr($methodName, 0, 3); // This is 'get' or 'set'
+		
+		if (strlen($methodName) > 3) {
+			
+			$property = lcfirst(substr($methodName, 3));
+			
+			if (in_array($property, $this->allowedKeys)) {
+				
+				switch ($mPrefix) {
+					
+					case 'get':
+						return $this->getSingleKey($property);
+					break;
+					
+					case 'set':
+						$this->setSingleKey($property, $arguments[0]);
+						return;
+					break;
+				}
+			}
+		}
+		
+		throw new \TYPO3\CMS\Extbase\Persistence\Generic\Exception\UnsupportedMethodException(
+				'The method ' . $methodName . ' does not exist on this object');
+	}
+	
 	
 }
