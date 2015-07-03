@@ -87,6 +87,22 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		}
 	}
 	
+	
+	/**
+	 * create new Etkeys object and load Settings
+	 * @return \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys
+	 */
+	private function getNewFromSettings() {
+		
+		$etkeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		$etkeys->setResetValues();
+		
+		$this->settingsUtility->fetchParamsFromSettings($this->settings, $etkeys);
+		
+		return $etkeys;
+	}
+	
+	
 	/**
 	 * action list
 	 * - must collect all parameters (etKeys) from config-settings, session and request
@@ -94,25 +110,29 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * - retrieve XML data
 	 * - hand it to view
 	 *
-	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys
 	 * @return void
 	 */
-	public function listAction(\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys = NULL) {
+	public function listAction() {
 		
 		if (!isset($this->session['etkeys'])) {
-			// no session data exists. set up fresh, clean container object for params
-			$this->session['etkeys'] = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-			
-			// initialize etkeys from settings
-			$this->settingsUtility->fetchParamsFromConfig($this->settings, $this->session['etkeys']);
+			// no session data exists. set up fresh container object for params and load settings
+			$this->session['etkeys'] = $this->getNewFromSettings();
 		}
 		
 		// collect params from request 
 		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
+		
+		// check if params are coming in from (search-) form
+		if (isset($this->request->getArguments()['etkeysForm'])) {
 			
-// Wenn reset: neues etKeys Objekt mit Standard Values
-// flexform values neu einlesen
-
+				// did user trigger form parameter reset?
+				if (isset($this->request->getArguments()['sf_reset'])) {
+					$this->session['etkeys'] = $this->getNewFromSettings(); // do reset
+				} else {
+					$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments()['etkeysForm'], $this->session['etkeys']);
+				}
+		}
+			
 		// save parameters to session
 		$this->saveSession();
 		
@@ -122,6 +142,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		// hand model data to the view
 		$this->view->assign('events', $evntContainer);
 		$this->view->assign('etkeys', $this->session['etkeys']);
+		
 		// Debugging only
 		$this->view->assign('request', $this->request->getArguments()); 
 	}

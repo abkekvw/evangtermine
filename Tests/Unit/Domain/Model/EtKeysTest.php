@@ -51,5 +51,21 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  	}
  	
  	
+ 	/**
+ 	 * 
+ 	 * @test
+ 	 */
+ 	public function getStandardValues() {
+ 		$this->assertEquals('', $this->subject->getValue());
+ 	}
  	
+ 	/**
+ 	 *
+ 	 * @test
+ 	 */
+ 	public function getCustomValues() {
+ 		$this->subject->setRegion('19032');
+ 		$this->subject->setQ('Tür');
+ 		$this->assertEquals('region=19032&q=T%FCr', $this->subject->getValue());
+ 	}
  }

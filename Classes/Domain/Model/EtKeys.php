@@ -31,18 +31,58 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  */
 class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
+	/**
+	 * array of allowed keys
+	 * @var array
+	 */
+	private $allowedKeys = array(
+			'vid',
+			'region',
+			'aid',
+			'kk',
+			'eventtype',
+			'highlight',
+			'people',
+			'person',
+			'place',
+			'ipm',
+			'cha',
+			'itemsPerPage',
+			'pageID',
+			'q',
+			'd',
+			'month',
+			'date',
+			'year',
+			'start',
+			'end',
+			'dest',
+			'own',
+			'menue1',
+			'menue2',
+			'zip',
+			'yesno1',
+			'yesno2',
+			'until',
+			'encoding');
 	
 	/**
 	 * veranstalter id
 	 * @var string
 	 */
-	protected $vid = 'all';
+	protected $vid = null;
 	
 	/**
 	 * region
 	 * @var string
 	 */
-	protected $region = 'all';
+	protected $region = null;
+	
+	/**
+	 * aid (group admin)
+	 * @var string
+	 */
+	protected $aid = null;
 	
 	/**
 	 * kk
@@ -54,19 +94,19 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 *eventtype
 	 * @var string
 	 */
-	protected $eventtype = 'all';
+	protected $eventtype = null;
 	
 	/**
 	 * highlight
 	 * @var string
 	 */
-	protected $highlight = 'all';
+	protected $highlight = null;
 	
 	/**
 	 * people
 	 * @var string
 	 */
-	protected $people = '0';
+	protected $people = null;
 	
 	/**
 	 * person
@@ -102,13 +142,13 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * pageID
 	 * @var string
 	 */
-	protected $pageID = '1';
+	protected $pageID = null;
 	
 	/**
 	 * searchword
 	 * @var string
 	 */
-	protected $q = 'none';
+	protected $q = null;
 	
 	/**
 	 * day
@@ -126,7 +166,7 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * date
 	 * @var string
 	 */
-	protected $date = '';
+	protected $date = null;
 	
 	/**
 	 * year
@@ -156,7 +196,7 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * own
 	 * @var string
 	 */
-	protected $own = 'all';
+	protected $own = null;
 	
 	/**
 	 * menue1
@@ -201,14 +241,6 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $encoding = null;
 	
 	
-	/**
-	 * (non-PHPdoc)
-	 * @see \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject::getValue()
-	 */
-	public function getValue() {
-		
-	}
-	
 	public function getVid() {
 		return $this->vid;
 	}
@@ -223,6 +255,14 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
 	public function setRegion($region) {
 		$this->region = $region;
+	}
+	
+	public function getAid() {
+		return $this->aid;
+	}
+	
+	public function setAid($aid) {
+		$this->aid = $aid;
 	}
 	
 	public function getKk() {
@@ -431,6 +471,42 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
 	public function setEncoding($encoding) {
 		$this->encoding = $encoding;
+	}
+	
+
+	/**
+	 * (non-PHPdoc)
+	 * @see \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject::getValue()
+	 */
+	public function getValue() {
+	
+		foreach (get_object_vars($this) as $key => $value) {
+			if (in_array($key, $this->allowedKeys) && $value !== null) {
+				$parBlocks[] = $key . '=' . urlencode(utf8_decode($value));
+			}
+		}
+	
+		if (isset($parBlocks)) {
+			return implode('&', $parBlocks);
+		}
+		return '';
+	}
+	
+	
+	/**
+	 * Set all reset values
+	 * @return void
+	 */
+	public function setResetValues() {
+		$this->setVid('all');
+		$this->setRegion('all');
+		$this->setEventtype('all');
+		$this->setHighlight('all');
+		$this->setPeople('0');
+		$this->setPageID('1');
+		$this->setQ('none');
+		$this->setDate('');
+		$this->setOwn('all');
 	}
 	
 }

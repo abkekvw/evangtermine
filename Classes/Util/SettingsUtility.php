@@ -32,15 +32,18 @@ namespace ArbkomEKvW\Evangtermine\Util;
  class SettingsUtility {
  	
  	/**
- 	 * fetch etkey params from TypoScript/Flexform config
+ 	 * fetch etkey params from TypoScript/Flexform settings
  	 * @param array $settingsArray
  	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks
  	 */
- 	public function fetchParamsFromConfig(array $settingsArray, \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks) {
+ 	public function fetchParamsFromSettings(array $settingsArray, \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks) {
  	
  		foreach ($settingsArray as $key => $value) {
- 			if (substr($key, 0, 6) == 'etkey_') {
- 				$etks->setSingleKey(substr($key, 6), $value);
+ 			if (substr($key, 0, 6) == 'etkey_' && $value != '') {
+ 				$targetMethod = 'set' . ucfirst(substr($key, 6));
+ 				if (method_exists($etks, $targetMethod)) {
+ 					$etks->{$targetMethod}($value);
+ 				}
  			}
  		}
  		
@@ -49,7 +52,10 @@ namespace ArbkomEKvW\Evangtermine\Util;
  			$addprms = explode(',', $settingsArray['evt_addprms']);
  			foreach ($addprms as $keyval) {
  				list($key, $value) = explode('=', trim($keyval));
- 				$etks->setSingleKey(trim($key), trim($value));
+ 				$targetMethod = 'set' . ucfirst(trim($key));
+ 				if (method_exists($etks, $targetMethod)) {
+ 					$etks->{$targetMethod}(trim($value));
+ 				}
  			}
  		}
  	}
@@ -62,7 +68,12 @@ namespace ArbkomEKvW\Evangtermine\Util;
  	public function fetchParamsFromRequest($requestParams, \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etks) {
  		
  		foreach ($requestParams as $key => $value) {
- 			$etks->setSingleKey($key, $value);
+ 			
+ 			$targetMethod = 'set' . ucfirst($key);
+ 			
+ 			if (method_exists($etks, $targetMethod)) {
+ 				$etks->{$targetMethod}($value);
+ 			}
  		}
  	}
  	
