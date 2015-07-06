@@ -79,12 +79,32 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private function includeAdditionalHeaderData() {
 		
-		if ($this->settings['CSSFile']) {
-			$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = 
-				'<link rel="stylesheet" href="'.
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('evangtermine') . $this->settings['CSSFile'] .
-				'" media="all" />';
+		$additHDD = '';
+		$siteRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('evangtermine');
+		
+		if ($this->settings['jQueryUICSS']) {
+			$additHDD .=
+			'<link rel="stylesheet" href="'. $siteRelPath . $this->settings['jQueryUICSS'] . '" media="all" />'."\n";
 		}
+		
+		if ($this->settings['CSSFile']) {
+			$additHDD .=
+			'<link rel="stylesheet" href="'. $siteRelPath . $this->settings['CSSFile'] . '" media="all" />'."\n";
+		}
+		
+		if ($this->settings['jQuery']) {
+			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['jQuery'] . '"></script>'."\n"; 
+		}
+		
+		if ($this->settings['jQueryUI']) {
+			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['jQueryUI'] . '"></script>'."\n";
+		}
+		
+		if ($this->settings['customJS']) {
+			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['customJS'] . '"></script>'."\n";
+		}
+		
+		$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = $additHDD;
 	}
 	
 	
@@ -133,11 +153,14 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 				}
 		}
 			
-		// save parameters to session
-		$this->saveSession();
-		
 		// retrieve XML
 		$evntContainer = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
+		
+		// fine tune and save parameters to session
+		if ($this->session['etkeys']->getQ() == 'none') {
+			$this->session['etkeys']->setQ('');
+		}
+		$this->saveSession();
 		
 		// hand model data to the view
 		$this->view->assign('events', $evntContainer);

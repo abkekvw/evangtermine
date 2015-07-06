@@ -9,24 +9,31 @@
 					<f:form.select property="highlight" id="highlight" size="1" options="{high: 'Nur Highlights', all: 'Alle Veranstaltungen'}" />
 				</div>
 				<div class="et_filter_row_left">
+					<f:form.select property="eventtype" id="eventtype" size="1"	options="{etkeys.eventtypesList}" />
 				</div>
 				<div class="et_filter_row_left">
+					<f:form.select property="people" id="people" size="1"
+							options="{etkeys.peopleList}" />
 				</div>
 			</div>
 			<div class="et_filter_block_right">
 				<div class="et_filter_row_right">
-					Suchbegriff: 
+					Suchbegriff:
+					<f:form.textfield property="q" id="q" size="20" /> 
 				</div>
 				<div class="et_filter_row_right">
-					Datum: 
+					Datum:
+					<f:form.textfield property="date" id="date" class="hasDatePicker" size="10" maxlength="10" />
 				</div>
 				<div class="et_filter_row_right">
-					Anzeigen:  pro Seite von {events.metaData.totalItems}
+					Anzeigen:
+					<f:form.select property="itemsPerPage" id="itemsPerPage" size="1"	options="{etkeys.itemsPerPageList}" /> 
+					pro Seite von {events.metaData.totalItems}
 				</div>
 			</div>
 		</div>
 		<div class="et_filter_subrow">
-			<f:form.textfield property="pageID" type="hidden" value="1" />
+			<f:form.hidden property="pageID" value="1" />
 			
 			<f:form.button class="et_submit" name="sf_search" value="1">Suche</f:form.button>
 			<f:form.button class="et_reset" name="sf_reset" value="1">Zurücksetzen</f:form.button>

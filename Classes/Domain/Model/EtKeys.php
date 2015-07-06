@@ -473,6 +473,47 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->encoding = $encoding;
 	}
 	
+	public function getEventtypesList() {
+		return array(
+				'all' => 'Alle Kategorien',
+				 '1' => 'Gottesdienste',
+				 '2' => 'Gruppen / Kreise',
+				 '3' => 'Fortbildungen / Seminare / Vorträge',
+				 '4' => 'Konzerte / Theater / Musik',
+				 '5' => 'Freizeiten / Reisen',
+				 '6' => 'Ausstellungen / Kunst',
+				 '7' => 'Feste / Feiern',
+				 '8' => 'Sport/Spiel',
+				 '9' => 'Sonstiges',
+				 '10' => 'Meditation / spirituelle Angebote');
+	}
+	
+	public function getPeopleList() {
+		return array(
+				'0' => 'Alle Zielgruppen',
+				'5' => 'Kinder',
+				'40' => 'Konfirmanden',
+				'10' => 'Jugendliche',
+				'15' => 'Junge Erwachsene',
+				'16' => 'Frauen',
+				'17' => 'Männer',
+				'20' => 'Familien',
+				'25' => 'Erwachsene',
+				'30' => 'Senioren',
+				'35' => 'besondere Zielgruppe');
+	}
+	
+	public function getItemsPerPageList() {
+		return array(
+				'5' => '5',
+				'10' => '10',
+				'20' => '20',
+				'30' => '30',
+				'50' => '50',
+				'100' => '100'
+		);
+	}
+	
 
 	/**
 	 * (non-PHPdoc)
