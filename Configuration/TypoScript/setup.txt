@@ -18,7 +18,7 @@ plugin.tx_evangtermine {
 	settings {
 		
 		# Default jQuery UI CSS
-		jQueryUICSS = Resources/Public/jquery-ui-1.11.4/jquery-ui.min.css
+		jQueryUICSS = Resources/Public/jquery-ui-1.11.4.custom/jquery-ui.min.css
 		
 		# Default CSS
 		CSSFile = Resources/Public/CSS/default.css
@@ -27,7 +27,7 @@ plugin.tx_evangtermine {
 		jQuery = Resources/Public/jquery-1.11.1.min.js
 		
 		# Default jQuery UI
-		jQueryUI = Resources/Public/jquery-ui-1.11.4/jquery-ui.min.js
+		jQueryUI = Resources/Public/jquery-ui-1.11.4.custom/jquery-ui.min.js
 		
 		# additional JavaScript
 		customJS = Resources/Public/evangtermine.js
