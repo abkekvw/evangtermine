@@ -190,7 +190,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			$this->view->assign('event', $evntContainer->getItems()[0]);
 			
 		} else {
-			$this->addFlashMessage('Keine Event-ID übergeben', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::INFO);
+			$this->addFlashMessage('Keine Event-ID übergeben', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 			$this->redirect('genericinfo');
 		}
 		
