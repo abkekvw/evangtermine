@@ -167,7 +167,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->view->assign('etkeys', $this->session['etkeys']);
 		
 		// Debugging only
-		$this->view->assign('request', $this->request->getArguments()); 
+		// $this->view->assign('request', $this->request->getArguments()); 
 	}
 
 	/**
@@ -177,6 +177,29 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function showAction() {
 		
+		$etkeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		
+		if (isset($this->request->getArguments()['ID'])) {
+			
+			$etkeys->setID($this->request->getArguments()['ID']);
+			
+			// retrieve XML
+			$evntContainer = $this->eventcontainerRepository->findByEtKeys($etkeys);
+			
+			// hand model data to the view
+			$this->view->assign('event', $evntContainer->getItems()[0]);
+			
+		} else {
+			$this->addFlashMessage('Keine Event-ID übergeben', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::INFO);
+			$this->redirect('genericinfo');
+		}
+		
+	}
+	
+	/**
+	 * action genericinfo
+	 */
+	public function genericinfoAction() {
 	}
 	
 	

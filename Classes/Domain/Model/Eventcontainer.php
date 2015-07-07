@@ -104,7 +104,9 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	 */
 	public function loadXML($xmlString) {
 		
-		if (!trim($xmlString)) {
+		$xmlString = trim($xmlString);
+		
+		if (!$xmlString || substr($xmlString, 0, 5) != '<?xml') {
 			$this->reset();
 		} else {
 			$xmlSimple = new \SimpleXMLElement($xmlString);

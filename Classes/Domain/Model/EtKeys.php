@@ -64,7 +64,9 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 			'yesno1',
 			'yesno2',
 			'until',
-			'encoding');
+			'encoding',
+			'ID'
+	);
 	
 	/**
 	 * veranstalter id
@@ -239,6 +241,12 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var string
 	 */
 	protected $encoding = null;
+	
+	/**
+	 * ID param for a single event
+	 * @var string
+	 */
+	protected $ID = null;
 	
 	
 	public function getVid() {
@@ -468,6 +476,15 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	public function getEncoding() {
 		return $this->encoding;
 	}
+	
+	public function getID() {
+		return $this->ID;
+	}
+	
+	public function setID($ID) {
+		$this->ID = $ID;
+	}
+	
 	
 	public function setEncoding($encoding) {
 		$this->encoding = $encoding;

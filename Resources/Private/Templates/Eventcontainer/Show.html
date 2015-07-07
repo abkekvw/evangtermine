@@ -3,7 +3,103 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+<f:if condition="{event.ID}">
+	<f:then>
+	<div id="et_container">
 
-	<h1>Single View for Eventcontainer</h1>
+		<div id="et_content_container">
+			<div id="et_detail_header">
+				<div class="et_content_row et_headlinks">
+					<div class="et_detail_backlink">
+						<a href="javascript:history.back()">Zurück</a>
+					</div>
+					<div class="et_sharefunctions">
+						<a target="_blank"
+							href="http://www.veranstaltungen-ekvw.de/ical-{event.ID}">
+							<img align="absmiddle" border="0" title="als Kalender-Ereignisdatei downloaden"
+							alt="als Kalender-Ereignisdatei downloaden"
+							src="http://www.veranstaltungen-ekvw.de/bundles/vket/images/ical.gif"></a>&nbsp;
+						<a target="_blank"
+							href="http://www.veranstaltungen-ekvw.de/einladung-{event.ID}"><img
+							align="absmiddle" border="0" title="als E-Mail verschicken"
+							alt="als E-Mail verschicken"
+							src="http://www.veranstaltungen-ekvw.de/bundles/vket/images/email.gif"></a>&nbsp;<a
+							target="_blank"
+							href="http://www.veranstaltungen-ekvw.de/teilen-auf-facebook-152115"><img
+							align="absmiddle" border="0" title="Auf Facebook posten"
+							alt="Auf Facebook posten"
+							src="http://www.veranstaltungen-ekvw.de/bundles/vket/images/facebook.gif"></a>&nbsp;<a
+							target="_blank"
+							href="http://www.veranstaltungen-ekvw.de/teilen-auf-twitter-152115"><img
+							align="absmiddle" border="0" title="twittern" alt="twittern"
+							src="http://www.veranstaltungen-ekvw.de/bundles/vket/images/twitter.gif"></a>&nbsp;<a
+							href="javascript:window.print();"><img align="absmiddle"
+							border="0" title="drucken" alt="drucken"
+							src="http://www.veranstaltungen-ekvw.de/bundles/vket/images/print.png"></a>
+					</div>
+				</div>
+				<h1 id="et_detail_title">Besuchertreffen "Füreinander da sein"</h1>
+				<div id="et_detail_date">Di, 7.7. 18 Uhr</div>
+			</div>
+			<div class="et_content_row et_field_PLACE_ID odd"
+				id="et_field_PLACE_ID">
+				<div class="et_content_detaillabel">Ort</div>
+				<div class="et_content_detailvalue">
+					Friedenskirche<br> Lindenstr. 7<br> 33758 Stukenbrock <br>
+					<img
+						src="http://www.veranstaltungen-ekvw.de/Upload/th-164-16714860954b8ca4418cf8.JPG"
+						id="et_place_image_th"><img
+						src="http://www.veranstaltungen-ekvw.de/Upload/164-16714860954b8ca4418cf8.JPG"
+						id="et_place_image">
+				</div>
+			</div>
+			<div class="et_content_row et_field_EVENTTYPE even"
+				id="et_field_EVENTTYPE">
+				<div class="et_content_detaillabel">Art der Veranstaltung</div>
+				<div class="et_content_detailvalue">Gruppen / Kreise</div>
+			</div>
+			<div class="et_content_row et_field_TEXTBOX_1 odd"
+				id="et_field_TEXTBOX_1">
+				<div class="et_content_detaillabel">Weitere Informationen</div>
+				<div class="et_content_detailvalue">
+					Es treffen sich Mitbürger, die Zeit haben und ihre Hilfe anbieten
+					können und gern etwas Warme und Geborgenheit innerhalb der
+					Kirchengemeinde vermitteln wollen und die - wie Pfarrer Bogdan
+					sagte - ?ein Lacheln auf den Gesichtern der besuchten Menschen
+					hervorzaubern? mochten.<br> Näheres klick hier: <br> <a
+						target="_blank" class="et_link"
+						href="http://www.ev-kirche-shs.de/erwachsene/gruppentreffs/besuche-fuereinander-da-sein/">http://www.ev-kirche-shs.de/erwachsene/gruppentreffs/besuche-fuereinander-da-sein/</a>
+				</div>
+			</div>
+			<div class="et_content_row et_field_MENUE_1 even"
+				id="et_field_MENUE_1">
+				<div class="et_content_detaillabel">Empfohlen für:</div>
+				<div class="et_content_detailvalue"></div>
+			</div>
+			<div id="et_detail_position">
+				<a
+					onclick="window.open('http://www.veranstaltungen-ekvw.de/veranstaltungsort_164','Karte','scrollbars=yes,resizable=yes,width=600,height=500')"
+					title="Auf Karte anzeigen" href="javascript:;"><img
+					src="http://maps.googleapis.com/maps/api/staticmap?center=51.911423191119,8.6498236656189&amp;zoom=15&amp;size=600x120&amp;maptype=roadmap&amp;markers=color:blue|label:|51.911423191119,8.6498236656189&amp;sensor=false&amp;key=AIzaSyBaLpnUlSEE7WEmG6LwBQuIuVRkCWXK30Q"></a>
+			</div>
 
+			<div class="et_content_row et_user">
+				<div class="et_content_detaillabel">Veranstalter</div>
+				<div class="et_content_detailvalue">
+					Evangelische Kirchengemeinde Schloß Holte-Stukenbrock <br>
+					Servicecenter <br> Holter Straße 245 ? 247 <br> 33758
+					Schloß Holte-Stukenbrock <br> <a target="_blank"
+						class="et_link" href="mailto:servicecenter@ev-kirche-shs.de">servicecenter@ev-kirche-shs.de</a><br>
+					<a target="_blank" class="et_link" href="http://www.shs.ekvw.de">www.shs.ekvw.de</a><br>
+					Tel.: (0 52 07) 8 78 49 <br> Fax: (0 52 07) 5 05 86
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</f:then>
+	<f:else>
+		<p>Diese Veranstaltung existiert nicht.</p>
+	</f:else>
+</f:if>
 </f:section>

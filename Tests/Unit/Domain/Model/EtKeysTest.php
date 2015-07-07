@@ -68,4 +68,12 @@ namespace ArbkomEKvW\Evangtermine\Tests\Unit\Domain\Model;
  		$this->subject->setQ('Tür');
  		$this->assertEquals('region=19032&q=T%FCr', $this->subject->getValue());
  	}
+ 	
+ 	/**
+ 	 * @test
+ 	 */
+ 	public function setOnlyID() {
+ 		$this->subject->setID('12345');
+ 		$this->assertEquals('ID=12345', $this->subject->getValue());
+ 	}
  }
