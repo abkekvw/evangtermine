@@ -178,6 +178,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	public function showAction() {
 		
 		$etkeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		$extconf = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Util\ExtConf');
 		
 		if (isset($this->request->getArguments()['ID'])) {
 			
@@ -188,6 +189,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			
 			// hand model data to the view
 			$this->view->assign('event', $evntContainer->getItems()[0]);
+			$this->view->assign('detailitems', $evntContainer->getDetail());
+			$this->view->assign('eventhost', $extconf->getExtConfArray()['host']);
 			
 		} else {
 			$this->addFlashMessage('Keine Event-ID übergeben', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);

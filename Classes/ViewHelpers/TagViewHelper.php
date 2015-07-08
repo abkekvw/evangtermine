@@ -55,7 +55,7 @@ class TagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
 		if ($this->arguments['class']) {
 			$class = ' class="' . $this->arguments['class'] . '"';
 		} else {
-			$class = '';
+			$class = ' class="et' . $this->arguments['node']->getName() . '"';
 		}
 		
 		// build tag

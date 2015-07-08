@@ -53,6 +53,12 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 	private $metaData = NULL;
 	
 	/**
+	 * detail-tag, only present in single view
+	 * @var array
+	 */
+	private $detail = NULL;
+	
+	/**
 	 * returns number of items in container
 	 * 
 	 * @return integer
@@ -97,6 +103,14 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 		$this->metaData = $metaData;
 	}
 	
+	public function setDetail($detail) {
+		$this->detail = $detail;
+	}
+	
+	public function getDetail() {
+		return $this->detail;
+	}
+	
 	/**
 	 * transform XML into array and load item attributes
 	 * @param string $xmlString
@@ -117,6 +131,9 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 			
 			// extract meta data
 			$this->setMetaData($xmlSimple->Export->meta);
+			
+			// extract detail
+			$this->setDetail($xmlSimple->Export->detail->item);
 		}
 		
 	}
