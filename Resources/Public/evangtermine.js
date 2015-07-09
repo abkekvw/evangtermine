@@ -36,4 +36,20 @@ $(function() {
 	$('#date').datepicker(dateoptions);
 	
 });
+
 function ET_openWindow(etURL,windowName,features) { window.open(etURL,windowName,features);}
+
+// slide in and out event place images
+$(function() {
+	
+	$('#et_place_image_th').mouseover(function() {
+		$(this).slideUp();
+		$('#et_place_image').slideDown();
+	});
+	
+	$('#et_place_image').mouseout(function() {
+		$(this).slideUp();
+		$('#et_place_image_th').slideDown();
+	});
+	
+});

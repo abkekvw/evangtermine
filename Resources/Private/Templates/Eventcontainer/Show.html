@@ -6,8 +6,6 @@
 <f:if condition="{event.ID}">
 	<f:then>
 	
-	<f:debug>{detailitems}</f:debug>	
-	
 	<div id="et_container">
 
 		<div id="et_content_container">
@@ -26,6 +24,25 @@
 				</div>
 				<h1 id="et_detail_title">{event._event_TITLE}</h1>
 				<div id="et_detail_date">{event.DATUM2}</div>
+			</div>
+			
+			<div class="et_content_row" id="et_field_PLACE_ID">
+				<div class="et_content_detaillabel">Ort</div>
+				<div class="et_content_detailvalue">
+					<et:tag node="{event._place_NAME}" />
+					<f:if condition="<et:str on='{event._place_STREET_NR}' />">
+						<br><et:tag node="{event._place_STREET_NR}" />
+						<br><et:tag node="{event._place_ZIP}" /> <et:tag node="{event._place_CITY}" />
+					</f:if>
+					<f:if condition="<et:str on='{event._place_INFO}' />">
+						<br><et:tag node="{event._place_INFO}" />
+					</f:if>
+					<f:if condition="<et:str on='{event._place_IMAGE}' />">
+						<br>
+						<img src="{event._place_THUMBNAIL}" id="et_place_image_th" style="display: inline;">
+						<img src="{event._place_IMAGE}" id="et_place_image" style="display: none;">
+					</f:if>
+				</div>
 			</div>
 			
 			<f:alias map="{etlist: {
@@ -54,6 +71,30 @@
 					</f:if>
 				</f:for>
 			</f:alias>
+			
+			<f:if condition="<et:str on='{event._person_NAME}'/>">
+				<div class="et_content_row" id="et_person_NAME">
+					<div class="et_content_detaillabel">Ansprechpartner</div>
+					<div class="et_content_detailvalue">
+						<et:tag node="{event._person_NAME}" />
+						<f:if condition="<et:str on='{event._person_EMAIL}'/>">
+							<br><et:tag node="{event._person_EMAIL}" />
+						</f:if>
+						<f:if condition="<et:str on='{event._person_CONTACT}'/>">
+							<br><et:tag node="{event._person_CONTACT}" />
+						</f:if>
+					</div>
+				</div>
+			</f:if>
+			
+			<f:if condition="<et:str on='{event._event_FEEDBACK_ID}'/>">
+				<div class="et_content_row" id="et_event_FEEDBACK_ID">
+					<div class="et_content_detaillabel"><et:attr on="{event._event_FEEDBACK_ID}" name="Label" /></div>
+					<div class="et_content_detailvalue">
+						<a href="javascript:;" OnClick="window.open('http://{eventhost}/rueckmeldeformular{event._event_FEEDBACK_ID}-{event.ID}', 'Rückmeldeformular','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=850,height=650,top=10,left=200');" class="feedbacklink et_link" >für die Veranstaltung anmelden</a>
+					</div>
+				</div>
+			</f:if>
  			
 			<div id="et_detail_position">
 				<a	onclick="window.open('http://{eventhost}/veranstaltungsort_{event._place_ID}','Karte','scrollbars=yes,resizable=yes,width=600,height=500')"
