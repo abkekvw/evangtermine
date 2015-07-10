@@ -1,0 +1,33 @@
+{namespace et=ArbkomEKvW\Evangtermine\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<div id="et_container"> 
+   <div id="et_content_container">
+
+	<f:for each="{events.items}" as="event">
+	
+	<div class="et_content_row et_even teaserrow highlight">
+    	<div class="et_content_date teaserdate"><span class="et_tagzeit">{event.DATUM2}</span></div>
+        <div class="et_content_title">
+        	<span class="teaserlink">
+        		<f:link.action action="show" arguments="{ID: event.ID}" noCache="1" pageUid="11">{event._event_TITLE}</f:link.action>
+        	</span>
+        	<span class="teasertext">
+        	<f:if condition="<et:str on='{event._person_NAME}'/>">
+        		<br><span class="et_personname">{event._person_NAME}</span><br>
+        	</f:if>
+        		<span class="et_city">{event._place_CITY}</span>
+        		<span class="et_placename teaserplace">{event._place_NAME}</span>
+        	</span>
+        </div>
+    </div>
+	
+	</f:for>
+   
+   </div>
+</div>
+	
+</f:section>

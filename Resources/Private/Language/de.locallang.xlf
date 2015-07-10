@@ -30,6 +30,11 @@
                     	<target>Region</target>
                     </trans-unit>
                     
+                    <trans-unit id="pluginsheet.opmode">
+                    	<source></source>
+                    	<target>Modus</target>
+                    </trans-unit>
+                    
                     <trans-unit id="feflexform.vid">
                     	<source></source>
                     	<target>Veranstalter-Id:</target>
@@ -83,6 +88,21 @@
                     <trans-unit id="feflexform.aid">
                     	<source></source>
                     	<target>Gruppenadministrator-ID (optional):</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.opmode">
+                    	<source></source>
+                    	<target>Plugin-Modus:</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.switchableControllerActions.list">
+                    	<source></source>
+                    	<target>Listenansicht</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.switchableControllerActions.teaser">
+                    	<source></source>
+                    	<target>Teaser</target>
                     </trans-unit>
                     
 		</body>

@@ -169,7 +169,27 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		// Debugging only
 		// $this->view->assign('request', $this->request->getArguments()); 
 	}
+	
+	
+	/**
+	 * action teaser 
+	 * @return void
+	 */
+	public function teaserAction() {
+		
+		// teaser needs no session, just params from the settings array
+		$etkeysTs = $this->getNewFromSettings();
+		
+		// retrieve XML
+		$evntContainer = $this->eventcontainerRepository->findByEtKeys($etkeysTs);
+		
+		// hand model data to the view
+		$this->view->assign('events', $evntContainer);
+		
+		
+	}
 
+	
 	/**
 	 * action show
 	 *
