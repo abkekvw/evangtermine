@@ -5,7 +5,7 @@
 <f:section name="main">
 <f:if condition="{event.ID}">
 	<f:then>
-	
+
 	<div id="et_container">
 
 		<div id="et_content_container">
@@ -34,9 +34,12 @@
 						<br><et:tag node="{event._place_STREET_NR}" />
 						<br><et:tag node="{event._place_ZIP}" /> <et:tag node="{event._place_CITY}" />
 					</f:if>
+					<f:comment>
 					<f:if condition="<et:str on='{event._place_INFO}' />">
-						<br><et:tag node="{event._place_INFO}" />
+						<br>
+						<f:cObject typoscriptObjectPath="plugin.tx_evangtermine.tslibs.renderFunc"><et:tag node="{event._place_INFO}" /></f:cObject>
 					</f:if>
+					</f:comment>
 					<f:if condition="<et:str on='{event._place_IMAGE}' />">
 						<br>
 						<img src="{event._place_THUMBNAIL}" id="et_place_image_th" style="display: inline;">
@@ -66,7 +69,9 @@
 					<f:if condition="<et:str on='{evt}' />">
 						<div class="et_content_row" id="et{key}">
 							<div class="et_content_detaillabel"><et:attr on="{evt}" name="Label" /></div>
-							<div class="et_content_detailvalue"><et:tag node="{evt}" /></div>
+							<div class="et_content_detailvalue">
+								<f:cObject typoscriptObjectPath="plugin.tx_evangtermine.tslibs.renderFunc"><et:tag node="{evt}" /></f:cObject>
+							</div>
 						</div>
 					</f:if>
 				</f:for>
@@ -76,13 +81,15 @@
 				<div class="et_content_row" id="et_person_NAME">
 					<div class="et_content_detaillabel">Ansprechpartner</div>
 					<div class="et_content_detailvalue">
-						<et:tag node="{event._person_NAME}" />
+					<et:tag node="{event._person_NAME}" />
+					<f:cObject typoscriptObjectPath="plugin.tx_evangtermine.tslibs.renderFunc">
 						<f:if condition="<et:str on='{event._person_EMAIL}'/>">
-							<br><et:tag node="{event._person_EMAIL}" />
+							mailto:{event._person_EMAIL}
 						</f:if>
 						<f:if condition="<et:str on='{event._person_CONTACT}'/>">
-							<br><et:tag node="{event._person_CONTACT}" />
+							<et:tag node="{event._person_CONTACT}" />
 						</f:if>
+					</f:cObject>
 					</div>
 				</div>
 			</f:if>
@@ -105,16 +112,17 @@
 			<div class="et_content_row et_user">
 				<div class="et_content_detaillabel">Veranstalter</div>
 				<div class="et_content_detailvalue">
-					<et:tag node="{event._user_REALNAME}"/>
-					<f:if condition="<et:str on='{event._user_DESCRIPTION}'/>"><br><et:tag node="{event._user_DESCRIPTION}"/></f:if>
-					<br><et:tag node="{event._user_STREET_NR}"/>
-					<br><et:tag node="{event._user_ZIP}"/>	<et:tag node="{event._user_CITY}"/>
-					<f:if condition="<et:str on='{event._user_EMAIL}'/>">
-						<br><a target="_blank"	class="et_link" href="mailto:{event._user_EMAIL}">{event._user_EMAIL}</a>
-					</f:if>
-					<f:if condition="<et:str on='{event._user_CONTACT}'/>">
-						<br>{event._user_CONTACT}
-					</f:if>
+				<et:tag name="span" node="{event._user_REALNAME}"/>
+				<f:cObject typoscriptObjectPath="plugin.tx_evangtermine.tslibs.renderFunc">
+				
+					<f:if condition="<et:str on='{event._user_DESCRIPTION}'/>"><et:tag node="{event._user_DESCRIPTION}"/></f:if>
+					<et:tag node="{event._user_STREET_NR}"/>
+					<et:tag node="{event._user_ZIP}"/>	<et:tag node="{event._user_CITY}"/>
+					
+					<f:if condition="<et:str on='{event._user_EMAIL}'/>">mailto:{event._user_EMAIL}</f:if>
+					
+					<f:if condition="<et:str on='{event._user_CONTACT}'/>">{event._user_CONTACT}</f:if>
+				</f:cObject>
 				</div>
 			</div>
  

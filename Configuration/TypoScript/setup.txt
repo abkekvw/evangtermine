@@ -33,6 +33,35 @@ plugin.tx_evangtermine {
 		customJS = Resources/Public/evangtermine.js
 		
 	}
+	
+	tslibs {
+		
+		renderFunc = TEXT
+		renderFunc {
+			value.current = 1
+			
+			parseFunc {
+			
+				makelinks = 1
+				makelinks {
+					http.extTarget = _blank
+					http.keep = path
+				}
+			
+				allowTags = span,div,br,p
+				denyTags = *
+			
+				nonTypoTagStdWrap {
+					# HTMLparser = 1
+					encapsLines {
+						encapsTagList = p,div,pre,h1,h2,h3,h4,h5,h6
+						wrapNonWrappedLines = |<br>
+					}
+				}
+			}
+		}
+		
+	}
 }
 
 plugin.tx_evangtermine._CSS_DEFAULT_STYLE (
