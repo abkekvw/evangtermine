@@ -20,8 +20,14 @@
 		</f:if>
 			<div class="et_content_date"><span class="et_tag">{event.DATUM2}<br>{event.LITURG_BEZ}</span></div>
 			<div class="et_content_title">
+			<f:if condition="{settings.opmode_detailpage}">
+			<f:then>
+				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1" pageUid="{settings.opmode_detailpage}">{event._event_TITLE}</f:link.action>
+			</f:then>
+			<f:else>
 				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action>
-				 
+			</f:else>
+			</f:if>
 				<f:if condition="<et:str on='{event._event_SHORT_DESCRIPTION}'/>">
 				<br><et:tag class="et_description" node="{event._event_SHORT_DESCRIPTION}"/>
 				</f:if>

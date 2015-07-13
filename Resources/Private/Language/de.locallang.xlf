@@ -92,7 +92,7 @@
                     
                     <trans-unit id="feflexform.opmode">
                     	<source></source>
-                    	<target>Plugin-Modus:</target>
+                    	<target>Plugin-Anzeigemodus:</target>
                     </trans-unit>
                     
                     <trans-unit id="feflexform.switchableControllerActions.list">
@@ -103,6 +103,16 @@
                     <trans-unit id="feflexform.switchableControllerActions.teaser">
                     	<source></source>
                     	<target>Teaser</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.switchableControllerActions.detail">
+                    	<source></source>
+                    	<target>Nur Detailansicht Termin</target>
+                    </trans-unit>
+                    
+                    <trans-unit id="feflexform.detailpage">
+                    	<source></source>
+                    	<target>Seite für Detailansicht:</target>
                     </trans-unit>
                     
 		</body>

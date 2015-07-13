@@ -3,7 +3,6 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-
 <div id="et_container"> 
    <div id="et_content_container">
 
@@ -13,7 +12,14 @@
     	<div class="et_content_date teaserdate"><span class="et_tagzeit">{event.DATUM2}</span></div>
         <div class="et_content_title">
         	<span class="teaserlink">
-        		<f:link.action action="show" arguments="{ID: event.ID}" noCache="1" pageUid="11">{event._event_TITLE}</f:link.action>
+        	<f:if condition="{settings.opmode_detailpage}">
+        	<f:then>
+        		<f:link.action action="show" arguments="{ID: event.ID}" noCache="1" pageUid="{settings.opmode_detailpage}">{event._event_TITLE}</f:link.action>
+        	</f:then>
+        	<f:else>
+        		<f:link.action action="show" arguments="{ID: event.ID}" noCache="1">{event._event_TITLE}</f:link.action>
+        	</f:else>
+        	</f:if>
         	</span>
         	<span class="teasertext">
         	<f:if condition="<et:str on='{event._person_NAME}'/>">

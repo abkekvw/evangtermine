@@ -234,10 +234,24 @@
 					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.teaser</numIndex>
                     					<numIndex index="1">Eventcontainer->teaser;Eventcontainer->show;Eventcontainer->genericinfo</numIndex>
                   					</numIndex>
+                  					<numIndex index="2" type="array">
+					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.detail</numIndex>
+                    					<numIndex index="1">Eventcontainer->show;Eventcontainer->genericinfo</numIndex>
+                  					</numIndex>
                 				</items>
                 			</config>
                 		</TCEforms>
                 	</switchableControllerActions>
+                	<settings.opmode_detailpage>
+                		<TCEforms>
+                			<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.detailpage</label>
+                			<config>
+                				<type>group</type>
+                				<internal_type>db</internal_type>
+                				<allowed>pages</allowed>
+                			</config>
+                		</TCEforms>
+                	</settings.opmode_detailpage>
                 </el>
         	</ROOT>
         </opmode>
