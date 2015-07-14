@@ -123,7 +123,12 @@ class Eventcontainer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impl
 		if (!$xmlString || substr($xmlString, 0, 5) != '<?xml') {
 			$this->reset();
 		} else {
-			$xmlSimple = new \SimpleXMLElement($xmlString);
+			try {
+				$xmlSimple = new \SimpleXMLElement($xmlString);
+			} catch (\Exception $e) {
+				$this->reset();
+				return;
+			}
 			
 			// extract event data
 			$this->setItems($xmlSimple->xpath('//Veranstaltung'));
