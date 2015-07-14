@@ -6,19 +6,34 @@
 .. include:: ../Includes.txt
 
 
-What does it do?
-================
+Einführung
+==========
 
-First of all, if you have any idea how this template can be improved, please, drop a note to our team_. Documentation is written in reST format. Please, refer to Help writing reStructuredText to get some insight regarding syntax and existing reST editors on the market.
+Mit Hilfe der evangtermine-Extension lassen sich die Veranstaltungshinweise aus dem Webangebot
+evangelische-termine.de in TYPO3-Websites integrieren. Im Unterschied zu Vorgängerversionen
+nutzt die Version |release| dazu die XML-Ausgabe von evangelische-termine.de als Datenquelle
+und Fluid-Templates für die Anzeige. Das heißt: Die nötigen (Fluid-) Kenntnisse vorausgesetzt,
+sind sehr flexible Layoutanpassungen möglich.
 
-.. _team: http://forge.typo3.org/projects/typo3v4-official_extension_template/issues
+Wer ist wer und was ist was
+---------------------------
 
-Here should be given a brief overview of the extension. What does it do? What problem does it solve? Who is interested in this? Basically the document includes everything people need to know to decide, if they should go on with this extension.
+Das Termin-Verwaltungssystem http://www.evangelische-termine.de ist ein Produkt der *Vernetzten Kirche im 
+Evangelischen Presseverband für Bayern e.V.* Web: http://www.vernetzte-kirche.de, E-Mail: vernetztekirche@elkb.de.
 
-.. figure:: ../Images/IntroductionPackage.png
-	:width: 500px
-	:alt: Introduction Package
+evangelische-termine.de wird zur Zeit angewendet von:
 
-	Introduction Package just after installation (caption of the image)
+- `Evangelisch-Lutherische Kirche in Bayern <http://www.bayern-evangelisch.de>`_
+- `Evangelische Kirche im Rheinland <http://www.ekir.de>`_
+- `Evangelische Kirche von Westfalen <http://www.evangelisch-in-westfalen.de>`_
+- `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <http://www.ekbo.de>`_   
 
-	How the Frontend of the Introduction Package looks like just after installation (legend of the image)
+Die TYPO3-Extension *evangtermine* wird entwickelt und betreut vom *Arbeitsbereich Kommunikation im Landeskirchenamt
+der Evangelischen Kirche von Westfalen*. Sie kann in allen Landeskirchen, die evangelische-termine nutzen,
+verwendet werden.
+
+Der aktuelle Code dieser Extension wird auf GitHub verwaltet: https://github.com/abkekvw/evangtermine
+Hinweise auf Bugs, Fehler in dieser Dokumentation, Verbesserungsvorschläge können gerne dort eingegeben werden
+oder direkt an christoph.roth@lka.ekvw.de.
+
+ 
