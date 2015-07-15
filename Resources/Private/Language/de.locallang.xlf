@@ -22,7 +22,7 @@
                     
                     <trans-unit id="pluginsheet.general">
                     	<source></source>
-                    	<target>Allgemein</target>
+                    	<target>Voreinstellung</target>
                     </trans-unit>
                    
                     <trans-unit id="pluginsheet.cdistrict">

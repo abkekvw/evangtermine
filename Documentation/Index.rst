@@ -48,7 +48,7 @@ Evangelische Termine
 	The content of this document is related to TYPO3,
 	a GNU/GPL CMS/Framework available from `www.typo3.org <http://www.typo3.org/>`_.
 
-	**Remark: Why this is not an english manual**
+	**Why this is not an english manual**
 	
 	This extension integrates the output of the proprietary "Evangelische Termine" web application into TYPO3 web sites.
 	"Evangelische Termine" is an application for publication and management	of local event notes 

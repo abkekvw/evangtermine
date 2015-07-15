@@ -11,7 +11,7 @@ Einführung
 
 Mit Hilfe der evangtermine-Extension lassen sich die Veranstaltungshinweise aus dem Webangebot
 evangelische-termine.de in TYPO3-Websites integrieren. Im Unterschied zu Vorgängerversionen
-nutzt die Version |release| dazu die XML-Ausgabe von evangelische-termine.de als Datenquelle
+nutzt die Version ab 2.0.0 dazu die XML-Ausgabe von evangelische-termine.de als Datenquelle
 und Fluid-Templates für die Anzeige. Das heißt: Die nötigen (Fluid-) Kenntnisse vorausgesetzt,
 sind sehr flexible Layoutanpassungen möglich.
 
@@ -28,12 +28,12 @@ evangelische-termine.de wird zur Zeit angewendet von:
 - `Evangelische Kirche von Westfalen <http://www.evangelisch-in-westfalen.de>`_
 - `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <http://www.ekbo.de>`_   
 
-Die TYPO3-Extension *evangtermine* wird entwickelt und betreut vom *Arbeitsbereich Kommunikation im Landeskirchenamt
-der Evangelischen Kirche von Westfalen*. Sie kann in allen Landeskirchen, die evangelische-termine nutzen,
+Die TYPO3-Extension **evangtermine** wird entwickelt und betreut vom *Arbeitsbereich Kommunikation im Landeskirchenamt
+der Evangelischen Kirche von Westfalen*. Sie kann in allen oben genannten Landeskirchen, die evangelische-termine nutzen,
 verwendet werden.
 
 Der aktuelle Code dieser Extension wird auf GitHub verwaltet: https://github.com/abkekvw/evangtermine
 Hinweise auf Bugs, Fehler in dieser Dokumentation, Verbesserungsvorschläge können gerne dort eingegeben werden
-oder direkt an christoph.roth@lka.ekvw.de.
+oder auch per Mail an christoph.roth@lka.ekvw.de.
 
  
