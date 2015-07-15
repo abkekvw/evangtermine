@@ -33,7 +33,7 @@ Evangelische Termine
 		July 2015
 
 	:Author:
-		Evangelische Kirche von Westfalen, Landeskirchenamt, Arbeitsbereich Kommunikation
+		Christoph Roth - Landeskirchenamt EKvW, Arbeitsbereich Kommunikation
 
 	:Email:
 		christoph.roth@lka.ekvw.de
@@ -53,7 +53,7 @@ Evangelische Termine
 	This extension integrates the output of the proprietary "Evangelische Termine" web application into TYPO3 web sites.
 	"Evangelische Termine" is an application for publication and management	of local event notes 
 	owned by `Vernetzte Kirche`_ and used by several protestant churches in Germany.
-	As it would make little sense to write an english manual for a german target audience,
+	As it would make little sense to write an english manual for an all-german target audience,
 	this document will be in german. 
 	
 	**Inhaltsverzeichnis**

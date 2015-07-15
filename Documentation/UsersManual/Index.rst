@@ -13,3 +13,8 @@ Benutzung und Administration
 
 .. include:: Installation.rst
 .. include:: PluginEinstellung.rst
+
+Anpassen der Darstellung
+========================
+
+.. include:: TypoScriptReferenz.rst
