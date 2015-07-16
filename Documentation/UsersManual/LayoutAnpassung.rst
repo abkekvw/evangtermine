@@ -17,4 +17,5 @@ Zum Anpassen der Darstellung gibt es prinzipiell zwei Wege:
 
 **eigene Fluid-Templates**
 	Wer sich mit Fluid auskennt, kann die mitgelieferten Templates, Layouts und Partials verändern 
-	oder durch eigene ersetzen. Siehe dazu weiter unten: Zum Einstieg in Fluid z.B.: http://docs.typo3.org/typo3cms/ExtbaseFluidBook/ 
+	oder durch eigene ersetzen. Siehe dazu weiter unten: `view`_ sowie `Technische Erläuterungen`_. 
+	Zum Einstieg in Fluid z.B.: http://docs.typo3.org/typo3cms/ExtbaseFluidBook/ 

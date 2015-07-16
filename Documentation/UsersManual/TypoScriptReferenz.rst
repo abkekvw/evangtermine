@@ -85,8 +85,8 @@ Website einzubinden. Hier existieren weit bessere Möglichkeiten zum Umgang mit 
 		
 	Beispiel::
 		customJS = Resources/Public/evangtermine.js
+
 	
-		
 view
 ^^^^
 
