@@ -17,4 +17,20 @@ Benutzung und Administration
 Anpassen der Darstellung
 ========================
 
+.. include:: LayoutAnpassung.rst
 .. include:: TypoScriptReferenz.rst
+
+Technische Erläuterungen
+========================
+
+.. include:: Technotes.rst
+
+ToDo
+====
+
+.. include:: ToDo.rst
+
+Danksagung
+==========
+
+.. include:: Danksagung.rst

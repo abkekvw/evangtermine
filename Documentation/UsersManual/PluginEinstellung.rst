@@ -5,7 +5,7 @@ Die wesentlichen Einstellungen für das Verhalten des Plugins werden in der Back
 Inhaltselements festgelegt.
 
 Fügen Sie dazu im Backend auf der gewünschten Seite das Plugin ein, z.B. über 
-"Plugins", "Allgemeines Plug-In", "Evangelische Termine".
+:menuselection:`Plugins --> Allgemeines Plug-In --> Evangelische Termine`.
 
 Die Einstellungen verteilen sich über drei Reiter, die im Folgenden besprochen werden.
 
