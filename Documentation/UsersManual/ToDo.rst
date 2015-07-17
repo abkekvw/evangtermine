@@ -1,1 +1,2 @@
-- Nutzung der SOAP-Schnittstelle
+- Bugfixing
+- Nutzung der SOAP-Schnittstelle von evangelische-termine.de

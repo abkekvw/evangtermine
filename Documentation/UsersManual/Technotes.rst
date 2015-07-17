@@ -122,13 +122,45 @@ class       Class-Name                     nein
 Fluid-Templates: Verwendbare Daten
 ----------------------------------
 
+Template: **List.html** (EventcontainerController, Action: **list**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. [*] Dieser ViewHelper ist eine krasse Notlösung, weil z.B. folgendes nicht funktioniert::
+**events**
+	Objekt vom Typ Eventcontainer, enthält unter {events.items} die Liste der <Veranstaltung>-Elemente
+	(SimpleXMLElements) und unter {events.metaData} das Element <meta>.
+	
+**etkeys**
+	Objekt vom Typ EtKeys. Attribute des Objekts sind alle aktiven Request-Parameter aus dem Abruf
+	der XML-Daten. {etkeys.highlight} liefert z.B. den Parameter *highlight* mit dem Wert *high* oder *all*, 
+	{etkeys.vid} die aktive Veranstalter-Id usw.   
+
+
+Template: **Teaser.html** (EventcontainerController, Action: **teaser**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**events**
+	Objekt vom Typ Eventcontainer, wie oben beim Template List.hmtl.
+
+
+Template: **Show.html** (EventcontainerController, Action: **show**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**event**
+	Alle Felder der Einzelveranstaltung, die angezeigt werden soll, z.B. {event._place_NAME} für den Veranstaltungsort.
+
+**detailitems**
+	Die Felder des Elements <detail>, das ist eine Liste von <item>-Elementen mit fertig zusammengesetzter
+	Veranstaltungsadresse und anderen Informationen.
+	
+
+**eventhost**
+	Der Hostname, der im Extension Manager eingestellt wurde, z.B. www.evangelische-termine.de oder www.veranstaltungen-ekvw.de
+
+
+.. [*] Dieser ViewHelper ist eine Notlösung, weil z.B. folgendes nicht funktioniert::
 
            <f:if condition="{event._event_TEXTLINE_2}">
            
        Es muss an den Interna des SimpleXMLElement liegen. Leider ist diese Lösung (Tipp-) fehleranfällig und umständlich.
-       Alles andere,  was mir noch in den Sinn kam, war leider noch umständlicher, z.B. von den 
-       SimpleXMLElement-Objekten wegzugehen, diese in einen anderen Typ zu wrappen usw.
 
  

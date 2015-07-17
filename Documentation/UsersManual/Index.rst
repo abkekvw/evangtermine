@@ -29,8 +29,3 @@ ToDo
 ====
 
 .. include:: ToDo.rst
-
-Danksagung
-==========
-
-.. include:: Danksagung.rst
