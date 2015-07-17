@@ -33,7 +33,7 @@ namespace ArbkomEKvW\Evangtermine\Controller;
 class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	
 	/**
-	 * @var \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
+	 * @var ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
 	 * @inject
 	 */
 	protected $eventcontainerRepository = NULL;
@@ -46,7 +46,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	private $session;
 	
 	/**
-	 * @var \ArbkomEKvW\Evangtermine\Util\SettingsUtility
+	 * @var ArbkomEKvW\Evangtermine\Util\SettingsUtility
 	 * @inject
 	 */
 	private $settingsUtility;
@@ -114,7 +114,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private function getNewFromSettings() {
 		
-		$etkeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
 		$etkeys->setResetValues();
 		
 		$this->settingsUtility->fetchParamsFromSettings($this->settings, $etkeys);
@@ -197,8 +197,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function showAction() {
 		
-		$etkeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-		$extconf = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Util\ExtConf');
+		$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		$extconf = $this->objectManager->get('ArbkomEKvW\Evangtermine\Util\ExtConf');
 		
 		if (isset($this->request->getArguments()['ID'])) {
 			

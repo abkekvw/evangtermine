@@ -1,9 +1,9 @@
 
 plugin.tx_evangtermine {
 	view {
-		templateRootPath = {$plugin.tx_evangtermine.view.templateRootPath}
-		partialRootPath = {$plugin.tx_evangtermine.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_evangtermine.view.layoutRootPath}
+		templateRootPaths = {$plugin.tx_evangtermine.view.templateRootPaths}
+		partialRootPaths = {$plugin.tx_evangtermine.view.partialRootPaths}
+		layoutRootPaths = {$plugin.tx_evangtermine.view.layoutRootPaths}
 	}
 	
 	persistence {

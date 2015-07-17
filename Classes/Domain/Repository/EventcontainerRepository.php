@@ -40,7 +40,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	protected $objectManager = NULL;
 	
 	/**
-	 * @var \ArbkomEKvW\Evangtermine\Util\ExtConf
+	 * @var ArbkomEKvW\Evangtermine\Util\ExtConf
 	 * @inject
 	 */
 	private $extConf = NULL;
@@ -87,7 +87,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$rawXml = $this->httpRequest->fetchUrl($url);
 		
 		// XML im Eventcontainer wandeln
-		$result = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
+		$result = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
 		$result->loadXML($rawXml);
 		
 		return $result;
