@@ -96,7 +96,7 @@ können unterhalb von **view** Pfade zu eigenen Fluid-Templates überschrieben w
 .. container:: table-row
 
 	Property
-		templateRootPath
+		templateRootPaths
 
 	Data type
 		String
@@ -105,13 +105,13 @@ können unterhalb von **view** Pfade zu eigenen Fluid-Templates überschrieben w
 		Pfad zu eigenen Fluid-Templates
 		
 	Beispiel::
-		plugin.tx_evangtermine.view.templateRootPath = fileadmin/dev/fluidtemplates/
+		plugin.tx_evangtermine.view.templateRootPaths = fileadmin/dev/fluidtemplates/
 
 
 .. container:: table-row
 
 	Property
-		partialRootPath
+		partialRootPaths
 
 	Data type
 		String
@@ -123,7 +123,7 @@ können unterhalb von **view** Pfade zu eigenen Fluid-Templates überschrieben w
 .. container:: table-row
 
 	Property
-		layoutRootPath
+		layoutRootPaths
 
 	Data type
 		String
