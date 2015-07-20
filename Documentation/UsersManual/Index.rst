@@ -29,3 +29,8 @@ ToDo
 ====
 
 .. include:: ToDo.rst
+
+ChangeLog
+=========
+
+.. include:: Changelog.rst
