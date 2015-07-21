@@ -76,7 +76,7 @@ class EventcontainerRepositoryTest extends \ArbkomEKvW\Evangtermine\Tests\Unit\A
 		
 		// to run the test live comment out all preceding code in this method up to this line
 		$etKeys = $this->objectManager->get('\ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
- 		$etKeys->setSingleKey('itemsPerPage', '5');
+ 		$etKeys->setItemsPerPage(5);
  		$evtContainer = $this->subject->findByEtKeys($etKeys);
  		$this->assertEquals('5', $evtContainer->getNumberOfItems());
 	}
