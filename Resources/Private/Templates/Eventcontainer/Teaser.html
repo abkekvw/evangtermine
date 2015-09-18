@@ -22,7 +22,7 @@
         	</f:if>
         	</span>
         	<span class="teasertext">
-        	<f:if condition="<et:str on='{event._person_NAME}'/>">
+        	<f:if condition="{et:str(on:event._person_NAME)}">
         		<br><span class="et_personname">{event._person_NAME}</span><br>
         	</f:if>
         		<span class="et_city">{event._place_CITY}</span>

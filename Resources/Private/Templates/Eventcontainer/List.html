@@ -28,7 +28,7 @@
 				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action>
 			</f:else>
 			</f:if>
-				<f:if condition="<et:str on='{event._event_SHORT_DESCRIPTION}'/>">
+				<f:if condition="{et:str(on:event._event_SHORT_DESCRIPTION)}">
 				<br><et:tag class="et_description" node="{event._event_SHORT_DESCRIPTION}"/>
 				</f:if>
 				
