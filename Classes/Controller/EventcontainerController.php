@@ -40,6 +40,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	
 	
 	/**
+	 * Uid value of current tt_content record
+	 * serves as unique id of this plugin instance, used for session identification
+	 * @var integer
+	 */
+	private $currentPluginUid;
+	
+	/**
 	 * session data
 	 * @var array
 	 */
@@ -58,11 +65,31 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	protected function initializeAction() {
 		
-		// load session
-		$this->session = $GLOBALS['TSFE']->fe_user->getKey('ses', 'tx_evangtermine');
+		$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
+		
+		$this->session = $this->loadSession();
 		
 		// include CSS and JS
 		$this->includeAdditionalHeaderData();
+		
+	}
+	
+	
+	/**
+	 * load session data
+	 * @return mixed
+	 */
+	private function loadSession() {
+		
+		if (!$this->currentPluginUid) {
+			$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
+		}
+		
+		// load session, but only for this single plugin instance
+		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
+		$sessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $sessionKey);
+		
+		return $sessionData;
 		
 	}
 	
@@ -70,7 +97,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * save session data
 	 */
 	private function saveSession() {
-		$GLOBALS['TSFE']->fe_user->setKey('ses', 'tx_evangtermine', $this->session);
+		
+		if (!$this->currentPluginUid) {
+			$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
+		}
+		
+		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
+		$GLOBALS['TSFE']->fe_user->setKey('ses', $sessionKey, $this->session);
 		$GLOBALS['TSFE']->fe_user->storeSessionData();
 	}
 	

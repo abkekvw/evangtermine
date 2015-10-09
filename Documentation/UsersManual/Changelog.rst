@@ -1,3 +1,12 @@
+Version 2.0.3
+-------------
+
+Datum: 09.10.2015
+
+- Bugfix: Voreinstellungen auf Themenseiten wurden nicht berücksichtigt
+- Getestet mit TYPO3 7.5.0
+
+
 Version 2.0.2
 -------------
 
