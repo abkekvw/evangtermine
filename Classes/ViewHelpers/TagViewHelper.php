@@ -33,8 +33,11 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  *
  */
 class TagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
-	
-	public function initializeArguments() {
+    
+    // this is new in TYPO3 8.x
+    protected $escapeOutput = FALSE;
+
+    public function initializeArguments() {
 		$this->registerArgument('name', 'string', 'name of tag to generate', FALSE, 'span');
 		$this->registerArgument('class', 'string', 'class name for tag', FALSE);
 		$this->registerArgument('node', 'object', 'SimpleXMLElement object to generate tag for', TRUE);

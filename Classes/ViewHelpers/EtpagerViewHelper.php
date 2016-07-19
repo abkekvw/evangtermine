@@ -35,6 +35,9 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  	 * @inject
  	 */
  	protected $controller;
+        
+        // this is new in TYPO3 8.x
+        protected $escapeOutput = FALSE;
  	
  	public function initializeArguments() {
  		$this->registerArgument('totalItems', 'string', 'amount of all items in result', TRUE);

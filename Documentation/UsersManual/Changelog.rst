@@ -1,3 +1,11 @@
+Version 2.0.4
+-------------
+
+Datum: 19.07.2016
+
+- Anpassung an TYPO3 Version 8
+
+
 Version 2.0.3
 -------------
 
