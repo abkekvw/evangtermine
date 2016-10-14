@@ -1,3 +1,11 @@
+Version 2.0.5
+-------------
+
+Datum: 14.10.2016
+
+- Bugfix: Problem mit Exception/CMS/1313855175 gelöst (hier: "list action not allowed")
+
+
 Version 2.0.4
 -------------
 

@@ -71,6 +71,9 @@ plugin.tx_evangtermine {
 		}
 		
 	}
+	
+	# solves action conflict with two plugins in one page, https://wiki.typo3.org/Exception/CMS/1313855175
+	mvc.callDefaultActionIfActionCantBeResolved = 1
 }
 
 plugin.tx_evangtermine._CSS_DEFAULT_STYLE (
