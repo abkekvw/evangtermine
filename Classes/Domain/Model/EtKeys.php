@@ -382,8 +382,8 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	public function setDate($date) {
+            $this->date = $date;
             if ($date != '') {
-		$this->date = $date;
                 // keep params 'd' and 'month' in sync with 'date'
                 $dateTokens = explode('.', $date);
                 $this->setD($dateTokens[0]);
