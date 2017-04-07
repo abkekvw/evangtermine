@@ -1,3 +1,11 @@
+Version 2.0.6
+-------------
+
+Datum: 07.04.2017
+
+- Bugfix: Bei Übergabe des "date"-Parameters werden "d" und "month" synchronisiert.
+
+
 Version 2.0.5
 -------------
 

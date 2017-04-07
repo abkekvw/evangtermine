@@ -382,7 +382,13 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	public function setDate($date) {
+            if ($date != '') {
 		$this->date = $date;
+                // keep params 'd' and 'month' in sync with 'date'
+                $dateTokens = explode('.', $date);
+                $this->setD($dateTokens[0]);
+                $this->setMonth($dateTokens[1] . '.' . substr($dateTokens[2], -2));
+            }
 	}
 	
 	public function getYear() {
