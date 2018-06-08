@@ -5,7 +5,7 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  *
  *  Copyright notice
  *
- *  (c) 2015 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ *  (c) 2015,2018 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
  *
  *  All rights reserved
  *
@@ -45,8 +45,10 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 			'people',
 			'person',
 			'place',
+			'bf',
 			'ipm',
 			'cha',
+			'lang',
 			'itemsPerPage',
 			'pageID',
 			'q',
@@ -121,6 +123,12 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var string
 	 */
 	protected $place = null;
+
+	/**
+	 * bf
+	 * @var string
+	 */
+	protected $bf = null;
 	
 	/**
 	 * inputmask
@@ -134,6 +142,12 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	protected $cha = null;
 	
+	/**
+	 * lang
+	 * @var string
+	 */
+	protected $lang = null;
+
 	/**
 	 * itemsPerPage
 	 * @var string
@@ -320,6 +334,14 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	public function setPlace($place) {
 		$this->place = $place;
 	}
+
+	public function getBf() {
+		return $this->bf;
+	}
+
+	public function setBf($bf) {
+		$this->bf = $bf;
+	}
 	
 	public function getIpm() {
 		return $this->ipm;
@@ -335,6 +357,14 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
 	public function setCha($cha) {
 		$this->cha = $cha;
+	}
+
+	public function getLang() {
+		return $this->lang;
+	}
+
+	public function setLang($lang) {
+		$this->lang = $lang;
 	}
 	
 	public function getItemsPerPage() {
@@ -571,6 +601,8 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->setQ('none');
 		$this->setDate('');
 		$this->setOwn('all');
+		$this->setBf('all');
+		$this->setLang('all');
 	}
 	
 }

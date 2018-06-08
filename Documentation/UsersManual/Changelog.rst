@@ -1,3 +1,12 @@
+Version 2.0.7
+-------------
+
+Datum: 08.06.2018
+
+- Anpassung des Fluid Templates an https://
+- Aufnahme Parameter bf und lang (https://handbuch.evangelische-termine.de/Ausgabe-Parameter)
+
+
 Version 2.0.6
 -------------
 

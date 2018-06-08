@@ -12,14 +12,14 @@
 			<div id="et_detail_header">
 				<div class="et_content_row et_headlinks">
 					<div class="et_detail_backlink">
-						<a href="javascript:history.back()" style="background-image:url(http://{eventhost}/bundles/vket/images/backlinkbg.png);">Zurück</a>
+						<a href="javascript:history.back()" style="background-image:url(//{eventhost}/bundles/vket/images/backlinkbg.png);">Zurück</a>
 					</div>
 					<div class="et_sharefunctions">
-						<a target="_blank" href="http://{eventhost}/ical-{event.ID}"><img align="absmiddle" border="0" title="als Kalender-Ereignisdatei downloaden" alt="als Kalender-Ereignisdatei downloaden" src="http://{eventhost}/bundles/vket/images/ical.gif"></a>&nbsp;
-						<a target="_blank" href="http://{eventhost}/einladung-{event.ID}"><img align="absmiddle" border="0" title="als E-Mail verschicken" alt="als E-Mail verschicken" src="http://{eventhost}/bundles/vket/images/email.gif"></a>&nbsp;
-						<a target="_blank"	href="http://{eventhost}/teilen-auf-facebook-{event.ID}"><img align="absmiddle" border="0" title="Auf Facebook posten" alt="Auf Facebook posten"	src="http://{eventhost}/bundles/vket/images/facebook.gif"></a>&nbsp;
-						<a target="_blank" href="http://{eventhost}/teilen-auf-twitter-{event.ID}"><img align="absmiddle" border="0" title="twittern" alt="twittern" src="http://{eventhost}/bundles/vket/images/twitter.gif"></a>&nbsp;
-						<a href="javascript:window.print();"><img align="absmiddle"	border="0" title="drucken" alt="drucken" src="http://{eventhost}/bundles/vket/images/print.png"></a>
+						<a target="_blank" href="//{eventhost}/ical-{event.ID}"><img align="absmiddle" border="0" title="als Kalender-Ereignisdatei downloaden" alt="als Kalender-Ereignisdatei downloaden" src="//{eventhost}/bundles/vket/images/ical.gif"></a>&nbsp;
+						<a target="_blank" href="//{eventhost}/einladung-{event.ID}"><img align="absmiddle" border="0" title="als E-Mail verschicken" alt="als E-Mail verschicken" src="//{eventhost}/bundles/vket/images/email.gif"></a>&nbsp;
+						<a target="_blank"	href="//{eventhost}/teilen-auf-facebook-{event.ID}"><img align="absmiddle" border="0" title="Auf Facebook posten" alt="Auf Facebook posten"	src="//{eventhost}/bundles/vket/images/facebook.gif"></a>&nbsp;
+						<a target="_blank" href="//{eventhost}/teilen-auf-twitter-{event.ID}"><img align="absmiddle" border="0" title="twittern" alt="twittern" src="//{eventhost}/bundles/vket/images/twitter.gif"></a>&nbsp;
+						<a href="javascript:window.print();"><img align="absmiddle"	border="0" title="drucken" alt="drucken" src="//{eventhost}/bundles/vket/images/print.png"></a>
 					</div>
 				</div>
 				<h1 id="et_detail_title">{event._event_TITLE}</h1>
@@ -98,15 +98,17 @@
 				<div class="et_content_row" id="et_event_FEEDBACK_ID">
 					<div class="et_content_detaillabel"><et:attr on="{event._event_FEEDBACK_ID}" name="Label" /></div>
 					<div class="et_content_detailvalue">
-						<a href="javascript:;" OnClick="window.open('http://{eventhost}/rueckmeldeformular{event._event_FEEDBACK_ID}-{event.ID}', 'Rückmeldeformular','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=850,height=650,top=10,left=200');" class="feedbacklink et_link" >für die Veranstaltung anmelden</a>
+						<a href="javascript:;" OnClick="window.open('//{eventhost}/rueckmeldeformular{event._event_FEEDBACK_ID}-{event.ID}', 'Rückmeldeformular','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=850,height=650,top=10,left=200');" class="feedbacklink et_link" >für die Veranstaltung anmelden</a>
 					</div>
 				</div>
 			</f:if>
  			
-			<div id="et_detail_position">
-				<a	onclick="window.open('http://{eventhost}/veranstaltungsort_{event._place_ID}','Karte','scrollbars=yes,resizable=yes,width=600,height=500')"
-					title="Auf Karte anzeigen" href="javascript:;"><img
-					src="http://maps.googleapis.com/maps/api/staticmap?center={event._place_GLAT},{event._place_GLONG}&amp;zoom=15&amp;size=600x120&amp;maptype=roadmap&amp;markers=color:blue|label:|{event._place_GLAT},{event._place_GLONG}&amp;sensor=false&amp;key=AIzaSyBaLpnUlSEE7WEmG6LwBQuIuVRkCWXK30Q"></a>
+			<div class="et_content_row" id="et_detail_position">
+					<div class="et_content_detaillabel"></div>
+					<div class="et_content_detailvalue">
+						<a	onclick="window.open('//{eventhost}/veranstaltungsort_{event._place_ID}','Karte','scrollbars=yes,resizable=yes,width=600,height=500'); return false;"
+							title="Auf Karte anzeigen" href="//{eventhost}/veranstaltungsort_{event._place_ID}" target="_blank">Ort auf Karte anzeigen</a>
+					</div>
 			</div>
 
 			<div class="et_content_row et_user">
