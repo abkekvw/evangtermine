@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <xliff version="1.0">
 	<file 
 		source-language="en"
-		target-language="en"
 		datatype="plaintext"
 		original="messages"
-		date="2015-03-31T16:16:02Z"
+		date="2019-01-22T10:56:00Z"
 		product-name="evangtermine">
 
 		<header />
 		<body>
 			<trans-unit id="extconftemplate.labelHost">
-            	<source></source>
-                <target>Choose host:Select the church you will use Evangelische Termine in.</target>
+            	<source>Choose host:Select the church you will use Evangelische Termine in.</source>
             </trans-unit>
                    
             <trans-unit id="extconftemplate.labelMode">
-                <source></source>
-                <target>Use cached data:Using cached data will be faster, but in some cases there might be not all content fields available.</target>
+                <source>Use cached data:Using cached data will be faster, but in some cases there might be not all content fields available.</source>
             </trans-unit>			
 
 		</body>
