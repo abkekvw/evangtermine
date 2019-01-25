@@ -27,6 +27,8 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use \TYPO3\CMS\Core\Utility\PathUtility;
+
 /**
  * EventcontainerController
  */
@@ -113,28 +115,28 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	private function includeAdditionalHeaderData() {
 		
 		$additHDD = '';
-		$siteRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('evangtermine');
+		$siteRelPath = 'typo3conf/ext/evangtermine/';
 		
 		if ($this->settings['jQueryUICSS']) {
 			$additHDD .=
-			'<link rel="stylesheet" href="'. $siteRelPath . $this->settings['jQueryUICSS'] . '" media="all" />'."\n";
+			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($siteRelPath . $this->settings['jQueryUICSS']) . '" media="all" />'."\n";
 		}
 		
 		if ($this->settings['CSSFile']) {
 			$additHDD .=
-			'<link rel="stylesheet" href="'. $siteRelPath . $this->settings['CSSFile'] . '" media="all" />'."\n";
+			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($siteRelPath . $this->settings['CSSFile']) . '" media="all" />'."\n";
 		}
 		
 		if ($this->settings['jQuery']) {
-			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['jQuery'] . '"></script>'."\n"; 
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['jQuery']) . '"></script>'."\n"; 
 		}
 		
 		if ($this->settings['jQueryUI']) {
-			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['jQueryUI'] . '"></script>'."\n";
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['jQueryUI']) . '"></script>'."\n";
 		}
 		
 		if ($this->settings['customJS']) {
-			$additHDD .= '<script type="text/javascript" src="' . $siteRelPath .  $this->settings['customJS'] . '"></script>'."\n";
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['customJS']) . '"></script>'."\n";
 		}
 		
 		$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = $additHDD;
