@@ -68,7 +68,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	protected function initializeAction() {
 		
 		$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
-		
+
 		$this->session = $this->loadSession();
 		
 		// include CSS and JS
@@ -82,11 +82,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * @return mixed
 	 */
 	private function loadSession() {
-		
-		if (!$this->currentPluginUid) {
-			$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
-		}
-		
+
 		// load session, but only for this single plugin instance
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 		$sessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $sessionKey);
@@ -99,11 +95,6 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * save session data
 	 */
 	private function saveSession() {
-		
-		if (!$this->currentPluginUid) {
-			$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
-		}
-		
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 		$GLOBALS['TSFE']->fe_user->setKey('ses', $sessionKey, $this->session);
 		$GLOBALS['TSFE']->fe_user->storeSessionData();
@@ -115,28 +106,27 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	private function includeAdditionalHeaderData() {
 		
 		$additHDD = '';
-		$siteRelPath = 'typo3conf/ext/evangtermine/';
 		
 		if ($this->settings['jQueryUICSS']) {
 			$additHDD .=
-			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($siteRelPath . $this->settings['jQueryUICSS']) . '" media="all" />'."\n";
+			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($this->settings['jQueryUICSS']) . '" media="all" />'."\n";
 		}
 		
 		if ($this->settings['CSSFile']) {
 			$additHDD .=
-			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($siteRelPath . $this->settings['CSSFile']) . '" media="all" />'."\n";
+			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($this->settings['CSSFile']) . '" media="all" />'."\n";
 		}
 		
 		if ($this->settings['jQuery']) {
-			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['jQuery']) . '"></script>'."\n"; 
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['jQuery']) . '"></script>'."\n"; 
 		}
 		
 		if ($this->settings['jQueryUI']) {
-			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['jQueryUI']) . '"></script>'."\n";
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['jQueryUI']) . '"></script>'."\n";
 		}
 		
 		if ($this->settings['customJS']) {
-			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($siteRelPath .  $this->settings['customJS']) . '"></script>'."\n";
+			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['customJS']) . '"></script>'."\n";
 		}
 		
 		$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = $additHDD;
