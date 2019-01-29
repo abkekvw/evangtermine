@@ -28,6 +28,7 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  ***************************************************************/
 
 use \TYPO3\CMS\Core\Utility\PathUtility;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * EventcontainerController
@@ -36,7 +37,6 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	
 	/**
 	 * @var ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
-	 * @inject
 	 */
 	protected $eventcontainerRepository = NULL;
 	
@@ -56,11 +56,27 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	
 	/**
 	 * @var ArbkomEKvW\Evangtermine\Util\SettingsUtility
-	 * @inject
 	 */
 	private $settingsUtility;
 
+
 	
+	/**
+     * @param \ArbkomEKvW\Evangtermine\Util\SettingsUtility
+     */
+	public function injectSettingsUtility(\ArbkomEKvW\Evangtermine\Util\SettingsUtility $settingsUtility) {
+		$this->settingsUtility = $settingsUtility;
+	}
+
+
+	/**
+     * @param \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
+     */
+	public function injectEventcontainerRepository(\ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository $eventcontainerRepository) {
+		$this->eventcontainerRepository = $eventcontainerRepository;
+	}
+
+
 	/**
 	 * (non-PHPdoc)
 	 * @see \TYPO3\CMS\Extbase\Mvc\Controller\ActionController::initializeAction()

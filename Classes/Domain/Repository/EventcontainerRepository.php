@@ -33,21 +33,14 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
  */
 class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository implements \TYPO3\CMS\Core\SingletonInterface {
 	
-	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
-	 * @inject 
-	 */
-	protected $objectManager = NULL;
 	
 	/**
 	 * @var ArbkomEKvW\Evangtermine\Util\ExtConf
-	 * @inject
 	 */
 	private $extConf = NULL;
 	
 	/**
 	 * @var ArbkomEKvW\Evangtermine\Util\HttpRequestInterface
-	 * @inject
 	 */
 	private $httpRequest;
 	
@@ -58,6 +51,23 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 */
 	protected $xmlSourceUrl = '';
 	
+
+	/**
+     * @param \ArbkomEKvW\Evangtermine\Util\ExtConf
+     */
+	public function injectExtConf(\ArbkomEKvW\Evangtermine\Util\ExtConf $extConf) {
+		$this->extConf = $extConf;
+	}
+
+
+	/**
+     * @param \ArbkomEKvW\Evangtermine\Util\HttpRequestInterface
+     */
+	public function injectHttpRequest(\ArbkomEKvW\Evangtermine\Util\HttpRequestInterface $httpRequest) {
+		$this->httpRequest = $httpRequest;
+	}
+
+
 	/**
 	 * returns xml Source Url
 	 * 
@@ -70,6 +80,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		}
 		return $this->xmlSourceUrl;
 	}
+
 	
 	/**
 	 * Main method for looking up events.
@@ -92,9 +103,6 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		
 		return $result;
 	}
-	
-	
-	
 	
 	
 }

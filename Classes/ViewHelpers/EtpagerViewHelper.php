@@ -32,13 +32,21 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  	 * The Controller associated to this widget.
  	 *
  	 * @var \ArbkomEKvW\Evangtermine\Controller\EtpagerController
- 	 * @inject
  	 */
  	protected $controller;
-        
-        // this is new in TYPO3 8.x
-        protected $escapeOutput = FALSE;
+
+    // this is new in TYPO3 8.x
+    protected $escapeOutput = FALSE;
+
+    
+    /**
+     * @param \ArbkomEKvW\Evangtermine\Controller\EtpagerController
+     */
+    public function injectController(\ArbkomEKvW\Evangtermine\Controller\EtpagerController $controller) {
+    	$this->controller = $controller;
+    }
  	
+
  	public function initializeArguments() {
  		$this->registerArgument('totalItems', 'string', 'amount of all items in result', TRUE);
  		$this->registerArgument('itemsPerPage', 'string', 'amount of items displayed on a single page', TRUE);
