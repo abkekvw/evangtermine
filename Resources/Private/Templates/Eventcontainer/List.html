@@ -3,19 +3,17 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-<f:comment><f:debug title="Request">{request}</f:debug>
-<f:debug title="etkeys">{etkeys}</f:debug></f:comment>
 
-        <f:render partial="Searchform" arguments="{_all}" />
+    <f:render partial="Searchform" arguments="{_all}" />
 	
 	<et:etpager totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}" currentPage="{etkeys.pageID}"/>
 	
 	<f:comment>Haupt-Schleife für Events</f:comment>
 	<f:for each="{events.items}" as="event" iteration="iterator">
-            
-            <f:if condition="{event.monthbar}!='0'">
-                {et:tag(name: "div", class: "monthbar", node: event.monthbar)}
-            </f:if>
+
+        <f:if condition="{event.monthbar}!='0'">
+            {et:tag(name: "div", class: "monthbar", node: event.monthbar)}
+        </f:if>
 			
 		<f:if condition="{iterator.isOdd}">
 			<f:then><div class="et_content_row odd"></f:then>
@@ -25,10 +23,10 @@
 			<div class="et_content_title">
 			<f:if condition="{settings.opmode_detailpage}">
 			<f:then>
-				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1" pageUid="{settings.opmode_detailpage}">{event._event_TITLE}</f:link.action>
+				<f:link.typolink parameter="{settings.opmode_detailpage}" class="et_link_title" additionalParams="&no_cache=1&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
 			</f:then>
 			<f:else>
-				<f:link.action controller="Eventcontainer" action="show" arguments="{ID: event.ID}" class="et_link_title" noCache="1">{event._event_TITLE}</f:link.action>
+				<f:link.typolink parameter="{pageId}" class="et_link_title" additionalParams="&no_cache=1&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
 			</f:else>
 			</f:if>
 				<f:if condition="{et:str(on:event._event_SHORT_DESCRIPTION)}">

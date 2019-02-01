@@ -6,7 +6,7 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
  *
  * Copyright notice
  *
- * (c) 2015 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ * (c) 2015-2019 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
  *
  * All rights reserved
  *
@@ -40,11 +40,6 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	private $extConf = NULL;
 	
 	/**
-	 * @var ArbkomEKvW\Evangtermine\Util\HttpRequestInterface
-	 */
-	private $httpRequest;
-	
-	/**
 	 * Url of xml script on remote server
 	 *
 	 * @var string
@@ -60,13 +55,6 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	}
 
 
-	/**
-     * @param \ArbkomEKvW\Evangtermine\Util\HttpRequestInterface
-     */
-	public function injectHttpRequest(\ArbkomEKvW\Evangtermine\Util\HttpRequestInterface $httpRequest) {
-		$this->httpRequest = $httpRequest;
-	}
-
 
 	/**
 	 * returns xml Source Url
@@ -76,7 +64,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	public function getXmlSourceUrl() {
 		
 		if ($this->xmlSourceUrl === '') {
-			$this->xmlSourceUrl = 'http://' . $this->extConf->getExtConfArray()['host'] . '/' . $this->extConf->getExtConfArray()['mode'];
+			$this->xmlSourceUrl = 'https://' . $this->extConf->getExtConfArray()['host'] . '/' . $this->extConf->getExtConfArray()['mode'];
 		}
 		return $this->xmlSourceUrl;
 	}
@@ -95,7 +83,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$url = $this->getXmlSourceUrl() . $query;
 		
 		// URL abfragen
-		$rawXml = $this->httpRequest->fetchUrl($url);
+		$rawXml = file_get_contents($url);
 		
 		// XML im Eventcontainer wandeln
 		$result = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
