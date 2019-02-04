@@ -32,7 +32,7 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  * @author rothc
  *
  */
-class TagViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class TagViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
     
     // this is new in TYPO3 8.x
     protected $escapeOutput = FALSE;

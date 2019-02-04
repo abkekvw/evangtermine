@@ -33,7 +33,7 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  * In case {someObject} in a fluid template does not resolve to the object's string value this ViewHelper can be useful. 
  * SimpleXMLElement objects for example required this at time of writing (06/2015) 
  */
-class StrViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class StrViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 	
 	public function initializeArguments() {
 		$this->registerArgument ( 'on', 'object', 'Object for toString', TRUE );

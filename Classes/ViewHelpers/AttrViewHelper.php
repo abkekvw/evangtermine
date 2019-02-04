@@ -26,7 +26,7 @@ namespace ArbkomEKvW\Evangtermine\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-class AttrViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class AttrViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 	
 	public function initializeArguments() {
 		$this->registerArgument('on', 'object', 'SimpleXMLElement object to look up attribute on', TRUE);
