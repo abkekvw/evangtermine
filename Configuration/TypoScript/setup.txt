@@ -35,11 +35,9 @@ plugin.tx_evangtermine {
 		# Default jQuery
 		jQuery = typo3conf/ext/evangtermine/Resources/Public/jquery-1.11.1.min.js
 		
-		# Default jQuery UI
-		jQueryUI = typo3conf/ext/evangtermine/Resources/Public/jquery-ui-1.11.4.custom/jquery-ui.min.js
+		# Default jQuery UI, i18n and custom code
+		jQueryUI = typo3conf/ext/evangtermine/Resources/Public/jquery-ui-1.11.4.custom/evangtermine.js
 		
-		# additional JavaScript
-		customJS = typo3conf/ext/evangtermine/Resources/Public/evangtermine.js
 		
 	}
 	

@@ -141,10 +141,6 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['jQueryUI']) . '"></script>'."\n";
 		}
 		
-		if ($this->settings['customJS']) {
-			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['customJS']) . '"></script>'."\n";
-		}
-		
 		$GLOBALS['TSFE']->additionalHeaderData['tx_evangtermine'] = $additHDD;
 	}
 	
