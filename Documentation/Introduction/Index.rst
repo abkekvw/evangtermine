@@ -28,7 +28,7 @@ evangelische-termine.de wird zur Zeit angewendet von:
 - `Evangelische Kirche von Westfalen <http://www.evangelisch-in-westfalen.de>`_
 - `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <http://www.ekbo.de>`_   
 
-Die TYPO3-Extension **evangtermine** wird entwickelt und betreut vom *Arbeitsbereich Kommunikation im Landeskirchenamt
+Die TYPO3-Extension **evangtermine** wird entwickelt und betreut von der *Stabsstelle Kommunikation im Landeskirchenamt
 der Evangelischen Kirche von Westfalen*. Sie kann in allen oben genannten Landeskirchen, die evangelische-termine nutzen,
 verwendet werden.
 

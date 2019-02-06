@@ -27,6 +27,8 @@ Speichern Sie die Auswahl.
 	Wenn möglich, sollte der Cache-Abruf verwendet werden.
 	Hier hilft auch ausprobieren. Bei selbst erstellten Veranstaltungstypen kann es nötig sein, den Direktabruf zu verwenden. 
 
+.. Tip:: In TYPO3 9.5 werden diese Einstellungen unter "Einstellungen" und dann "Extension Configuration" getätigt.
+
 
 Aktivierung im TypoScript-Template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

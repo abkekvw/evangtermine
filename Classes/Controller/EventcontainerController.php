@@ -223,6 +223,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		
 		// hand model data to the view
 		$this->view->assign('events', $evntContainer);
+		$this->view->assign('pageId', $GLOBALS['TSFE']->id);
 		
 		
 	}

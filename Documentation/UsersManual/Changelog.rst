@@ -1,3 +1,13 @@
+Version 2.1.0
+-------------
+
+Datum: 07.02.2019
+
+- Keine Unterstützung mehr für TYPO3 7.x und ältere.
+- Anpassung an TYPO3 9.5. Dazu mussten eine ganze Reihe PHP-Klassen und geringfügig auch Fluid-Templates geändert werden. Das führt u.a. dazu, dass TYPO3 7 nicht mehr unterstützt wird.
+- Intern kleinere Verbesserungen, keine neuen Features.
+
+
 Version 2.0.7
 -------------
 
