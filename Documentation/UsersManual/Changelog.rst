@@ -1,3 +1,11 @@
+Version 2.1.1
+-------------
+
+Datum März 2019
+
+- Bugfix: Im Feld "Weitere Parameter" können Werte jetzt kommasepariert eingegeben werden, z.B. cha=35,41
+
+
 Version 2.1.0
 -------------
 
