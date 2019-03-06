@@ -233,6 +233,13 @@ a.et_link:hover{}
 		width:70%;
 		padding:2px 0 0 7px;
 	}
+
+	.et_content_detailvalue img {
+		width: auto !important;
+		display: block;
+		margin-bottom: .7rem;
+		margin-right: auto;
+	}
 	
 	#et_detail_header {
 		background-size:contain;	
