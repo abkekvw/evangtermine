@@ -180,13 +180,14 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
 		
 		// check if params are coming in from (search-) form
-		if (isset($this->request->getArguments()['etkeysForm'])) {
+		$requestArguments = $this->request->getArguments();
+		if ( isset($requestArguments['etkeysForm']) && $requestArguments['etkeysForm']['pluginUid'] == $this->currentPluginUid) {
 			
 				// did user trigger form parameter reset?
-				if (isset($this->request->getArguments()['sf_reset'])) {
+				if (isset($requestArguments['sf_reset'])) {
 					$this->session['etkeys'] = $this->getNewFromSettings(); // do reset
 				} else {
-					$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments()['etkeysForm'], $this->session['etkeys']);
+					$this->settingsUtility->fetchParamsFromRequest($requestArguments['etkeysForm'], $this->session['etkeys']);
 				}
 		}
 			
@@ -203,6 +204,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->view->assign('events', $evntContainer);
 		$this->view->assign('etkeys', $this->session['etkeys']);
 		$this->view->assign('pageId', $GLOBALS['TSFE']->id);
+		$this->view->assign('pluginUid', $this->currentPluginUid);
 		
 		// Debugging only
 		// $this->view->assign('request', $this->request->getArguments()); 
