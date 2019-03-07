@@ -36,12 +36,12 @@ Termine pro Seite     itemsPerPage
 ===================== =========
 
 Im Feld "Weitere Parameter" können Sie seltener benutzte Einstellungen vornehmen. Dazu ein Beispiel:
-Es sollen nur Termine aus dem Kanal 35 (*cha*) im Jahr 2015 (*year*) angezeigt werden. Dazu tragen sie 
+Es sollen nur Termine aus den Kanälen 35 und 41 (*cha*) im Jahr 2019 (*year*) angezeigt werden. Dazu tragen sie 
 folgendes ein::
 
-	cha=35, year=2015
+	cha=35,41&year=2019
 	
-Also durch Komma getrennte Paare aus Namen und Wert des Parameters, verbunden durch ein Gleichheitszeichen.
+Also durch das Zeichen '&' getrennte Paare aus Namen und Wert des Parameters, verbunden durch ein Gleichheitszeichen.
 
 
 Region

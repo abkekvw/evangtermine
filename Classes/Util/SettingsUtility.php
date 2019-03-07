@@ -49,7 +49,7 @@ namespace ArbkomEKvW\Evangtermine\Util;
  		
  		// evaluate additional params field in flexform
  		if (isset($settingsArray['evt_addprms']) && $settingsArray['evt_addprms'] != '') {
- 			$addprms = explode(',', $settingsArray['evt_addprms']);
+ 			$addprms = explode('&', $settingsArray['evt_addprms']);
  			foreach ($addprms as $keyval) {
  				list($key, $value) = explode('=', trim($keyval));
  				$targetMethod = 'set' . ucfirst(trim($key));
