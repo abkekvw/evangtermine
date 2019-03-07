@@ -1,9 +1,12 @@
 Version 2.1.1
 -------------
 
-Datum März 2019
+Datum 07.02.2019
 
 - Bugfix: Im Feld "Weitere Parameter" können Werte jetzt kommasepariert eingegeben werden, z.B. cha=35,41
+- Bugfix: Bei mehr als einem Plugin im List-Modus auf einer Seite überschreiben die Suchformulare sich nicht mehr gegenseitig.
+- Fluid Template Show.html erkennt jetzt auch Bild/Logo des Veranstalters.
+- Extension-Status auf "stable" geändert.
 
 
 Version 2.1.0
