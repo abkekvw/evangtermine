@@ -82,8 +82,11 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$query = ($etKeys->getValue()) ? '?' . $etKeys->getValue() : ''; 
 		$url = $this->getXmlSourceUrl() . $query;
 		
-		// URL abfragen
-		$rawXml = file_get_contents($url);
+		// URL abfragen, nur IPv4 Auflösung
+		$streamContext = stream_context_create(array(
+			'socket' => array('bindto' => '0:0') 
+		));
+		$rawXml = file_get_contents($url, false, $streamContext);
 		
 		// XML im Eventcontainer wandeln
 		$result = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');

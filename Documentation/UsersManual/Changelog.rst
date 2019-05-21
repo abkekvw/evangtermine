@@ -1,3 +1,11 @@
+Version 2.1.2
+-------------
+
+Datum 21.05.2019
+
+-Bugfix: Beim Abruf der XML-Daten kam es in bestimmten Serverumgebungen zu Timeouts, wenn die IP-Adressen in IPv6 abgerufen wurden. Es wird jetzt nur IPv4 verwendet.
+
+
 Version 2.1.1
 -------------
 

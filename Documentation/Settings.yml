@@ -7,7 +7,7 @@ conf.py:
   copyright: 2019
   project: Evangelische Termine
   version: 2.1
-  release: 2.1.0
+  release: 2.1.2
   latex_documents:
   - - Index
     - evangtermine.tex
