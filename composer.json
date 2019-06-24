@@ -23,7 +23,7 @@
         "php": ">=7.0",
         "ext-SimpleXML": "*",
         "ext-mbstring": "*",
-        "typo3/cms-core": "^8.7.0 || ^9.5.0"
+        "typo3/cms-core": ">=8.7.8  <=9.5.99"
     },
     "autoload": {
         "psr-4": {

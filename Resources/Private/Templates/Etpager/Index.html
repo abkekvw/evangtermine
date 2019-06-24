@@ -5,14 +5,14 @@
 	
 	 <f:comment>Left side browser</f:comment>
 	 <f:if condition="{pgr.lBrowser} == 1">
-		<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: 1}" title="Seite 1" noCache="1">[1]</f:link.action>
-	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.lBrowserNext}" title="Zurück" noCache="1">«</f:link.action>	 
+		<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: 1}" title="Seite 1">[1]</f:link.action>
+	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.lBrowserNext}" title="Zurück">«</f:link.action>	 
 	 </f:if>
 	 	
 	<f:for each="{pgr.pgrBarValues}" as="val">
 		<f:if condition="{pgr.current} != {val}">
 			<f:then>
-				<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: val}" title="Seite {val}" noCache="1">{val}</f:link.action>
+				<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: val}" title="Seite {val}">{val}</f:link.action>
 			</f:then>
 			<f:else>
 				<span class="current">{val}</span>
@@ -22,8 +22,8 @@
 	
 	 <f:comment>Right side browser</f:comment>
 	 <f:if condition="{pgr.rBrowser} == 1">
-	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.rBrowserNext}" title="Seite {pgr.rBrowserNext}" noCache="1">»</f:link.action>
-	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.pages}" title="Seite {pgr.pages}" noCache="1">[{pgr.pages}]</f:link.action>
+	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.rBrowserNext}" title="Seite {pgr.rBrowserNext}">»</f:link.action>
+	 	<f:link.action controller="Eventcontainer" action="list" arguments="{pageID: pgr.pages}" title="Seite {pgr.pages}">[{pgr.pages}]</f:link.action>
 	 </f:if>
 	 
 	</div>		
