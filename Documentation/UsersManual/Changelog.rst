@@ -1,9 +1,18 @@
+Version 2.1.3
+-------------
+
+Datum 28.06.2019
+
+- Anpassung der Fluid-Standardtemplates an Systeme mit [FE][pageNotFoundOnCHashError] = true. In Links werden jetzt cHash Werte generiert.
+- Anzeige von _event_IMAGE und _event_CAPTION falls vorhanden. Vorher "Cache nicht benutzen" in den Einstellungen aktivieren.
+
+
 Version 2.1.2
 -------------
 
 Datum 21.05.2019
 
--Bugfix: Beim Abruf der XML-Daten kam es in bestimmten Serverumgebungen zu Timeouts, wenn die IP-Adressen in IPv6 abgerufen wurden. Es wird jetzt nur IPv4 verwendet.
+- Bugfix: Beim Abruf der XML-Daten kam es in bestimmten Serverumgebungen zu Timeouts, wenn die IP-Adressen in IPv6 abgerufen wurden. Es wird jetzt nur IPv4 verwendet.
 
 
 Version 2.1.1

@@ -22,6 +22,15 @@
 						<a href="javascript:window.print();"><img align="absmiddle"	border="0" title="drucken" alt="drucken" src="//{eventhost}/bundles/vket/images/print.png"></a>
 					</div>
 				</div>
+				<f:if condition="{et:str(on:event._event_IMAGE)}">
+					<div class="et_event_image">
+						<img src="{event._event_IMAGE}" alt="{event._event_TITLE}" title="{event._event_TITLE}" />
+						<f:if condition="{et:str(on:event._event_CAPTION)}">
+							<br>
+							<span class="et_event_caption">{event._event_CAPTION}</span>
+					</f:if>
+					</div>
+				</f:if>
 				<h1 id="et_detail_title">{event._event_TITLE}</h1>
 				<div id="et_detail_date">{event.DATUM2}</div>
 			</div>
@@ -40,7 +49,7 @@
 						<f:cObject typoscriptObjectPath="plugin.tx_evangtermine.tslibs.renderFunc"><et:tag node="{event._place_INFO}" /></f:cObject>
 					</f:if>
 					</f:comment>
-					<f:if condition="{et:str(on:event._place_IMAGE)}">
+					<f:if condition="{et:str(on:event._place_IMAGE)} && !{et:str(on:event._event_IMAGE)}">
 						<br>
 						<img src="{event._place_THUMBNAIL}" id="et_place_image_th" style="display: inline;">
 						<img src="{event._place_IMAGE}" id="et_place_image" style="display: none;">
