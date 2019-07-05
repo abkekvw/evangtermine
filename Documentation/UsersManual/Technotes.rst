@@ -1,14 +1,3 @@
-Persönliche Vorbemerkung
-------------------------
-
-Der Autor hat zwar in der Vergangenheit schon einige TYPO3-Extensions geschrieben, *evangtermine* ist jedoch die
-erste mit dem (gar nicht mehr so) neuen Standard Extbase und Fluid. Das heißt, ich habe was die genannten Frameworks angeht, 
-bei Null angefangen.
-
-Wenn auch *evangtermine* funktionert (was ja das Minimum sein sollte), werden andere Entwickler schnell Stellen entdecken, 
-an denen ich es nicht "richtig" oder framework-konform gemacht habe. Für konstruktive Kritik bin ich deshalb dankbar 
-(christoph.roth@lka.ekvw.de).  
-
 Feldwerte auslesen
 ------------------
 
