@@ -10,11 +10,11 @@
         "front-end",
         "evangtermine"
     ],
-    "license": ["GPL-2.0+"],
+    "license": ["GPL-2.0-or-later"],
     "authors": [
         {
             "name": "Christoph Roth",
-            "email": "christoph.roth@lka.ekvw.de",
+            "email": "christoph.roth@ekvw.de",
             "role": "Developer",
             "homepage": "http://www.ekvw.de/kommunikation/"
         }
@@ -31,7 +31,7 @@
         }
     },
     "replace": {
-        "evangtermine": "self.version",
+        "arbkomekvw/evangtermine": "self.version",
         "typo3-ter/evangtermine": "self.version"
     },
     "extra": {

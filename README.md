@@ -13,5 +13,5 @@ Evangelische Kirche von Westfalen
 Das Landeskirchenamt
 Arbeitsbereich Kommunikation
 
-Contact: christoph.roth@lka.ekvw.de  
+Contact: christoph.roth@ekvw.de  
 
