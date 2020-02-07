@@ -1,3 +1,11 @@
+Version 2.1.4
+-------------
+
+Datum 07.02.2020
+
+- Bugfix in composer.json
+
+
 Version 2.1.3
 -------------
 

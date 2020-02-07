@@ -30,13 +30,13 @@ Evangelische Termine
 		Extension integrates the output of the "Evangelische Termine" web application into TYPO3 web sites.
 
 	:Copyright:
-		May 2019
+		February 2020
 
 	:Author:
-		Christoph Roth - Landeskirchenamt EKvW, Arbeitsbereich Kommunikation
+		Christoph Roth - Landeskirchenamt EKvW, Stabsstelle Kommunikation
 
 	:Email:
-		christoph.roth@lka.ekvw.de
+		christoph.roth@ekvw.de
 
 	:License:
 		This document is published under the Open Content License
