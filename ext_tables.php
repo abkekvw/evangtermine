@@ -3,13 +3,15 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
+$extensionkey = 'evangtermine';
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	$_EXTKEY,
+	$extensionkey,
 	'List',
 	'Evangelische Termine'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Evangelische Termine');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extensionkey, 'Configuration/TypoScript', 'Evangelische Termine');
 
 // Activate Flexforms
 $pluginSignature = 'evangtermine_list';
