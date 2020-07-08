@@ -26,6 +26,7 @@
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight</label>
                             <config>
                                 <type>select</type>
+                                <renderType>selectSingle</renderType>
                                 <items type="array">
                                     <numIndex index="0" type="array">
                                         <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.highlight.high</numIndex>
@@ -54,6 +55,7 @@
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.eventtype</label>
                             <config>
                                 <type>select</type>
+                                <renderType>selectSingleBox</renderType>
                                 <size>6</size>
                                 <maxitems>15</maxitems>
                                 <items type="array">
@@ -107,6 +109,7 @@
                             <label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.people</label>
                             <config>
                                 <type>select</type>
+                                <renderType>selectSingleBox</renderType>
                                 <size>6</size>
                                 <maxitems>15</maxitems>
                                 <items type="array">
@@ -225,6 +228,7 @@
                 			<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.opmode</label>
                 			<config>
                 				<type>select</type>
+                                <renderType>selectSingle</renderType>
                 				<items type="array">
                 					<numIndex index="0" type="array">
 					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.list</numIndex>

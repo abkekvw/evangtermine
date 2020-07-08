@@ -6,7 +6,7 @@ namespace ArbkomEKvW\Evangtermine\Util;
  *
  *  Copyright notice
  *
- *  (c) 2015 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ *  (c) 2020 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
  *
  *  All rights reserved
  *
@@ -27,6 +27,9 @@ namespace ArbkomEKvW\Evangtermine\Util;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+ use \TYPO3\CMS\Core\Utility\GeneralUtility;
+ use \TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+
 /**
  * class ExtConf
  * Gives access to the configuration data in ext_conf_template.txt
@@ -43,7 +46,7 @@ class ExtConf implements \TYPO3\CMS\Core\SingletonInterface {
 	 * constructor
 	 */
 	public function __construct() {
-		$this->extConfArray = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['evangtermine']);
+		$this->extConfArray = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('evangtermine');
 	}
 	
 	/**

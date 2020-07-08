@@ -62,12 +62,12 @@
                     
                     <trans-unit id="feflexform.eventtype">
                     	<source></source>
-                    	<target>Kategorie:</target>
+                    	<target>Kategorie (Mehrfachauswahl möglich):</target>
                     </trans-unit>
                     
                     <trans-unit id="feflexform.people">
                     	<source></source>
-                    	<target>Zielgruppe:</target>
+                    	<target>Zielgruppe (Mehrfachauswahl möglich):</target>
                     </trans-unit>
                     
                     <trans-unit id="feflexform.itemsPerPage">
