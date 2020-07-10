@@ -74,7 +74,7 @@ currentPage  Nummer (pageID) aktuelle Seite ja
 
 **et:str**
 
-Liefert den Inhalt eines SimpleXMLElement-Objekts als String [*]_. Verwendet nur innerhalb von condition-Eigenschaften
+Liefert den Inhalt eines SimpleXMLElement-Objekts als String. Verwendet nur innerhalb von condition-Eigenschaften
 des f:if-View Helpers::
 
 	<f:if condition="<et:str on='{event._event_TEXTLINE_2}'/>">
@@ -145,11 +145,3 @@ Template: **Show.html** (EventcontainerController, Action: **show**)
 **eventhost**
 	Der Hostname, der im Extension Manager eingestellt wurde, z.B. www.evangelische-termine.de oder www.veranstaltungen-ekvw.de
 
-
-.. [*] Dieser ViewHelper ist eine Notlösung, weil z.B. folgendes nicht funktioniert::
-
-           <f:if condition="{event._event_TEXTLINE_2}">
-           
-       Es muss an den Interna des SimpleXMLElement liegen. Leider ist diese Lösung (Tipp-) fehleranfällig und umständlich.
-
- 

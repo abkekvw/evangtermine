@@ -1,3 +1,11 @@
+Version 2.1.5
+-------------
+
+Datum 10.07.2020
+
+- Anpassungen für TYPO3 Version 10
+
+
 Version 2.1.4
 -------------
 
