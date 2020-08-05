@@ -24,9 +24,11 @@
         	<span class="teasertext">
         	<f:if condition="{et:str(on:event._person_NAME)}">
         		<br><span class="et_personname">{event._person_NAME}</span><br>
-        	</f:if>
+			</f:if>
+			<f:if condition="{et:str(on:event._place_NAME)} != 'Ohne Ort'">
         		<span class="et_city">{event._place_CITY}</span>
-        		<span class="et_placename teaserplace">{event._place_NAME}</span>
+				<span class="et_placename teaserplace">{event._place_NAME}</span>
+			</f:if>
         	</span>
         </div>
     </div>

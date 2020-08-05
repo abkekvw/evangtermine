@@ -33,10 +33,12 @@
 				<br>{et:tag(class: "et_description", node: event._event_SHORT_DESCRIPTION)}
 				</f:if>
 				
-				<br><span class="et_city">{event._place_CITY}: </span>
-                                {et:tag(class: "et_placename", node: event._place_NAME)}
-                                {et:tag(class: "et_personname", node: event._person_NAME)}
-                                {et:tag(class: "et_content_user", node: event._user_REALNAME)}
+				<br><f:if condition="{et:str(on:event._place_NAME)} != 'Ohne Ort'">
+						<span class="et_city">{event._place_CITY}: </span>
+						{et:tag(class: "et_placename", node: event._place_NAME)}
+					</f:if>
+                        {et:tag(class: "et_personname", node: event._person_NAME)}
+                        {et:tag(class: "et_content_user", node: event._user_REALNAME)}
 			</div>
 		</div>
 		
