@@ -1,3 +1,11 @@
+Version 2.1.6
+-------------
+
+Datum 07.12.2020
+
+- Anpassungen für Feature "Anmeldeformulare mit Zählfeld" (Platzreservierung)
+
+
 Version 2.1.5
 -------------
 

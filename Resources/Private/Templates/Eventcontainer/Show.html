@@ -108,6 +108,9 @@
 					<div class="et_content_detaillabel"><et:attr on="{event._event_FEEDBACK_ID}" name="Label" /></div>
 					<div class="et_content_detailvalue">
 						<a href="javascript:;" OnClick="window.open('//{eventhost}/rueckmeldeformular{event._event_FEEDBACK_ID}-{event.ID}', 'Rückmeldeformular','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=850,height=650,top=10,left=200');" class="feedbacklink et_link" >für die Veranstaltung anmelden</a>
+						<f:if condition="{et:str(on:meta.avail)}">
+							(noch {et:str(on:meta.avail)} verfügbare Plätze)
+						</f:if>
 					</div>
 				</div>
 			</f:if>
