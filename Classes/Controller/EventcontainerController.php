@@ -250,6 +250,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			
 			// hand model data to the view
 			$this->view->assign('event', $evntContainer->getItems()[0]);
+			$this->view->assign('meta', $evntContainer->getMetaData());
 			$this->view->assign('detailitems', $evntContainer->getDetail());
 			$this->view->assign('eventhost', $extconf->getExtConfArray()['host']);
 			
