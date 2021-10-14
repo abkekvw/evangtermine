@@ -44,6 +44,12 @@ class StrViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 	 * @return string
 	 */
 	public function render() {
-		return $this->arguments['on']->__toString();
+
+		if ($this->arguments['on']) {
+			return $this->arguments['on']->__toString();
+		} else {
+			return '';
+		}
+		
 	}
 }
