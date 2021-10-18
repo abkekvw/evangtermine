@@ -1,3 +1,11 @@
+Version 2.1.7
+-------------
+
+Datum 18. Oktober 2021
+
+- ViewHelper Bugfix, Social-Icons
+
+
 Version 2.1.6
 -------------
 
