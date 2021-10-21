@@ -23,7 +23,7 @@
 			<div class="et_content_title">
 			<f:if condition="{settings.opmode_detailpage}">
 			<f:then>
-				<f:link.typolink parameter="{settings.opmode_detailpage}" class="et_link_title" useCacheHash="1" additionalParams="&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
+				<f:link.typolink parameter="{settings.opmode_detailpage}" class="et_link_title" useCacheHash="1" additionalParams="&tx_evangtermine_detail[ID]={event.ID}&tx_evangtermine_detail[action]=show&tx_evangtermine_detail[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
 			</f:then>
 			<f:else>
 				<f:link.typolink parameter="{pageId}" class="et_link_title" useCacheHash="1" additionalParams="&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>

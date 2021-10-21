@@ -99,6 +99,10 @@
                                         <numIndex index="0">Sonstiges</numIndex>
                                         <numIndex index="1">9</numIndex>
                                     </numIndex>
+                                    <numIndex index="10" type="array">
+                                        <numIndex index="0">Meditation / spirituelle Angebote</numIndex>
+                                        <numIndex index="1">10</numIndex>
+                                    </numIndex>
                                 </items>
                                 <default>all</default>
                             </config>
@@ -223,29 +227,6 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                	<switchableControllerActions>
-                		<TCEforms>
-                			<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.opmode</label>
-                			<config>
-                				<type>select</type>
-                                <renderType>selectSingle</renderType>
-                				<items type="array">
-                					<numIndex index="0" type="array">
-					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.list</numIndex>
-                    					<numIndex index="1">Eventcontainer->list;Eventcontainer->show;Eventcontainer->genericinfo</numIndex>
-                  					</numIndex>
-                  					<numIndex index="1" type="array">
-					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.teaser</numIndex>
-                    					<numIndex index="1">Eventcontainer->teaser;Eventcontainer->show;Eventcontainer->genericinfo</numIndex>
-                  					</numIndex>
-                  					<numIndex index="2" type="array">
-					                    <numIndex index="0">LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.switchableControllerActions.detail</numIndex>
-                    					<numIndex index="1">Eventcontainer->show;Eventcontainer->genericinfo</numIndex>
-                  					</numIndex>
-                				</items>
-                			</config>
-                		</TCEforms>
-                	</switchableControllerActions>
                 	<settings.opmode_detailpage>
                 		<TCEforms>
                 			<label>LLL:EXT:evangtermine/Resources/Private/Language/locallang.xlf:feflexform.detailpage</label>

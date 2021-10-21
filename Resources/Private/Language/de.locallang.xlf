@@ -90,24 +90,19 @@
                     	<target>Gruppenadministrator-ID (optional):</target>
                     </trans-unit>
                     
-                    <trans-unit id="feflexform.opmode">
-                    	<source></source>
-                    	<target>Plugin-Anzeigemodus:</target>
-                    </trans-unit>
-                    
-                    <trans-unit id="feflexform.switchableControllerActions.list">
+                    <trans-unit id="feflexform.listmode">
                     	<source></source>
                     	<target>Listenansicht</target>
                     </trans-unit>
                     
-                    <trans-unit id="feflexform.switchableControllerActions.teaser">
+                    <trans-unit id="feflexform.teasermode">
                     	<source></source>
                     	<target>Teaser</target>
                     </trans-unit>
                     
-                    <trans-unit id="feflexform.switchableControllerActions.detail">
+                    <trans-unit id="feflexform.detailmode">
                     	<source></source>
-                    	<target>Nur Detailansicht Termin</target>
+                    	<target>Detailansicht Termine</target>
                     </trans-unit>
                     
                     <trans-unit id="feflexform.detailpage">

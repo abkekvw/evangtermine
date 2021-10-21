@@ -6,34 +6,40 @@ if (!defined('TYPO3_MODE')) {
 
 $extensionkey = 'evangtermine';
 
-if (strpos(TYPO3_branch, '9.') === FALSE) {
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	$extensionkey,
+	'List',
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'list, show, genericinfo'
+	),
+	// non-cacheable actions
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'list, show, genericinfo'
+	)
+);
 
-	// The TYPO3 10 way
-	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-		$extensionkey,
-		'List',
-		array(
-			ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'list, show, teaser, genericinfo'
-		),
-		// non-cacheable actions
-		array(
-			ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'list, show, teaser, genericinfo'
-		)
-	);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	$extensionkey,
+	'Detail',
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'show, genericinfo'
+	),
+	// non-cacheable actions
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'genericinfo'
+	)
+);
 
-} else {
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	$extensionkey,
+	'Teaser',
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'teaser, show, genericinfo'
+	),
+	// non-cacheable actions
+	array(
+		ArbkomEKvW\Evangtermine\Controller\EventcontainerController::class => 'teaser, show, genericinfo'
+	)
+);
 
-	// The old way
-	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-		'ArbkomEKvW.' . $extensionkey,
-		'List',
-		array(
-			'Eventcontainer' => 'list, show, teaser, genericinfo'
-		),
-		// non-cacheable actions
-		array(
-			'Eventcontainer' => 'list, show, teaser, genericinfo'
-		)
-	);
 
-}
