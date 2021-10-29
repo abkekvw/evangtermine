@@ -6,7 +6,7 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  *
  *  Copyright notice
  *
- *  (c) 2015 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ *  (c) 2021 Christoph Roth <christoph.roth@ekvw.de>, Evangelische Kirche von Westfalen
  *
  *  All rights reserved
  *
@@ -28,7 +28,6 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  ***************************************************************/
 
 use \TYPO3\CMS\Core\Utility\PathUtility;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * EventcontainerController
@@ -59,6 +58,15 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private $settingsUtility;
 
+	/**
+	 * @var ArbkomEKvW\Evangtermine\Domain\Model\Categorylist
+	 */
+	private $categorylist;
+
+	/**
+	 * @var ArbkomEKvW\Evangtermine\Domain\Model\Grouplist
+	 */
+	private $grouplist;
 
 	
 	/**
@@ -76,6 +84,21 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->eventcontainerRepository = $eventcontainerRepository;
 	}
 
+	/**
+	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\Categorylist $categorylist 
+	 * @return void 
+	 */
+	public function injectCategorylist(\ArbkomEKvW\Evangtermine\Domain\Model\Categorylist $categorylist) {
+		$this->categorylist = $categorylist;
+	}
+
+	/**
+	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist 
+	 * @return void 
+	 */
+	public function injectGrouplist(\ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist) {
+		$this->grouplist = $grouplist;
+	}
 
 	/**
 	 * (non-PHPdoc)
@@ -201,10 +224,14 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->saveSession();
 		
 		// hand model data to the view
-		$this->view->assign('events', $evntContainer);
-		$this->view->assign('etkeys', $this->session['etkeys']);
-		$this->view->assign('pageId', $GLOBALS['TSFE']->id);
-		$this->view->assign('pluginUid', $this->currentPluginUid);
+		$this->view->assignMultiple([
+			'events' => $evntContainer,
+			'etkeys' => $this->session['etkeys'],
+			'pageId' => $GLOBALS['TSFE']->id,
+			'pluginUid' => $this->currentPluginUid,
+			'categoryList' => $this->categorylist->getItemslist(),
+			'groupList' => $this->grouplist->getItemslist()
+		]);
 		
 		// Debugging only
 		// $this->view->assign('request', $this->request->getArguments()); 
