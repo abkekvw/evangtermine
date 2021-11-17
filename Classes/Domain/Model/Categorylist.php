@@ -60,7 +60,9 @@ class Categorylist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 $this->itemList['items'] = $newlist;
 
                 $GLOBALS['TSFE']->fe_user->setKey('ses', $sessionKey, $this->itemList);
-		        $GLOBALS['TSFE']->fe_user->storeSessionData();
+                
+                // Session is always saved in List Action
+		        // $GLOBALS['TSFE']->fe_user->storeSessionData();
             }
         }
     }

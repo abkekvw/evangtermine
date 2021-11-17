@@ -29,7 +29,7 @@ namespace ArbkomEKvW\Evangtermine\Controller;
 /**
  * EtpagerController
  */
-class EtpagerController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController {
+class EtpagerController  {
 	
 	// pager bar size (number of page fields to click on)
 	const pgrbSize = 5;

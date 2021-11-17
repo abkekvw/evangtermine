@@ -125,6 +125,14 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		// load session, but only for this single plugin instance
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 		$sessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $sessionKey);
+
+		// if etkeys were stored before, 
+		if ( isset($sessionData['etkeys']) )
+		{
+			$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+			$etkeys->initFromJson($sessionData['etkeys']);
+			$sessionData['etkeys'] = $etkeys;
+		}
 		
 		return $sessionData;
 		
@@ -135,6 +143,10 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private function saveSession() {
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
+
+		// Replace object with Json representation
+		$this->session['etkeys'] = $this->session['etkeys']->toJson();
+
 		$GLOBALS['TSFE']->fe_user->setKey('ses', $sessionKey, $this->session);
 		$GLOBALS['TSFE']->fe_user->storeSessionData();
 	}

@@ -5,7 +5,7 @@ namespace ArbkomEKvW\Evangtermine\Domain\Model;
  *
  *  Copyright notice
  *
- *  (c) 2015,2018 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ *  (c) 2015,2021 Christoph Roth <christoph.roth@ekvw.de>, Evangelische Kirche von Westfalen
  *
  *  All rights reserved
  *
@@ -513,17 +513,16 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		return $this->encoding;
 	}
 	
+	public function setEncoding($encoding) {
+		$this->encoding = $encoding;
+	}
+
 	public function getID() {
 		return $this->ID;
 	}
 	
 	public function setID($ID) {
 		$this->ID = $ID;
-	}
-	
-	
-	public function setEncoding($encoding) {
-		$this->encoding = $encoding;
 	}
 	
 	
@@ -574,6 +573,41 @@ class EtKeys extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->setOwn('all');
 		$this->setBf('all');
 		$this->setLang('all');
+	}
+
+	
+	/**
+	 * make my own json representation of Etkeys object 
+	 * which is safer for session storage
+	 * @return string|false 
+	 */
+	public function toJson()
+	{
+		$valueArray = [];
+
+		foreach ($this->allowedKeys as $key) {
+			$mthd = 'get' . ucfirst($key);
+			$valueArray[$key] = '' . $this->$mthd();
+		}
+
+		return json_encode($valueArray);
+	}
+
+	
+	/**
+	 * set all values from json string
+	 * @param string $jsString 
+	 * @return void 
+	 */
+	public function initFromJson($jsString)
+	{
+		$values = (array) json_decode($jsString);
+		
+		foreach ($values as $key => $val) 
+		{
+			$mthd = 'set' . ucfirst($key);
+			$this->$mthd($val);
+		}
 	}
 	
 }
