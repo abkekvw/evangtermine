@@ -14,10 +14,10 @@
         	<span class="teaserlink">
         	<f:if condition="{settings.opmode_detailpage}">
         	<f:then>
-                <f:link.typolink parameter="{settings.opmode_detailpage}" useCacheHash="1" additionalParams="&tx_evangtermine_detail[ID]={event.ID}&tx_evangtermine_detail[action]=show&tx_evangtermine_detail[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
+                <f:link.typolink parameter="{settings.opmode_detailpage}" additionalParams="&tx_evangtermine_detail[ID]={event.ID}&tx_evangtermine_detail[action]=show&tx_evangtermine_detail[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
         	</f:then>
         	<f:else>
-                <f:link.typolink parameter="{pageId}" useCacheHash="1" additionalParams="&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
+                <f:link.typolink parameter="{pageId}" additionalParams="&tx_evangtermine_list[ID]={event.ID}&tx_evangtermine_list[action]=show&tx_evangtermine_list[controller]=Eventcontainer">{event._event_TITLE}</f:link.typolink>
         	</f:else>
         	</f:if>
         	</span>

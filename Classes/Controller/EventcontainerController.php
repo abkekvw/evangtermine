@@ -68,6 +68,11 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private $grouplist;
 
+	/**
+	 * @var ArbkomEKvW\Evangtermine\Domain\Model\EtKeys
+	 */
+	private $etkeys;
+
 	
 	/**
      * @param \ArbkomEKvW\Evangtermine\Util\SettingsUtility
@@ -109,6 +114,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
 
 		$this->session = $this->loadSession();
+
+		// if etkeys were stored before, 
+		if ( isset($this->session['etkeysJson']) )
+		{
+			$this->etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+			$this->etkeys->initFromJson($this->session['etkeysJson']);
+		}
 		
 		// include CSS and JS
 		$this->includeAdditionalHeaderData();
@@ -120,22 +132,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * load session data
 	 * @return mixed
 	 */
-	private function loadSession() {
-
+	private function loadSession()
+	{
 		// load session, but only for this single plugin instance
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 		$sessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $sessionKey);
 
-		// if etkeys were stored before, 
-		if ( isset($sessionData['etkeys']) )
-		{
-			$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-			$etkeys->initFromJson($sessionData['etkeys']);
-			$sessionData['etkeys'] = $etkeys;
-		}
-		
 		return $sessionData;
-		
 	}
 	
 	/**
@@ -145,7 +148,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 
 		// Replace object with Json representation
-		$this->session['etkeys'] = $this->session['etkeys']->toJson();
+		$this->session['etkeysJson'] = $this->etkeys->toJson();
 
 		$GLOBALS['TSFE']->fe_user->setKey('ses', $sessionKey, $this->session);
 		$GLOBALS['TSFE']->fe_user->storeSessionData();
@@ -206,13 +209,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function listAction() {
 		
-		if (!isset($this->session['etkeys'])) {
+		if (!isset($this->session['etkeysJson'])) {
 			// no session data exists. set up fresh container object for params and load settings
-			$this->session['etkeys'] = $this->getNewFromSettings();
+			$this->etkeys = $this->getNewFromSettings();
 		}
 		
 		// collect params from request 
-		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->session['etkeys']);
+		$this->settingsUtility->fetchParamsFromRequest($this->request->getArguments(), $this->etkeys);
 		
 		// check if params are coming in from (search-) form
 		$requestArguments = $this->request->getArguments();
@@ -220,25 +223,25 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			
 				// did user trigger form parameter reset?
 				if (isset($requestArguments['sf_reset'])) {
-					$this->session['etkeys'] = $this->getNewFromSettings(); // do reset
+					$this->etkeys = $this->getNewFromSettings(); // do reset
 				} else {
-					$this->settingsUtility->fetchParamsFromRequest($requestArguments['etkeysForm'], $this->session['etkeys']);
+					$this->settingsUtility->fetchParamsFromRequest($requestArguments['etkeysForm'], $this->etkeys);
 				}
 		}
 			
 		// retrieve XML
-		$evntContainer = $this->eventcontainerRepository->findByEtKeys($this->session['etkeys']);
+		$evntContainer = $this->eventcontainerRepository->findByEtKeys($this->etkeys);
 		
 		// fine tune and save parameters to session
-		if ($this->session['etkeys']->getQ() == 'none') {
-			$this->session['etkeys']->setQ('');
+		if ($this->etkeys->getQ() == 'none') {
+			$this->etkeys->setQ('');
 		}
 		$this->saveSession();
 		
 		// hand model data to the view
 		$this->view->assignMultiple([
 			'events' => $evntContainer,
-			'etkeys' => $this->session['etkeys'],
+			'etkeys' => $this->etkeys,
 			'pageId' => $GLOBALS['TSFE']->id,
 			'pluginUid' => $this->currentPluginUid,
 			'categoryList' => $this->categorylist->getItemslist(),
