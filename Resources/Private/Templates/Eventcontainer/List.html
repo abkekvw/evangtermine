@@ -5,7 +5,11 @@
 <f:section name="main">
     <f:render partial="Searchform" arguments="{_all}" />
 	
-	<f:comment><f:render partial="Pager" arguments="{pgr}" /></f:comment>
+	<f:render partial="Pager" arguments="{pgr: pagerdata}" />
+	
+	<f:comment>
+		<divpager totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}" currentPage="{etkeys.pageID}"/>
+	</f:comment>
 	
 	<f:comment>Haupt-Schleife für Events</f:comment>
 	<f:for each="{events.items}" as="event" iteration="iterator">
@@ -44,5 +48,5 @@
 	</f:for>
 	<f:comment>Ende Haupt-Schleife für Events</f:comment>
 	
-	<f:comment><f:render partial="Pager" arguments="{pgr}" /></f:comment>
+	<f:render partial="Pager" arguments="{pgr: pagerdata}" />
 </f:section>

@@ -27,6 +27,7 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use ArbkomEKvW\Evangtermine\Util\Etpager;
 use \TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
@@ -73,6 +74,11 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private $etkeys;
 
+	/**
+	 * @var ArbkomEKvW\Evangtermine\Util\Etpager
+	 */
+	private $pager;
+
 	
 	/**
      * @param \ArbkomEKvW\Evangtermine\Util\SettingsUtility
@@ -103,6 +109,16 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function injectGrouplist(\ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist) {
 		$this->grouplist = $grouplist;
+	}
+
+	/**
+	 * 
+	 * @param \ArbkomEKvW\Evangtermine\Util\Etpager $pager
+	 * @return void 
+	 */
+	public function injectPager(\ArbkomEKvW\Evangtermine\Util\Etpager $pager)
+	{
+		$this->pager = $pager;
 	}
 
 	/**
@@ -238,6 +254,13 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		}
 		$this->saveSession();
 		
+		// Set up pager widget (no Widgets in Fluid ViewHelpers since TYPO3 v11!)
+		$this->pager->up(
+			$evntContainer->getMetaData()->totalItems,
+			$this->etkeys->getItemsPerPage(),
+			$this->etkeys->getPageID()
+		);
+
 		// hand model data to the view
 		$this->view->assignMultiple([
 			'events' => $evntContainer,
@@ -245,7 +268,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 			'pageId' => $GLOBALS['TSFE']->id,
 			'pluginUid' => $this->currentPluginUid,
 			'categoryList' => $this->categorylist->getItemslist(),
-			'groupList' => $this->grouplist->getItemslist()
+			'groupList' => $this->grouplist->getItemslist(),
+			'pagerdata' => $this->pager->getPgr()
 		]);
 		
 		// Debugging only

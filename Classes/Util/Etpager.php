@@ -1,11 +1,11 @@
 <?php
-namespace ArbkomEKvW\Evangtermine\Controller;
+namespace ArbkomEKvW\Evangtermine\Util;
 
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2015 Christoph Roth <christoph.roth@lka.ekvw.de>, Evangelische Kirche von Westfalen
+ *  (c) 2015,2021 Christoph Roth <christoph.roth@ekvw.de>, Evangelische Kirche von Westfalen
  *
  *  All rights reserved
  *
@@ -27,9 +27,9 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  ***************************************************************/
 
 /**
- * EtpagerController
+ * Etpager
  */
-class EtpagerController  {
+class Etpager  {
 	
 	// pager bar size (number of page fields to click on)
 	const pgrbSize = 5;
@@ -46,22 +46,29 @@ class EtpagerController  {
 	 */
 	protected $pgr;
 	
-	public function indexAction() {
+	/**
+	 * Build Pager datastructure
+	 * @param mixed $totalItems 
+	 * @param mixed $itemsPerPage 
+	 * @param mixed $pageID 
+	 * @return void 
+	 */
+	public function up($totalItems, $itemsPerPage, $currentPage) {
 		
 		// Number of Events in result
-		if (is_object($this->widgetConfiguration['totalItems'])) {
-			$totalItems = intval($this->widgetConfiguration['totalItems']->__toString());
+		if (is_object($totalItems)) {
+			$totalItems = intval($totalItems->__toString());
 		} else {
-			$totalItems = intval($this->widgetConfiguration['totalItems']);
+			$totalItems = intval($totalItems);
 		}
 		
-		$itemsPerPage = intval($this->widgetConfiguration['itemsPerPage']);
+		$itemsPerPage = intval($itemsPerPage);
 		
 		// Number of pages in pager
 		$this->pgr['pages'] =  ceil( $totalItems / $itemsPerPage );
 		
 		// Current page
-		$this->pgr['current'] = isset($this->widgetConfiguration['currentPage']) ? $this->widgetConfiguration['currentPage'] : 1;
+		$this->pgr['current'] = isset($currentPage) ? $currentPage : 1;
 		
 		$this->getPagerBarLimits();
 		$this->getBrowserTriggers();
@@ -72,7 +79,6 @@ class EtpagerController  {
 			$this->pgr['pgrBarValues'][] = $i;
 		}
 		
-		$this->view->assign('pgr', $this->pgr);
 	}
 	
 	
@@ -118,6 +124,14 @@ class EtpagerController  {
 		} else {
 			$this->pgr['rBrowser'] = 0;
 		}
+	}
+
+	/**
+	 * @return array 
+	 */
+	public function getPgr()
+	{
+		return $this->pgr;
 	}
 	
 	
