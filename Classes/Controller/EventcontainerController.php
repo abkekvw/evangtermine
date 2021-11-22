@@ -27,8 +27,10 @@ namespace ArbkomEKvW\Evangtermine\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use ArbkomEKvW\Evangtermine\Util\Etpager;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Utility\PathUtility;
+use ArbkomEKvW\Evangtermine\Util\ExtConf;
+use ArbkomEKvW\Evangtermine\Domain\Model\EtKeys;
 
 /**
  * EventcontainerController
@@ -134,7 +136,7 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 		// if etkeys were stored before, 
 		if ( isset($this->session['etkeysJson']) )
 		{
-			$this->etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+			$this->etkeys = GeneralUtility::makeInstance(EtKeys::class);
 			$this->etkeys->initFromJson($this->session['etkeysJson']);
 		}
 		
@@ -205,7 +207,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	private function getNewFromSettings() {
 		
-		$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
+		$etkeys = GeneralUtility::makeInstance(EtKeys::class);
+
 		$etkeys->setResetValues();
 		
 		$this->settingsUtility->fetchParamsFromSettings($this->settings, $etkeys);
@@ -304,8 +307,9 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 */
 	public function showAction() {
 		
-		$etkeys = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EtKeys');
-		$extconf = $this->objectManager->get('ArbkomEKvW\Evangtermine\Util\ExtConf');
+		$etkeys = GeneralUtility::makeInstance(EtKeys::class);
+
+		$extconf = GeneralUtility::makeInstance(ExtConf::class);
 		
 		if (isset($this->request->getArguments()['ID'])) {
 			

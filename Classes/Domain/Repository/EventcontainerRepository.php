@@ -28,6 +28,8 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
  * *************************************************************
  */
 
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * EventcontainerRepository
  */
@@ -89,7 +91,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$rawXml = file_get_contents($url, false, $streamContext);
 		
 		// XML im Eventcontainer wandeln
-		$result = $this->objectManager->get('ArbkomEKvW\Evangtermine\Domain\Model\EventcontainerInterface');
+		$result = GeneralUtility::makeInstance('ArbkomEKvW\Evangtermine\Domain\Model\Eventcontainer');
 		$result->loadXML($rawXml);
 		
 		return $result;
