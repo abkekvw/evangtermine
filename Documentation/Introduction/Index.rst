@@ -28,12 +28,11 @@ evangelische-termine.de wird zur Zeit angewendet von:
 - `Evangelische Kirche von Westfalen <http://www.evangelisch-in-westfalen.de>`_
 - `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <http://www.ekbo.de>`_   
 
-Die TYPO3-Extension **evangtermine** wird entwickelt und betreut von der *Stabsstelle Kommunikation im Landeskirchenamt
-der Evangelischen Kirche von Westfalen*. Sie kann in allen oben genannten Landeskirchen, die evangelische-termine nutzen,
-verwendet werden.
+Die TYPO3-Extension **evangtermine** wird entwickelt und betreut von der Evangelischen Kirche von Westfalen. 
+Sie kann in allen oben genannten Landeskirchen, die evangelische-termine nutzen, verwendet werden.
 
 Der aktuelle Code dieser Extension wird auf GitHub verwaltet: https://github.com/abkekvw/evangtermine
 Hinweise auf Bugs, Fehler in dieser Dokumentation, Verbesserungsvorschläge können gerne dort eingegeben werden
-oder auch per Mail an christoph.roth@lka.ekvw.de.
+oder auch per Mail an den Autor: christoph.roth@ekvw.de.
 
  

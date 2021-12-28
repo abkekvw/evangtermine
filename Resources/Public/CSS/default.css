@@ -1,4 +1,4 @@
-* {
+.tx-evangtermine {
 	font-size: 12px;
 }
 a:hover {
@@ -12,9 +12,6 @@ a:hover {
 	color:red;
 	font-weight:bold;
 }
-.et_link {
-}
-a.et_link:hover{}
 
 /* Gesamtbreite: */
 #et_container {
@@ -83,14 +80,12 @@ a.et_link:hover{}
 	padding:3px;
 	clear: both;
 }
-.even { }
 .odd {
 	background-color:whitesmoke;
 }
 .et_tag {
 	font-weight:bold;
 }
-.et_uhrzeit {}
 .et_content_title a.et_link_title {
 	font-weight:bold;
 	color:#333;
@@ -98,16 +93,6 @@ a.et_link:hover{}
 .et_content_title a.et_link_title:hover {
 	color:#000;
 }
-.et_description {
-	/* Auskommentierten, um die Kurzbeschreibung auszublenden: */
-	/*display:none;*/
-}
-.et_city {
-	/* Entfernen, um den Ort einzublenden: */
-	/* display:none; */
-}
-.et_placename {}
-.et_personname {}
 .et_personname:before {
 	content: " - ";
 }
@@ -264,10 +249,6 @@ a.et_link:hover{}
 * Author: Flavius Matis - http://flaviusmatis.github.com/
 * URL: https://github.com/flaviusmatis/simplePagination.js
 */
-
-ul.simple-pagination {
-	/* list-style: none; */
-}
 
 .simple-pagination {
 	display: block;

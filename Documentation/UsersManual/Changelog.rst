@@ -1,11 +1,11 @@
 Version 2.2.0
 -------------
 
-Datum ???
+Datum 03.12.2021
 
 - Getrennte Plugins: Liste, Teaser, Detail (Anforderung TYPO3 11)
 - Liste der Kategorien und Zielgruppen wird live abgerufen
-- Kompatibel mit TYPO3 11.???
+- Kompatibel mit TYPO3 11.5.x
 
 
 Version 2.1.7

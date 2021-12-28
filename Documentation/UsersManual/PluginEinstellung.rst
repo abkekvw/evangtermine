@@ -1,16 +1,30 @@
 Einstellungen im Plugin
 -----------------------
 
-Die wesentlichen Einstellungen für das Verhalten des Plugins werden in der Backend-Ansicht des
-Inhaltselements festgelegt.
+Fügen Sie zuerst im Backend das Plugin ein, z.B. über :menuselection:`Plugins --> Allgemeines Plug-In`.
 
-Fügen Sie dazu im Backend auf der gewünschten Seite das Plugin ein, z.B. über 
-:menuselection:`Plugins --> Allgemeines Plug-In --> Evangelische Termine`.
+.. figure:: plugin_modus.jpg
+	:width: 400px
+	:alt: Plugin im Modus Detail, Liste oder Teaser
+	
+	Auswahl des Plugins im Modus Detail, Liste oder Teaser
+
+Anders als in früheren Versionen dieser Extension gibt es nun zuerst die Auswahl des gewünschten Verhaltens,
+nämlich *Detail*, *Liste* oder *Teaser*
+
+
+.. _sec-liste:
+
+Liste
+-----
+
+Dies entspricht einer ausführlichen Veranstaltungsliste, wie sie aus den iframe-Ansichten und Skripten von
+evangelische-termine.de bekannt ist.
 
 Die Einstellungen verteilen sich über drei Reiter, die im Folgenden besprochen werden.
 
-Voreinstellung
-^^^^^^^^^^^^^^
+Reiter: Voreinstellung
+~~~~~~~~~~~~~~~~~~~~~
 
 In der Registerkarte "Voreinstellung" lassen sich bequem verschiedene Parameter setzen, die später
 die Ausgabe bzw. Auswahl der Termine beeinflussen. Die Parameter selbst sind bei 
@@ -44,8 +58,8 @@ folgendes ein::
 Also durch das Zeichen '&' getrennte Paare aus Namen und Wert des Parameters, verbunden durch ein Gleichheitszeichen.
 
 
-Region
-^^^^^^
+Reiter: Region
+~~~~~~~~~~~~~~
 
 In der Registerkarte "Region" stehen Voreinstellungen für die regionale Ausgabe. Es entsprechen sich:
 
@@ -56,36 +70,33 @@ Region-ID               region
 Gruppenadministrator-ID aid
 ======================= =========
  
+.. _sec-liste-modus:
 
-Modus
-^^^^^
+Reiter: Modus
+~~~~~~~~~~~~~
 
-.. figure:: plugin_modus.png
-	:width: 400px
-	:alt: Ansichts-Modus und Detailseite festlegen
-	
-	Ansichts-Modus und Detailseite festlegen
+Wenn Sie für die Ansicht der einzelnen Termine eine gesonderte Seite verwenden möchten, 
+können Sie an dieser Stelle eine Seite für die Detailansicht auswählen. Diese Seite müssen Sie
+zuvor angelegt haben und in der Seite muss das Plugin im Verhalten "Detail" vorhanden sein.
 
-Hier entscheiden Sie, in welchem Ansichts-Modus das Plugin betrieben werden soll. Drei Modi
-stehen zur Auswahl:
-
-1. Listenansicht
-2. Teaser
-3. Nur Detailansicht Termin
-
-**Listenansicht:** Dies entspricht einer ausführlichen Veranstaltungsliste, wie sie aus den iframe-Ansichten und Skripten von
-evangelische-termine.de bekannt ist.
-
-**Teaser:** Eine reduzierte Liste für die kurze Auflistung der nächsten Termine 
-
-**Nur Detailansicht Termin:** Wenn Sie für die Ansicht der einzelnen Termine eine gesonderte Seite verwenden möchten, 
-können Sie auf dieser Seite das Plugin im Modus "Nur Detailansicht Termin" einbinden. Sie brauchen die anderen Parameter dann 
-nicht auszufüllen. Auf der Seite mit der Liste der Termine müssen Sie dann unter "Seite für Detailansicht" die zuvor erwähnte gesonderte Seite
-auswählen. 
-
-	Tipp: Das Anlegen einer Seite für die Detailansicht ist optional. Wenn sie nicht existiert, werden die Veranstaltungsdetails auf der selben
+.. hint::
+	Das Anlegen einer Seite für die Detailansicht ist optional. Wenn sie nicht existiert, werden die Veranstaltungsdetails auf der selben
 	Seite gezeigt, auf der auch die Liste oder der Teaser steht. Beim Teaser wird es oft sinnvoll sein, eine Detailseite zu haben.
 
-.. 	[#] http://handbuch.evangelische-termine.de/Ausgabe-Parameter.
+
+Teaser
+------
+
+Eine reduzierte Liste für die kurze Auflistung der nächsten Termine. Die Einstellungen entsprechen denen im vorangegangenen Abschnitt :ref:`Liste <sec-liste>`
+
+
+Detail
+------
+
+Zeigt einen einzelnen Termin an. Nur sinnvoll, wenn die Seite, auf der das Plugin eingesetzt ist, als "Seite für Detailansicht" benutzt werden soll, s.o. 
+beim Verhalten :ref:`Liste -> Reiter: Modus <sec-liste-modus>`
+
+
+.. 	[#] https://handbuch.evangelische-termine.de/anzeige-im-internet/ausgabe-parameter.
 	Die einzelnen Landeskirchen haben z.T. eigene Dokumente dazu im Netz. Für Westfalen existiert eine 
-	angepasste Dokumentation unter http://handbuch.veranstaltungen-ekvw.de 
+	angepasste Dokumentation unter https://handbuch.veranstaltungen-ekvw.de 

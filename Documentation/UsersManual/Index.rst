@@ -25,11 +25,6 @@ Technische Erläuterungen
 
 .. include:: Technotes.rst
 
-ToDo
-====
-
-.. include:: ToDo.rst
-
 ChangeLog
 =========
 
