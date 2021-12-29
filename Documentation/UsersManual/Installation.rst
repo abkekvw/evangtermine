@@ -1,7 +1,7 @@
 Installation
 ------------
 
-Die Installation erfolgt entweder über composer: ```composer require arbkomekvw/evangtermine``` oder
+Die Installation erfolgt entweder über composer: ``composer req arbkomekvw/evangtermine`` oder
 über den Erweiterungsmanager. Extension-Key: **evangtermine**
 
 Auswahl Landeskirche und Cachemodus
@@ -23,7 +23,8 @@ Klicken Sie dann auf den Namen der Extension.
 
 Speichern Sie die Auswahl.
 	
-	Tipp: Cache oder Direktabruf? Der Cache-Abruf ist schneller und schont Ressourcen des Webservers von evangelische-termine.de,
+.. tip::
+	Cache oder Direktabruf? Der Cache-Abruf ist schneller und schont Ressourcen des Webservers von evangelische-termine.de,
 	der direkte Abruf belastet den Server mehr, ist inhaltlich aber ausführlicher bei der Anzeige einer einzelnen Veranstaltung. 
 	Wenn möglich, sollte der Cache-Abruf verwendet werden.
 	Hier hilft auch ausprobieren. Bei selbst erstellten Veranstaltungstypen kann es nötig sein, den Direktabruf zu verwenden. 

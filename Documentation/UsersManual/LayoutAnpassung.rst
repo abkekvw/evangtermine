@@ -4,7 +4,7 @@ Zum Anpassen der Darstellung gibt es prinzipiell zwei Wege:
 2. über eigene Fluid-Templates
 
 **per CSS**
-	Ähnlich wie bei den Ausgabeansichten von evangelische-termine.de (/veranstaltungen, /veranstaltungen2, /teaser.html usw.)
+	Ähnlich wie bei den Ausgabeansichten von evangelische-termine.de (*/veranstaltungen, /veranstaltungen2, /teaser.html* usw.)
 	haben in den Standardtemplates der evangtermine-Extension fast alle sichtbaren Elemente CSS-Klassen, die sich über einen Blick in
 	den Quelltext der Seite schnell herausfinden lassen. Damit können solche Elemente im Layout verändert oder ausgeblendet werden.
 

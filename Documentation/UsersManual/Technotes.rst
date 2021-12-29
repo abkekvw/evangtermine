@@ -3,7 +3,7 @@ Feldwerte auslesen
 
 evangtermine ruft die XML-Ausgabe von evangelische-termine.de ab, also z.B.::
 
-	http://www.evangelische-termine.de/xml?highlight=high&itemsPerPage=20
+	https://www.evangelische-termine.de/xml?highlight=high&itemsPerPage=20
 	
 Was zu einer XML-Datei mit einer Liste von <Veranstaltung>-Elementen führt (Ausschnitt):
 
@@ -57,21 +57,6 @@ name         Name des zu lesenden Attributs  ja
 ============ =============================== =======
 
 
-**et:etpager**
-
-Stellt ein Element zum Blättern durch die Liste der Termine dar::
-	
-	<et:etpager totalItems="{events.metaData.totalItems}" itemsPerPage="{etkeys.itemsPerPage}" currentPage="{etkeys.pageID}"/>
-		
-============ ============================== =======
-Eigenschaft  Bedeutung                      Pflicht
-============ ============================== =======
-totalItems   Menge aller gefundenen Events  ja
-itemsPerPage Events pro Seite               ja
-currentPage  Nummer (pageID) aktuelle Seite ja
-============ ============================== =======
-
-
 **et:str**
 
 Liefert den Inhalt eines SimpleXMLElement-Objekts als String. Verwendet nur innerhalb von condition-Eigenschaften
@@ -122,6 +107,12 @@ Template: **List.html** (EventcontainerController, Action: **list**)
 	Objekt vom Typ EtKeys. Attribute des Objekts sind alle aktiven Request-Parameter aus dem Abruf
 	der XML-Daten. {etkeys.highlight} liefert z.B. den Parameter *highlight* mit dem Wert *high* oder *all*, 
 	{etkeys.vid} die aktive Veranstalter-Id usw.   
+
+**categoryList**
+	Liste der gültigen Veranstaltungskategorien (variiert je nach Landeskirche)
+
+**groupList**
+	Liste der gültigen Zielgruppen (variiert je nach Landeskirche)
 
 
 Template: **Teaser.html** (EventcontainerController, Action: **teaser**)

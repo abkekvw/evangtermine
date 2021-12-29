@@ -6,13 +6,6 @@ settings
 
 Unterhalb von *settings* finden sich Eigenschaften zum Setzen von CSS- und JavaScript- Dateien.
 
-**Tipp:** Die mit der Extension gelieferten Werte haben nur den Zweck, das Layout und die Funktionen der
-ebenfalls mitgelieferten Fluid-Templates sicher zu stellen.
-Es wird unbedingt empfohlen, in eigenen Projekten diese Werte zu überschreiben, oder - besser noch - ganz 
-zu löschen und entsprechende JS- und CSS-Ressourcen direkt über das Haupt-TypoSkript-Template der
-Website einzubinden. Hier existieren weit bessere Möglichkeiten zum Umgang mit solchen Dateien 
-(Concatenation usw.)
-
 .. container:: table-row
 
 	Property

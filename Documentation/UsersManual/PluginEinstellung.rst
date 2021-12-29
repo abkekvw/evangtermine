@@ -1,7 +1,7 @@
-Einstellungen im Plugin
------------------------
+Auswahl des Plugins und Einstellungen
+-------------------------------------
 
-Fügen Sie zuerst im Backend das Plugin ein, z.B. über :menuselection:`Plugins --> Allgemeines Plug-In`.
+Fügen Sie zuerst im Backend das Plugin ein, z.B. über *Plugins -> Allgemeines Plug-In*.
 
 .. figure:: plugin_modus.jpg
 	:width: 400px
@@ -23,15 +23,14 @@ evangelische-termine.de bekannt ist.
 
 Die Einstellungen verteilen sich über drei Reiter, die im Folgenden besprochen werden.
 
-Reiter: Voreinstellung
-~~~~~~~~~~~~~~~~~~~~~
+**Reiter: Voreinstellung**
 
-In der Registerkarte "Voreinstellung" lassen sich bequem verschiedene Parameter setzen, die später
+In der Registerkarte **"Voreinstellung"** lassen sich bequem verschiedene Parameter setzen, die später
 die Ausgabe bzw. Auswahl der Termine beeinflussen. Die Parameter selbst sind bei 
 evangelische-termine.de dokumentiert [#]_
 
-.. figure:: plugin_voreinstellungen.png
-	:width: 600px
+.. figure:: plugin_voreinstellungen.jpg
+	:width: 515px
 	:alt: Voreinstellungen der AusgabeParameter
 	
 	Voreinstellungen der AusgabeParameter
@@ -58,8 +57,7 @@ folgendes ein::
 Also durch das Zeichen '&' getrennte Paare aus Namen und Wert des Parameters, verbunden durch ein Gleichheitszeichen.
 
 
-Reiter: Region
-~~~~~~~~~~~~~~
+**Reiter: Region**
 
 In der Registerkarte "Region" stehen Voreinstellungen für die regionale Ausgabe. Es entsprechen sich:
 
@@ -72,8 +70,7 @@ Gruppenadministrator-ID aid
  
 .. _sec-liste-modus:
 
-Reiter: Modus
-~~~~~~~~~~~~~
+**Reiter: Modus**
 
 Wenn Sie für die Ansicht der einzelnen Termine eine gesonderte Seite verwenden möchten, 
 können Sie an dieser Stelle eine Seite für die Detailansicht auswählen. Diese Seite müssen Sie

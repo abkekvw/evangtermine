@@ -33,7 +33,7 @@ Evangelische Termine
 		December 2021
 
 	:Author:
-		Christoph Roth - EKvW, Projekt Cumulus
+		Christoph Roth - Evangelische Kirche von Westfalen
 
 	:Email:
 		christoph.roth@ekvw.de
