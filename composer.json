@@ -32,7 +32,6 @@
         }
     },
     "replace": {
-        "arbkomekvw/evangtermine": "self.version",
         "typo3-ter/evangtermine": "self.version"
     },
     "extra": {
