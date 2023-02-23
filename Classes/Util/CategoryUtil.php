@@ -28,6 +28,7 @@ namespace ArbkomEKvW\Evangtermine\Util;
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use ArbkomEKvW\Evangtermine\Util\ExtConf;
+use ArbkomEKvW\Evangtermine\Util\UrlUtility;
 
 /**
 * class CategoryUtil
@@ -101,10 +102,7 @@ class CategoryUtil
     private function getUrlContent($url)
     {
         // URL abfragen, nur IPv4 Auflösung
-		$streamContext = stream_context_create(array(
-			'socket' => array('bindto' => '0:0') 
-		));
-        $contentString = file_get_contents($url, false, $streamContext);
+        $contentString = UrlUtility::loadUrl($url);
 
         $contentArray = json_decode($contentString);
         if ($contentArray === null)

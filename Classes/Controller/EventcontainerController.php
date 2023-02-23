@@ -35,7 +35,8 @@ use ArbkomEKvW\Evangtermine\Domain\Model\EtKeys;
 /**
  * EventcontainerController
  */
-class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 	
 	/**
 	 * @var ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
@@ -85,7 +86,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	/**
      * @param \ArbkomEKvW\Evangtermine\Util\SettingsUtility
      */
-	public function injectSettingsUtility(\ArbkomEKvW\Evangtermine\Util\SettingsUtility $settingsUtility) {
+	public function injectSettingsUtility(\ArbkomEKvW\Evangtermine\Util\SettingsUtility $settingsUtility)
+	{
 		$this->settingsUtility = $settingsUtility;
 	}
 
@@ -93,7 +95,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	/**
      * @param \ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository
      */
-	public function injectEventcontainerRepository(\ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository $eventcontainerRepository) {
+	public function injectEventcontainerRepository(\ArbkomEKvW\Evangtermine\Domain\Repository\EventcontainerRepository $eventcontainerRepository)
+	{
 		$this->eventcontainerRepository = $eventcontainerRepository;
 	}
 
@@ -101,7 +104,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\Categorylist $categorylist 
 	 * @return void 
 	 */
-	public function injectCategorylist(\ArbkomEKvW\Evangtermine\Domain\Model\Categorylist $categorylist) {
+	public function injectCategorylist(\ArbkomEKvW\Evangtermine\Domain\Model\Categorylist $categorylist)
+	{
 		$this->categorylist = $categorylist;
 	}
 
@@ -109,7 +113,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * @param \ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist 
 	 * @return void 
 	 */
-	public function injectGrouplist(\ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist) {
+	public function injectGrouplist(\ArbkomEKvW\Evangtermine\Domain\Model\Grouplist $grouplist)
+	{
 		$this->grouplist = $grouplist;
 	}
 
@@ -127,7 +132,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * (non-PHPdoc)
 	 * @see \TYPO3\CMS\Extbase\Mvc\Controller\ActionController::initializeAction()
 	 */
-	protected function initializeAction() {
+	protected function initializeAction()
+	{
 		
 		$this->currentPluginUid = $this->configurationManager->getContentObject()->data['uid'];
 
@@ -162,7 +168,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	/**
 	 * save session data
 	 */
-	private function saveSession() {
+	private function saveSession()
+	{
 		$sessionKey = 'tx_evangtermine' . $this->currentPluginUid;
 
 		// Replace object with Json representation
@@ -175,25 +182,30 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	/**
 	 * include CSS and JS resources 
 	 */
-	private function includeAdditionalHeaderData() {
+	private function includeAdditionalHeaderData()
+	{
 		
 		$additHDD = '';
 		
-		if ($this->settings['jQueryUICSS']) {
+		if (isset($this->settings['jQueryUICSS']))
+		{
 			$additHDD .=
 			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($this->settings['jQueryUICSS']) . '" media="all" />'."\n";
 		}
 		
-		if ($this->settings['CSSFile']) {
+		if (isset($this->settings['CSSFile']))
+		{
 			$additHDD .=
 			'<link rel="stylesheet" href="'. PathUtility::getAbsoluteWebPath($this->settings['CSSFile']) . '" media="all" />'."\n";
 		}
 		
-		if ($this->settings['jQuery']) {
+		if (isset($this->settings['jQuery']))
+		{
 			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['jQuery']) . '"></script>'."\n"; 
 		}
 		
-		if ($this->settings['jQueryUI']) {
+		if (isset($this->settings['jQueryUI']))
+		{
 			$additHDD .= '<script type="text/javascript" src="' . PathUtility::getAbsoluteWebPath($this->settings['jQueryUI']) . '"></script>'."\n";
 		}
 		
@@ -205,7 +217,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * create new Etkeys object and load Settings
 	 * @return \ArbkomEKvW\Evangtermine\Domain\Model\EtKeys $etkeys
 	 */
-	private function getNewFromSettings() {
+	private function getNewFromSettings()
+	{
 		
 		$etkeys = GeneralUtility::makeInstance(EtKeys::class);
 
@@ -226,7 +239,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+	public function listAction()
+	{
 		
 		if (!isset($this->session['etkeysJson'])) {
 			// no session data exists. set up fresh container object for params and load settings
@@ -284,7 +298,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 * action teaser 
 	 * @return void
 	 */
-	public function teaserAction() {
+	public function teaserAction()
+	{
 		
 		// teaser needs no session, just params from the settings array
 		$etkeysTs = $this->getNewFromSettings();
@@ -305,7 +320,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	 *
 	 * @return void
 	 */
-	public function showAction() {
+	public function showAction()
+	{
 		
 		$etkeys = GeneralUtility::makeInstance(EtKeys::class);
 
@@ -334,7 +350,8 @@ class EventcontainerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
 	/**
 	 * action genericinfo
 	 */
-	public function genericinfoAction() {
+	public function genericinfoAction()
+	{
 	}
 	
 	

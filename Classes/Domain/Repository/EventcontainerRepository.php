@@ -29,6 +29,7 @@ namespace ArbkomEKvW\Evangtermine\Domain\Repository;
  */
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use ArbkomEKvW\Evangtermine\Util\UrlUtility;
 
 /**
  * EventcontainerRepository
@@ -85,10 +86,7 @@ class EventcontainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$url = $this->getXmlSourceUrl() . $query;
 		
 		// URL abfragen, nur IPv4 Auflösung
-		$streamContext = stream_context_create(array(
-			'socket' => array('bindto' => '0:0') 
-		));
-		$rawXml = file_get_contents($url, false, $streamContext);
+		$rawXml = UrlUtility::loadUrl($url);
 		
 		// XML im Eventcontainer wandeln
 		$result = GeneralUtility::makeInstance('ArbkomEKvW\Evangtermine\Domain\Model\Eventcontainer');
