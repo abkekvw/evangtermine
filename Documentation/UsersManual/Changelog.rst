@@ -1,3 +1,11 @@
+Version 2.2.2
+-------------
+
+Datum 27.02.2023
+
+- Anpassungen an PHP 8.x
+
+
 Version 2.2.0
 -------------
 

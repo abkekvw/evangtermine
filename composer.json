@@ -19,7 +19,7 @@
             "homepage": "http://www.ekvw.de/kommunikation/"
         }
     ],
-    "version": "2.2.1",
+    "version": "2.2.2",
     "require": {
         "php": ">=7.2",
         "ext-SimpleXML": "*",
