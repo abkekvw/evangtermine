@@ -105,6 +105,7 @@
 				</div>
 			</f:if>
 			
+			<!-- Registration with old feedback form (deprecated) -->
 			<f:if condition="{et:str(on:event._event_FEEDBACK_ID)}">
 				<div class="et_content_row" id="et_event_FEEDBACK_ID">
 					<div class="et_content_detaillabel"><et:attr on="{event._event_FEEDBACK_ID}" name="Label" /></div>
@@ -113,6 +114,16 @@
 						<f:if condition="{et:str(on:meta.avail)}">
 							(noch {et:str(on:meta.avail)} verfügbare Plätze)
 						</f:if>
+					</div>
+				</div>
+			</f:if>
+
+			<!-- Registration with new web form -->
+			<f:if condition="{et:str(on:event._poll_ID)}">
+				<div class="et_content_row" id="et_webform_LINKNAME">
+					<div class="et_content_detaillabel">&nbsp;</div>
+					<div class="et_content_detailvalue">
+						<a href="//{eventhost}/webformular/input/liste/{event._poll_ID}" target="_blank">{event._webform_LINKNAME}</a>
 					</div>
 				</div>
 			</f:if>
