@@ -1,4 +1,11 @@
-Version 2.2.2
+Version 2.2.3
+-------------
+
+Datum 24.04.2023
+
+- Anpassungen an weitere Landeskirchen: Hessen und Nassau, Oldenburg, Sachsen
+
+
 -------------
 
 Datum 27.02.2023
