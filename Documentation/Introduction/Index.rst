@@ -15,18 +15,21 @@ nutzt die Version ab 2.0.0 dazu die XML-Ausgabe von evangelische-termine.de als 
 und Fluid-Templates für die Anzeige. Das heißt: Die nötigen (Fluid-) Kenntnisse vorausgesetzt,
 sind sehr flexible Layoutanpassungen möglich.
 
-Wer ist wer und was ist was
----------------------------
+Wer ist wer
+-----------
 
 Das Termin-Verwaltungssystem http://www.evangelische-termine.de ist ein Produkt der *Vernetzten Kirche im 
 Evangelischen Presseverband für Bayern e.V.* Web: http://www.vernetzte-kirche.de, E-Mail: vernetztekirche@elkb.de.
 
 evangelische-termine.de wird zur Zeit angewendet von:
 
-- `Evangelisch-Lutherische Kirche in Bayern <http://www.bayern-evangelisch.de>`_
-- `Evangelische Kirche im Rheinland <http://www.ekir.de>`_
-- `Evangelische Kirche von Westfalen <http://www.evangelisch-in-westfalen.de>`_
-- `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <http://www.ekbo.de>`_   
+- `Evangelisch-Lutherische Kirche in Bayern <https://www.bayern-evangelisch.de>`_
+- `Evangelische Kirche Berlin-Brandenburg-schlesische Oberlausitz <https://www.ekbo.de>`_
+- `Evangelische Kirche in Hessen und Nassau <https://www.ekhn.de>`_
+- `Evangelisch-Lutherische Kirche in Oldenburg <https://www.kirche-oldenburg.de>`_
+- `Evangelische Kirche im Rheinland <https://www.ekir.de>`_
+- `Evangelisch-Lutherische Kirche Sachsens <https://www.evlks.de>`_
+- `Evangelische Kirche von Westfalen <https://www.evangelisch-in-westfalen.de>`_
 
 Die TYPO3-Extension **evangtermine** wird entwickelt und betreut von der Evangelischen Kirche von Westfalen. 
 
