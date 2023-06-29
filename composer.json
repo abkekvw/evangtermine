@@ -19,7 +19,7 @@
             "homepage": "http://www.ekvw.de/kommunikation/"
         }
     ],
-    "version": "2.2.3",
+    "version": "2.2.4",
     "require": {
         "php": ">=7.2",
         "ext-SimpleXML": "*",
@@ -31,6 +31,7 @@
             "ArbkomEKvW\\Evangtermine\\": "Classes/"
         }
     },
+    "abandoned": "sudhaus7/evangtermine",
     "replace": {
         "typo3-ter/evangtermine": "self.version"
     },
