@@ -1,3 +1,6 @@
+Please note: All further development of this package will be done by https://sudhaus7.de/ - Move to https://github.com/sudhaus7/evangtermine. 
+Thank you guys!
+
 # evangtermine
 
 This is the "evangtermine" TYPO3 extension. Extension-Key: evangtermine
